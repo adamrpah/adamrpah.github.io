@@ -5,43 +5,63 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://adamrpah.github.io/2015/index.html</loc>
+  <loc>http://www.npcompleteheart.com/2012/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/archive.html</loc>
+  <loc>http://www.npcompleteheart.com/2013/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/categories/index.html</loc>
+  <loc>http://www.npcompleteheart.com/2015/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/galleries/index.html</loc>
+  <loc>http://www.npcompleteheart.com/archive.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/index.html</loc>
+  <loc>http://www.npcompleteheart.com/categories/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/listings/index.html</loc>
+  <loc>http://www.npcompleteheart.com/galleries/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/listings/index.html.html</loc>
+  <loc>http://www.npcompleteheart.com/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/posts/ipython-test.html</loc>
+  <loc>http://www.npcompleteheart.com/listings/index.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/posts/testing.html</loc>
+  <loc>http://www.npcompleteheart.com/listings/index.html.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
  <url>
-  <loc>http://adamrpah.github.io/stories/publications/publications.html</loc>
+  <loc>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</loc>
+  <lastmod>2015-04-20</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</loc>
+  <lastmod>2015-04-20</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</loc>
+  <lastmod>2015-04-20</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/ipython-test.html</loc>
+  <lastmod>2015-04-20</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/testing.html</loc>
+  <lastmod>2015-04-20</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/stories/publications/publications.html</loc>
   <lastmod>2015-04-20</lastmod>
  </url>
 </urlset>
