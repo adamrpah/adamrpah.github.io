@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django nonrel, MongoDB, MongoHQ, and Heroku | NP Complete Heart</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
+
+
+
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script>
+
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="author" content="Adam Pah">
+        <meta property="og:site_name" content="NP Complete Heart">
+    <meta property="og:title" content="Django nonrel, MongoDB, MongoHQ, and Heroku">
+    <meta property="og:url" content="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
+    <meta property="og:description" content="So you want to make a Django app with a MongoDB backend? 
+Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?
+That's what I've ">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-03-14T07:21:25-05:00">
+
+    
+    
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.npcompleteheart.com/">
+
+                <span id="blog-title">NP Complete Heart</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../rss.xml"><img src="../images/rss.png"></a>
+                </li>
+<li>
+<a href="../pdf/curriculumvitae.pdf">Curriculum Vitae</a>
+                </li>
+<li>
+<a href="../stories/publications/publications.html">Publications</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Django nonrel, MongoDB, MongoHQ, and Heroku</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2013-03-14T07:21:25-05:00" itemprop="datePublished" title="2013-03-14 07:21">2013-03-14 07:21</time></a></p>
+            
+        </div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>So you want to make a Django app with a MongoDB backend? </p>
+<p>Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?</p>
+<p>That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).<br>
+After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate 
+that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a 
+state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.</p>
+<!-- TEASER_END -->
+
+<h3>Update</h3>
+<p>This post survived for almost two months on the internet being correct about technology. Not too shabby. However, the wheels turn and things get outdated, namely that MongoDB was updated to 2.4 and changed behavior. By default all collections are capped and pymongo with the django fork wasn't handling that properly. If you follow the requirements list <em>exactly</em> this will not work.  You need to update the version of PyMongo to version&gt;2.5 for it to work. Happy Coding!</p>
+<p><strong>Resume Old Post</strong></p>
+<p><strong>--------------</strong></p>
+<p>So you want to make a Django app with a MongoDB backend? </p>
+<p>Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?</p>
+<p>That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).  After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.</p>
+<p>But as with all my posts, I want to put out the relevant sites that I've used and am cribbing heavily from (I'm nothing without the google).  So these are where my references are from:</p>
+<ul>
+<li><a href="#" title="https://devcenter.heroku.com/articles/django">Heroku Guide to a Vanilla Django App</a></li>
+<li><a href="#" title="http://www.gdovicak.com/2012/02/Django-Nonrel-and-MongoDB-on-Heroku">G. Dovicak's awesome stub on configuring MongoHQ settings</a></li>
+<li><a href="#" title="http://docs.mongodb.org/manual/tutorial/write-a-tumblelog-application-with-django-mongodb-engine/">MongoDB's How to make a tumblelog tutorial</a></li>
+</ul>
+<h3>Installing python, django-nonrel, and mongo support</h3>
+<p>Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the <a href="https://devcenter.heroku.com/articles/quickstart">heroku dev toolbelt</a>. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.</p>
+<pre class="code literal-block"><span class="n">mkdir</span> <span class="n">djangoapp</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">djangoapp</span>
+<span class="n">virtualenv</span> <span class="n">venv</span> <span class="o">--</span><span class="n">distribute</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">vi</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre>
+
+
+<p>where you edit your requirements.txt file in vim and it then looks like:</p>
+<pre class="code literal-block"><span class="n">distribute</span><span class="o">==</span><span class="mf">0.6.24</span>
+<span class="n">wsgiref</span><span class="o">==</span><span class="mf">0.1.2</span>
+<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-nonrel.git@master</span>
+<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-permission-backend-nonrel.git@master</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/adamrpah/mongodb-engine.git</span>
+<span class="n">djangotoolbox</span><span class="o">==</span><span class="mf">0.9.2</span>
+<span class="n">pymongo</span><span class="o">==</span><span class="mf">2.4</span>
+</pre>
+
+
+<p>I took the advice in G. Dovicak's post and forked/cloned mongodb-engine as a git repository just so it was locked.  I don't feel that this step is entirely necessary, but you can feel free to use that fork if you want (it's public).
+Now we have Django nonrel and its supporting packages installed inside a virtual environment.  </p>
+<h3>Starting a Django App and deploying it to Heroku</h3>
+
+<p>Next we start the app:</p>
+<pre class="prettyprint lang-bash">
+django-admin.py startproject djangoapp
+</pre>
+
+<p>and let's check that it runs locally (checking at every step is how you make sure you haven't gone too far while borking something instrumental up).</p>
+<pre class="prettyprint lang-bash">
+python djangoapp/manage.py runserver
+</pre>
+
+<p>Navigate to localhost:8000 in your web browser.  You should see a "It Works!" page.  Wooo! We have a Django app sans database now.</p>
+<p>So now let's get this app ready to ship out to Heroku.  To do that we need to create a Procfile that contains the process that Heroku should run. so we do:</p>
+<pre class="prettyprint lang-bash">
+vi Procfile
+</pre>
+
+<p>and then insert into the file:</p>
+<pre class="prettyprint lang-bash">
+web python djangoapp/manage.py runserver 0.0.0.0:$PORT --noreload
+</pre>
+
+<p>Next set up git with a proper gitignore, initialize the repository, add the files, and commit it.  Afterwards we work with heroku, creating a heroku app and pushing our django app repository to heroku.</p>
+<pre class="prettyprint lang-bash">
+vi .gitignore
+git init
+git add .
+git commit -m 'initial django app'
+heroku create
+git push heroku master
+</pre>
+
+<p>.gitignore file contents</p>
+<pre class="prettyprint lang-bash">
+*.pyc
+venv
+*.swp
+</pre>
+
+<p>Now let's start up the process so that there's a dyno serving the website, check the activity on the heroku app to make sure it works, and view the 'It Works!' Django page in a browser to confirm.</p>
+<pre class="prettyprint lang-bash">
+heroku ps:scale web=1
+heroku ps 
+-&gt; Scaling web processes... done, now running 1
+heroku open
+</pre>
+
+<p>Perfect!  We've launched our app in Heroku now.  </p>
+<h3>Configuring MongoHQ settings with Django</h3>
+
+<p>Let's get that Mongo database working as a complement to our django app.  We do that by enabling the MongoHQ add-on.</p>
+<pre class="prettyprint lang-bash">
+heroku addons:add mongohq:sandbox
+</pre>
+
+<p>Now we actually have to figure out <em>WHERE</em> and <em>HOW</em> to connect to our MongoHQ database.  We do that by running</p>
+<pre class="prettyprint lang-bash">
+heroku config| grep "MONGOHQ"
+-&gt; MONGOHQ_URL:                  mongodb://USER:PASSWORD@linus.mongohq.com:PORT/APP_ID
+</pre>
+
+<p>We see that the heroku config command gives us all of the pertinent connection information for our instance. Or as an even more explicit example, your where should look like:</p>
+<pre class="prettyprint lang-bash">
+heroku config| grep "MONGOHQ"
+-&gt; MONGOHQ_URL:                  mongodb://heroku:aaaaaaaaaaaaaaaaaaaaaaaaaa@linus.mongohq.com:10000/app55555
+</pre>
+
+<p>Now we have to populate our django settings file with it.  Initially the database connection settings for your django app will look like this:</p>
+<pre class="prettyprint lang-bash">
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': '',                      # Or path to database file if using sqlite3.
+ 16         'USER': '',                      # Not used with sqlite3.
+ 17         'PASSWORD': '',                  # Not used with sqlite3.
+ 18         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+</pre>
+
+<p>We will change that to look like this using our heroku config settings:</p>
+<pre class="prettyprint lang-bash">
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': 'APPID',                      # Or path to database file if using sqlite3.
+ 16         'USER': 'USER',                      # Not used with sqlite3.
+ 17         'PASSWORD': 'PASSWORD',                  # Not used with sqlite3.
+ 18         'HOST': 'mongodb://linus.mongohq.com/APPID',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': PORT,                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+</pre>
+
+<p>Or using our super explicit example:</p>
+<pre class="prettyprint lang-bash">
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': 'app55555',                      # Or path to database file if using sqlite3.
+ 16         'USER': 'heroku',                      # Not used with sqlite3.
+ 17         'PASSWORD': 'aaaaaaaaaaaaaaaaaaaaaaaaaa',                  # Not used with sqlite3.
+ 18         'HOST': 'mongodb://linus.mongohq.com/app55555',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': 10000,                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+</pre>
+
+<p>Here are some important things to note, to make sure everyone is on the same page.  The USER will always be prepopulated as 'heroku', that's why I'm using it in our super explicit example.  So on line 16 it will look like</p>
+<pre class="prettyprint lang-bash">
+16         'USER': 'heroku',                      # Not used with sqlite3.
+</pre>
+
+<p>even in your own settings. PASSWORD is a long string of numbers and digits, PORT is a 5 digit number, and APPID is app[0-9]{8} (app followed by 8 numbers). There is one important point to note and I screwed this up twice in a row on two different projects.</p>
+<p><strong>
+To connect to the MongoDB database it needs a port number that is an integer. 
+By default there are string quotes in the field.<br>
+DO NOT USE THE STRING QUOTES.  PUT IT IN AS AN INTEGER.
+</strong></p>
+<p>I have forgotten this both times, hopefully I (and who reads this) will not make the same mistake anymore. The last step is to comment out one line (line 115, 'django.contrib.sites') in the settings file to remove a default django behavior.</p>
+<pre class="prettyprint lang-bash">
+111 INSTALLED_APPS = (
+112     'django.contrib.auth',
+113     'django.contrib.contenttypes',
+114     'django.contrib.sessions',
+115     #'django.contrib.sites',
+116     'django.contrib.messages',
+117     'django.contrib.staticfiles',
+118     # Uncomment the next line to enable the admin:
+119     # 'django.contrib.admin',
+120     # Uncomment the next line to enable admin documentation:
+121     # 'django.contrib.admindocs',
+122 )
+</pre>
+
+<p>If we don't do this django will try to enter a site document into the Mongo database with a primary key of '1', which Mongo will not like and will stop your database sync.  Now we just have to package up these settings changes and push to heroku as</p>
+<pre class="prettyprint lang-bash">
+git add .
+git commit -m 'Configured settings file to work with MongoHQ'
+git push heroku master
+</pre>
+
+<p>and now we very simply start up the database using the remote heroku machine with</p>
+<pre class="prettyprint lang-bash">
+heroku run python djangoapp/manage.py syncdb
+</pre>
+
+<p>And we're there! Making a database user with a password finishes this round out.</p>
+<h3>Next Steps</h3>
+
+<p>Making models, templates, and so on as in the Mongo Tumblelog or do whatever you want!  You now have the base configuration to make a website.</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+            <ul class="pager">
+            <li class="previous">
+                <a href="a-more-thorough-explanation-and-example-on-how-to-make-a-d3js-line-graph.html" rel="prev" title="A more thorough explanation and example on how to make a D3.js line graph">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="i-guess-posting-content-does-make-a-difference.html" rel="next" title="I guess posting content does make a difference">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+</article>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
+
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_twitter"></a>
+</div>
+<!-- End of social buttons -->
+
+
+    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);  
+  _gaq.push(['_setAccount', 'UA-24774016-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</body>
+</html>

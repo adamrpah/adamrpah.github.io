@@ -6,74 +6,174 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://www.npcompleteheart.com/2012/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/2013/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/2014/index.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/2015/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/archive.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/galleries/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/index-1.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/index-2.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/listings/index.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/listings/index.html.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/a-more-thorough-explanation-and-example-on-how-to-make-a-d3js-line-graph.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/arthur-the-overly-adult-half-breed-aardvark.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/better-late-than-never.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/business-cards.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/holy-crap-i-published-a-paper.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/i-graduated.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/if-i-had-a-time-machine.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/ipython-test.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/is-it-easter-time-yet.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/man-i-wish-inspiration-could-strike-me-so-i-could-just-name-this-website.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/pandas-+-matplotlib-+-looking-pretty-good.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/starting-with-mongo-some-dos-and-donts.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/testing.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/what-to-do-with-1000-business-cards.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/working-with-windows.html</loc>
+  <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/you-know-what-im-going-to-stand-by-it.html</loc>
+  <lastmod>2015-04-21</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/stories/publications/publications.html</loc>
-  <lastmod>2015-04-20</lastmod>
+  <lastmod>2015-04-21</lastmod>
  </url>
 </urlset>

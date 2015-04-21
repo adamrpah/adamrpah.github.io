@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Make maps like a boss | NP Complete Heart</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
+
+
+
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script>
+
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="author" content="Adam Pah">
+        <meta property="og:site_name" content="NP Complete Heart">
+    <meta property="og:title" content="Make maps like a boss">
+    <meta property="og:url" content="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
+    <meta property="og:description" content="When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch ">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-05-17T08:05:40-05:00">
+
+    
+    
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.npcompleteheart.com/">
+
+                <span id="blog-title">NP Complete Heart</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="../rss.xml"><img src="../images/rss.png"></a>
+                </li>
+<li>
+<a href="../pdf/curriculumvitae.pdf">Curriculum Vitae</a>
+                </li>
+<li>
+<a href="../stories/publications/publications.html">Publications</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Make maps like a boss</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-05-17T08:05:40-05:00" itemprop="datePublished" title="2014-05-17 08:05">2014-05-17 08:05</time></a></p>
+            
+        </div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+</p>
+
+<!-- TEASER_END -->
+
+<p>
+So far I've been working with a GIS specialist (if you've looked at the maps in my small area estimation <a href="http://npcompleteheart.com/post/ever-wanted-to-estimate-small-area-effects-in-heal/">post</a> those are from him), but that's not an ideal situation when I only need a quick picture or to look at how data is distributed in space. When I needed to place data on a map previously I typically needed interactivity, so I would make a visualization with D3.js. But now I just need to make lots of maps quickly to just do exploratory analysis. Fortunately, I was looking for a solution right around the time the PyData conference was happening and I saw Rob Story's <a href="https://speakerdeck.com/wrobstory/up-and-down-the-python-data-and-web-visualization-stack">presentation on  </a><a href="http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb">Up and Down the Python Data and Web Visualization Stack"</a>. This talk turned me onto Folium, especially after seeing it work with iPython notebook (which has become one of my favorite workflow tools).
+</p>
+
+<h4>Making maps with Folium</h4>
+
+<p>
+...is pretty damn easy. If you follow the examples on the Gitub <a href="https://github.com/wrobstory/folium">page</a> with the example data you will be making maps in no time. Now comes the fun part, making maps with our own data!
+</p>
+
+<h5>Step 1. Obtain Shapefile data</h5>
+
+<p>
+To plot our own data we will need to get a GeoJSON or TopoJSON file that contains the path information about how to draw boundaries on the map. Unfortunately, the predominant file type for geographic data is a shapefile and geojson or topojson files are pretty scarce on the web. For the USA though we can easily get maps at all geographic resolutions from the <a href="http://www.census.gov/geo/maps-data/data/tiger-line.html">census/TIGER</a> website.
+</p>
+
+<h5>Step 2. Converting from shapefile-&gt;geojson-&gt;topojson</h5>
+
+<p>
+Since the open source world is rocking geojson or topojson files we just need to convert our new shapefile over. To do this we will need to install ogr2ogr (which is a part of the GDAL package) and topojson. On OSX this can be accomplished with homebrew and node.js very simply by:
+<br>
+</p>
+<pre>
+$ brew install gdal
+$ brew install node
+$ node install -g topojson
+</pre>
+
+
+<p>
+For my needs I needed to plot data on Illinois zip codes so I downloaded the ZCTA (zip code tabulation area, not the exact same as zipcodes but close enough for me) file for Illinois. Proceeding with this file we first convert the shapefile to a geojson like so:
+<br>
+</p>
+<pre>
+$ ogr2ogr -f illinois.json tl_2010_17_zcta510.shp
+</pre>
+<br>
+Next we convert the geojson to topojson. The only additional wrinkle from the geojson conversion is that we need to set the ID on each one of the areas (which is the same ID that we'll be binding to when we add data to the map). We can open up the geojson file and look at any of the "properties" entries to find the name of the needed key from the file. For the ZCTA file this key is "ZCTA5CE10". With that we convert the geojson to a topojson setting the ID and adding a zipcode property
+<br>
+<pre>
+$ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinois_topo.json
+</pre>
+
+
+<h5>Step 3. Make one sweet map</h5>
+
+<p>This step is pretty simple. Take our new topojson file and the csv of data we have keyed on zipcode and throw it over the map like:
+<br>
+</p>
+<pre>
+import folium
+import pandas as pd
+import numpy as np
+<p>df = pd.read(csv_file)
+bins = list(np.linspace(df['feature'].min(), df['feature'].max(), 6))
+city_map = folium.Map(location=[41.8819, -87.6278], width='700', tiles='Stamen Toner',  zoom_start=10)
+city_map.geo_json(geo_path='illinois_topo.json', topojson='objects.illinois',
+                             data=df, 
+                             threshold_scale=bins,
+                             columns=['zipcode', 'feature'], 
+                             key_on='feature.id',
+                             fill_opacity=1, 
+                             line_opacity=1,
+                             fill_color='PuBuGn',
+                             reset=True)
+city_map.create_map('city.html')
+</p></pre>
+<br>
+and now we have a map which is embedded below!  The official library as it stands only has support for up to six colors. This wasn't enough for me, so I have a fork of it with additional color support added on my <a href="https://github.com/adamrpah/folium">github</a> page that anyone is welcome to (it also has diverging color scales!)
+<p></p>
+<p>pt src="http://d3js.org/queue.v1.min.js"&gt;
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"></p>
+<style>
+
+<pre class="code literal-block">  <span class="nc">.legend</span> <span class="p">{</span>
+      <span class="k">padding</span><span class="o">:</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span>
+      <span class="k">font</span><span class="o">:</span> <span class="m">10px</span> <span class="k">sans-serif</span><span class="p">;</span>
+      <span class="k">background</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+      <span class="k">background</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">8</span><span class="p">);</span>
+      <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">15px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">2</span><span class="p">);</span>
+      <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nc">.key</span> <span class="nt">path</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre>
+
+
+</style>
+
+<div id="map" style="width: 700px; height: 500px"></div>
+
+<script>
+
+<pre class="code literal-block">  <span class="nx">queue</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">defer</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">,</span> <span class="s2">&quot;/media/d3-files/asthma.json&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">defer</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">,</span> <span class="s2">&quot;/media/d3-files/topo_illinois.json&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">await</span><span class="p">(</span><span class="nx">makeMap</span><span class="p">)</span>
+
+  <span class="kd">function</span> <span class="nx">makeMap</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">data_1</span><span class="p">,</span> <span class="nx">tjson_1</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="nx">topo_1</span> <span class="o">=</span> <span class="nx">topojson</span><span class="p">.</span><span class="nx">feature</span><span class="p">(</span><span class="nx">tjson_1</span><span class="p">,</span> <span class="nx">tjson_1</span><span class="p">.</span><span class="nx">objects</span><span class="p">.</span><span class="nx">illinois</span><span class="p">);</span>
+
+
+
+
+      <span class="kd">function</span> <span class="nx">matchKey</span><span class="p">(</span><span class="nx">datapoint</span><span class="p">,</span> <span class="nx">key_variable</span><span class="p">){</span>
+          <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">key_variable</span><span class="cp">[</span><span class="mi">0</span><span class="cp">][</span><span class="nx">datapoint</span><span class="cp">]</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="k">else</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">key_variable</span><span class="cp">[</span><span class="mi">0</span><span class="cp">][</span><span class="nx">datapoint</span><span class="cp">]</span><span class="p">);</span>
+          <span class="p">};</span>
+      <span class="p">};</span>
+
+
+      <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">threshold</span><span class="p">()</span>
+          <span class="p">.</span><span class="nx">domain</span><span class="p">(</span><span class="cp">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">89.743589743589737</span><span class="p">,</span> <span class="mf">179.48717948717947</span><span class="p">,</span> <span class="mf">269.23076923076923</span><span class="p">,</span> <span class="mf">358.97435897435895</span><span class="p">,</span> <span class="mf">448.71794871794867</span><span class="p">,</span> <span class="mf">538.46153846153845</span><span class="p">,</span> <span class="mf">628.20512820512818</span><span class="p">,</span> <span class="mf">717.9487179487179</span><span class="p">,</span> <span class="mf">807.69230769230762</span><span class="p">,</span> <span class="mf">897.43589743589735</span><span class="p">,</span> <span class="mf">987.17948717948707</span><span class="p">,</span> <span class="mf">1076.9230769230769</span><span class="p">,</span> <span class="mf">1166.6666666666665</span><span class="p">,</span> <span class="mf">1256.4102564102564</span><span class="p">,</span> <span class="mf">1346.153846153846</span><span class="p">,</span> <span class="mf">1435.8974358974358</span><span class="p">,</span> <span class="mf">1525.6410256410256</span><span class="p">,</span> <span class="mf">1615.3846153846152</span><span class="p">,</span> <span class="mf">1705.1282051282051</span><span class="p">,</span> <span class="mf">1794.8717948717947</span><span class="p">,</span> <span class="mf">1884.6153846153845</span><span class="p">,</span> <span class="mf">1974.3589743589741</span><span class="p">,</span> <span class="mf">2064.102564102564</span><span class="p">,</span> <span class="mf">2153.8461538461538</span><span class="p">,</span> <span class="mf">2243.5897435897436</span><span class="p">,</span> <span class="mf">2333.333333333333</span><span class="p">,</span> <span class="mf">2423.0769230769229</span><span class="p">,</span> <span class="mf">2512.8205128205127</span><span class="p">,</span> <span class="mf">2602.5641025641025</span><span class="p">,</span> <span class="mf">2692.3076923076919</span><span class="p">,</span> <span class="mf">2782.0512820512818</span><span class="p">,</span> <span class="mf">2871.7948717948716</span><span class="p">,</span> <span class="mf">2961.5384615384614</span><span class="p">,</span> <span class="mf">3051.2820512820513</span><span class="p">,</span> <span class="mf">3141.0256410256407</span><span class="p">,</span> <span class="mf">3230.7692307692305</span><span class="p">,</span> <span class="mf">3320.5128205128203</span><span class="p">,</span> <span class="mf">3410.2564102564102</span><span class="p">,</span> <span class="mf">3500.0</span><span class="cp">]</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">range</span><span class="p">(</span><span class="cp">[</span><span class="s1">&#39;#f6eff7&#39;</span><span class="p">,</span> <span class="s1">&#39;#f0eaf4&#39;</span><span class="p">,</span> <span class="s1">&#39;#eae5f1&#39;</span><span class="p">,</span> <span class="s1">&#39;#e4e1ef&#39;</span><span class="p">,</span> <span class="s1">&#39;#dedcec&#39;</span><span class="p">,</span> <span class="s1">&#39;#d8d7e9&#39;</span><span class="p">,</span> <span class="s1">&#39;#d2d3e7&#39;</span><span class="p">,</span> <span class="s1">&#39;#cccfe5&#39;</span><span class="p">,</span> <span class="s1">&#39;#c6cce3&#39;</span><span class="p">,</span> <span class="s1">&#39;#bfc9e1&#39;</span><span class="p">,</span> <span class="s1">&#39;#b9c6e0&#39;</span><span class="p">,</span> <span class="s1">&#39;#b2c3de&#39;</span><span class="p">,</span> <span class="s1">&#39;#acc0dc&#39;</span><span class="p">,</span> <span class="s1">&#39;#a6bddb&#39;</span><span class="p">,</span> <span class="s1">&#39;#9cb9d9&#39;</span><span class="p">,</span> <span class="s1">&#39;#92b6d7&#39;</span><span class="p">,</span> <span class="s1">&#39;#88b3d5&#39;</span><span class="p">,</span> <span class="s1">&#39;#7fb0d3&#39;</span><span class="p">,</span> <span class="s1">&#39;#75add1&#39;</span><span class="p">,</span> <span class="s1">&#39;#6baacf&#39;</span><span class="p">,</span> <span class="s1">&#39;#63a7cd&#39;</span><span class="p">,</span> <span class="s1">&#39;#5ba3cb&#39;</span><span class="p">,</span> <span class="s1">&#39;#549fc9&#39;</span><span class="p">,</span> <span class="s1">&#39;#4c9bc6&#39;</span><span class="p">,</span> <span class="s1">&#39;#4597c4&#39;</span><span class="p">,</span> <span class="s1">&#39;#3d93c2&#39;</span><span class="p">,</span> <span class="s1">&#39;#3690c0&#39;</span><span class="p">,</span> <span class="s1">&#39;#2e8db7&#39;</span><span class="p">,</span> <span class="s1">&#39;#268baf&#39;</span><span class="p">,</span> <span class="s1">&#39;#1e89a7&#39;</span><span class="p">,</span> <span class="s1">&#39;#16869e&#39;</span><span class="p">,</span> <span class="s1">&#39;#0e8496&#39;</span><span class="p">,</span> <span class="s1">&#39;#06828e&#39;</span><span class="p">,</span> <span class="s1">&#39;#017e85&#39;</span><span class="p">,</span> <span class="s1">&#39;#017a7c&#39;</span><span class="p">,</span> <span class="s1">&#39;#017573&#39;</span><span class="p">,</span> <span class="s1">&#39;#01716a&#39;</span><span class="p">,</span> <span class="s1">&#39;#016c61&#39;</span><span class="p">,</span> <span class="s1">&#39;#016858&#39;</span><span class="p">,</span> <span class="s1">&#39;#016450&#39;</span><span class="cp">]</span><span class="p">);</span>
+
+
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">(</span><span class="cp">[</span><span class="mf">41.8819</span><span class="p">,</span> <span class="o">-</span><span class="mf">87.6278</span><span class="cp">]</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+      <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg&#39;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+          <span class="nx">attribution</span><span class="o">:</span> <span class="s1">&#39;Map tiles by &lt;a href=&quot;http://stamen.com&quot;&gt;Stamen Design&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0&quot;&gt;CC BY SA&lt;/a&gt;.&#39;</span>
+      <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+
+
+
+
+
+
+
+
+
+
+      <span class="kd">function</span> <span class="nx">style_1</span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">return</span> <span class="p">{</span>
+    <span class="nx">fillColor</span><span class="o">:</span> <span class="nx">color</span><span class="p">(</span><span class="nx">matchKey</span><span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data_1</span><span class="p">)),</span>
+    <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+    <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+</pre>
+
+
+<p>}</p>
+<pre class="code literal-block">      <span class="nx">gJson_layer_1</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">geoJson</span><span class="p">(</span><span class="nx">topo_1</span><span class="p">,</span> <span class="p">{</span><span class="nx">style</span><span class="o">:</span> <span class="nx">style_1</span><span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+
+
+
+          <span class="kd">var</span> <span class="nx">legend</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">control</span><span class="p">({</span><span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;topright&#39;</span><span class="p">});</span>
+
+<span class="nx">legend</span><span class="p">.</span><span class="nx">onAdd</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="s1">&#39;legend&#39;</span><span class="p">);</span> <span class="k">return</span> <span class="nx">div</span><span class="p">};</span>
+
+<span class="nx">legend</span><span class="p">.</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">domain</span><span class="p">(</span><span class="cp">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3850</span><span class="cp">]</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">range</span><span class="p">(</span><span class="cp">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="cp">]</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">xAxis</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">axis</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">tickSize</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">tickValues</span><span class="p">(</span><span class="cp">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">358.97435897435895</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">717.9487179487179</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">1076.9230769230769</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">1435.8974358974358</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">1794.8717948717947</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">2153.8461538461538</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">2512.8205128205127</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">2871.7948717948716</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">3230.7692307692305</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="cp">]</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;.legend.leaflet-control&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s1">&#39;legend&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,</span> <span class="s2">&quot;translate(25,16)&quot;</span><span class="p">);</span>
+
+<span class="nx">g</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">range</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">x0</span><span class="o">:</span> <span class="nx">i</span> <span class="o">?</span> <span class="nx">x</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">()</span><span class="cp">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="cp">]</span><span class="p">)</span> <span class="o">:</span> <span class="nx">x</span><span class="p">.</span><span class="nx">range</span><span class="p">()</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="p">,</span>
+        <span class="nx">x1</span><span class="o">:</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">().</span><span class="nx">length</span> <span class="o">?</span> <span class="nx">x</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">()</span><span class="cp">[</span><span class="nx">i</span><span class="cp">]</span><span class="p">)</span> <span class="o">:</span> <span class="nx">x</span><span class="p">.</span><span class="nx">range</span><span class="p">()</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">,</span>
+        <span class="nx">z</span><span class="o">:</span> <span class="nx">d</span>
+      <span class="p">};</span>
+    <span class="p">}))</span>
+  <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x0</span><span class="p">;</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x1</span> <span class="o">-</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x0</span><span class="p">;</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">z</span><span class="p">;</span> <span class="p">});</span>
+
+<span class="nx">g</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">xAxis</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;caption&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Number of Asthma Cases, 2006-2012&#39;</span><span class="p">);</span>
+
+
+  <span class="p">};</span>
+</pre>
+
+
+</script>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+            <ul class="pager">
+            <li class="previous">
+                <a href="ever-wanted-to-estimate-small-area-effects-in-health-data.html" rel="prev" title="Ever wanted to estimate small area effects in health data?">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="mongodb-is-for-researchers.html" rel="next" title="MongoDB is for researchers">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+</article>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
+
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_twitter"></a>
+</div>
+<!-- End of social buttons -->
+
+
+    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);  
+  _gaq.push(['_setAccount', 'UA-24774016-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</body>
+</html>
