@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+
+   
+   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .legend {
+          padding: 0px 0px;
+          font: 10px sans-serif;
+          background: white;
+          background: rgba(255,255,255,0.8);
+          box-shadow: 0 0 15px rgba(0,0,0,0.2);
+          border-radius: 5px;
+      }
+
+      .key path {
+        display: none;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div id="map" style="width: 960px; height: 500px"></div>
+
+   <script>
+
+      queue()
+          .defer(d3.json, 'party.json')
+          .defer(d3.json, 'topo_illinois.json')
+          .await(makeMap)
+
+      function makeMap(error, data_1,tjson_1) {
+
+          
+          topo_1 = topojson.feature(tjson_1, tjson_1.objects.illinois);
+          
+
+          
+
+          function matchKey(datapoint, key_variable){
+              if (typeof key_variable[0][datapoint] === 'undefined') {
+                  return null;
+              }
+              else {
+                  return parseFloat(key_variable[0][datapoint]);
+              };
+          };
+
+          
+          var color = d3.scale.threshold()
+              .domain([1.0, 164.78947368421052, 328.57894736842104, 492.36842105263156, 656.15789473684208, 819.9473684210526, 983.73684210526312, 1147.5263157894738, 1311.3157894736842, 1475.1052631578946, 1638.8947368421052, 1802.6842105263158, 1966.4736842105262, 2130.2631578947367, 2294.0526315789475, 2457.8421052631579, 2621.6315789473683, 2785.4210526315787, 2949.2105263157891, 3113.0])
+              .range(['#f6eff7', '#eae5f1', '#dddcec', '#d1d2e6', '#c4cbe3', '#b7c5df', '#aabfdc', '#98b8d8', '#84b2d4', '#70acd0', '#5fa5cc', '#4f9dc7', '#4095c3', '#308eba', '#2089a9', '#0f8498', '#017f87', '#017674', '#016d62', '#016450']);
+          
+
+          var map = L.map('map').setView([41.8819, -87.6278], 10);
+
+          L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg', {
+              maxZoom: 18,
+              minZoom: 1,
+              attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+          }).addTo(map);
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          function style_1(feature) {
+    return {
+        fillColor: color(matchKey(feature.id, data_1)),
+        weight: 1,
+        opacity: 1,
+        color: 'black',
+        fillOpacity: 1
+    };
+}
+          
+
+          
+          gJson_layer_1 = L.geoJson(topo_1, {style: style_1}).addTo(map)
+          
+
+          
+              var legend = L.control({position: 'topright'});
+
+    legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+
+    legend.addTo(map);
+
+    var x = d3.scale.linear()
+    .domain([0, 3424])
+    .range([0, 400]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1.0, '', 328.57894736842104, '', 656.15789473684208, '', 983.73684210526312, '', 1311.3157894736842, '', 1638.8947368421052, '', 1966.4736842105262, '', 2294.0526315789475, '', 2621.6315789473683, '', 2949.2105263157891, '']);
+
+    var svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    var g = svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    g.selectAll("rect")
+        .data(color.range().map(function(d, i) {
+          return {
+            x0: i ? x(color.domain()[i - 1]) : x.range()[0],
+            x1: i < color.domain().length ? x(color.domain()[i]) : x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 10)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    g.call(xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text('Number of Asthma Cases, 2006-2012');
+          
+
+      };
+
+   </script>
+</body>
