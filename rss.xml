@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 20 Apr 2015 19:06:43 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>IPython Test</title><link>http://www.npcompleteheart.com/posts/ipython-test.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" rel="self" href="http://www.npcompleteheart.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 21 Apr 2015 14:29:10 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>IPython Test</title><link>http://www.npcompleteheart.com/posts/ipython-test.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
@@ -68,7 +68,121 @@ In []:
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>http://www.npcompleteheart.com/posts/ipython-test.html</guid><pubDate>Mon, 20 Apr 2015 17:44:55 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Over the past three years I’ve been something of an evangelist for using MongoDB. This stance has
+</description><guid>http://www.npcompleteheart.com/posts/ipython-test.html</guid><pubDate>Mon, 20 Apr 2015 17:44:55 GMT</pubDate></item><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
+
+&lt;p&gt;There are a number of points that I want to hit on in the future but for now  I want to focus on:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Creating a standard library&lt;/li&gt;
+        &lt;li&gt;Record-keeping and on the fly analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;A standard library&lt;/h4&gt;
+
+&lt;p&gt;When I first started programming libraries were so &lt;strong&gt;damn&lt;/strong&gt; impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;There are many repetitive tasks, many that only take a line or two of code, such as parsing certain types of files that we willing type whenever the need arises. This isn’t really bad behavior, but it would be better to put these helper functions in a single place so that they can be called from anywhere (such as an interactive terminal or notebook session) and so that when we encounter a new feature we can add it into our code. Even more important is when we write more complicated functions or process data. With a standard function it’s easier to justify putting more time into testing the function and we never have to worry about slightly different processing based on fuzzy memory.&lt;/p&gt;
+
+&lt;p&gt;So what does this look like in practice? I made myself a “library” called &lt;span class="caps"&gt;GALE&lt;/span&gt; (“General Analytical Library Extensions” for the curious) and the structure is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;| GALE/
+|-&amp;gt; .hg/
+|-&amp;gt; gale/
+|--&amp;gt; __init__.py
+|--&amp;gt; functional_domain/
+|---&amp;gt; __init__.py
+|---&amp;gt; function.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why the double naming convention? Because I wanted to import with the gale name and have the name preserved in the repository so that it’s consistent even if I forget to name it properly when I clone it on a new machine. Otherwise, the structure is simple—-inside gale there are folders for a domain of code and then appropriately named python files containing functions are stored within those folders (and the &lt;i&gt;init&lt;/i&gt;.py files so that it’s all importable). As an example, since I’m  working with patient Electronic Health Records now I have inside gale a folder like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-&amp;gt; gale/
+|--&amp;gt; medical/
+|---&amp;gt; icd9Formatter.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The icd9Formatter file has all of the functions I use to translate ICD-9 codes to different ontologies or parse/clean the codes into a consistently readable format that my other modules will know how to use.&lt;/p&gt;
+
+&lt;p&gt;To make these code files useful everywhere we just need to add the library to our python path, which is easily accomplished by adding:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PYTHONPATH=$PYTHONPATH:/Your/Path/To/GALE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to our .bashrc file. After opening a new terminal or typing `source ~/.bashrc` this code will be accessible in any other program or interactive interpreter just by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import gale.medical.icd9Formatter as icdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To help paint the picture a little more completely this is the list of domains that I currently have in my library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;drwxr-xr-x  7 adampah  staff   238B Apr  3 10:39 databases
+drwxr-xr-x  8 adampah  staff   272B Apr  3 10:39 fileIO
+drwxr-xr-x  5 adampah  staff   170B Mar 16 21:52 general
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 graphMaths
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 graphs
+drwxr-xr-x  6 adampah  staff   204B Apr  8 10:42 medical
+drwxr-xr-x  4 adampah  staff   136B Apr  8 10:42 networks
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 settings
+drwxr-xr-x  6 adampah  staff   204B Apr  7 20:33 stats
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 timeseries
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this should all change based upon the type of research that you do. The key here is to not worry about writing a perfect function that will be as useful today as it will be in 20 years. The real value lies in just starting quickly and getting something down. After starting it’s much easier to get into the habit of adding simple helper functions to this central library than to keep building it into individual code pieces. &lt;span class="caps"&gt;DRY&lt;/span&gt; principles are great, letting ourselves be lazier while simultaneously being more productive is best (even better now this code can travel with you everywhere, on any computer, and always be accessible). &lt;/p&gt;
+
+&lt;h4&gt;Record-keeping and on-the-fly analysis&lt;/h4&gt;
+
+&lt;p&gt;Why on god’s green earth would these two subjects go together you ask? Because, as pythonistas, we will use the same damn tool for both, that’s why. Enter iPython Notebooks.&lt;/p&gt;
+
+&lt;p&gt;iPython Notebooks are finally ready for primetime in general usage I think. Why?&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;It has the ability to traverse directory structures now (iPython notebooks can be put in with&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;a repository now without starting up multiple notebook servers)
+&lt;/p&gt;&lt;ul&gt;
+        &lt;li&gt;Interactive features are compelling&lt;/li&gt;
+        &lt;li&gt;Accessibility and easy to show others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;iPython Notebook can come with iPython, or you might have to install it as a separate install  (all depends on how you decide to install it and your operating system. In any case you can start it up just by going `ipython notebook` on the command line. The service will start up and if you navigate your browser to http://localhost:8888 you will find the directory page. Here you can start a new notebook in any folder and it will open in a new browser. You can do just about anything that you want in these  active notebooks and some great examples can be found at the [github](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) page for ipython.  Next you can set up iPython notebooks on a desktop to be accessible (and password protected! make sure to do that part too!) from anywhere following this tutorial from [Thomas Sileo](http://thomassileo.com/blog/2012/11/19/setup-a-remote-ipython-notebook-server-with-numpyscipymaltplotlibpandas-in-a-virtualenv-on-ubuntu-server/). If you want to use a virtual environment you can follow the instructions exactly, or you can just skip that part and just let ipython notebook to use the system installed packages.&lt;/p&gt;
+
+&lt;p&gt;One last thing. I have been a real believer of using “in-line” images with the notebooks instead of having it pop up an interactive plot of the graph (the way matplotlib does typically from the command line). The primary reason is that after the graph is generated once it will remain in the notebook, even if it is shut down. That way you can close/shut down a notebook and when you open it again the graph will still be there. This makes it much more like a “real” lab notebook and allows for quick reference.  To do this we need to generate a notebook configuration file, from the command line we do this as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ipython profile create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output of this command it will tell you where it is storing your configuration files (changes based on operating system). Now edit the ‘ipython_notebook_config.py’ file which should be located at:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/.ipython/profile_default/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then change line 258 from &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# c.IPKernelApp.matplotlib = ‘’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c.IPKernelApp.matplotlib = ‘inline’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Voila!&lt;/p&gt;
+
+&lt;p&gt;Now, why is an iPython notebook so great? There’s a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Access your workstation from anywhere, with the same installed packages&lt;/li&gt;
+        &lt;li&gt;In-line plotting/analysis of data without having to run an X session (interactive X will frequently time out on me over long sessions, so I’ll need to start up a new connection to re-enable it)&lt;/li&gt;
+        &lt;li&gt;Ability to use bash commands, python, R, and many other languages simultaneously if configured properly&lt;/li&gt;
+        &lt;li&gt;Easy to show work to others&lt;/li&gt;
+        &lt;li&gt;Switch between code blocks and markdown blocks. This is important, in markdown blocks you should be ideally writing &lt;strong&gt;why&lt;/strong&gt; you are doing this research and what the analysis is. You can also include the commands or code used to generate the data that you are manipulating quickly.&lt;/li&gt;
+        &lt;li&gt;Embed images just like on any other web page. So even if you don’t generate images with matplotlib you can embed them in the notebook just using regular html. This makes it easy to keep track of results and important files from your analysis.&lt;/li&gt;
+        &lt;li&gt;Ability to very quickly do analysis, especially when you import functions from your standard library to quickly handle data manipulation!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All in all, iPython notebook has really come of age. The only thing it’s really missing at this point is robust support for multiple users on a single notebook instance.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</guid><pubDate>Fri, 17 Apr 2015 13:01:36 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Over the past three years I’ve been something of an evangelist for using MongoDB. This stance has
 drawn derision from some outside the lab, which frequently forces me to clarify in what
 circumstances I think MongoDB (or NoSQL in general) is so great. Unfortunately, I’ve been too lazy
 to put those thoughts into writing, so this is my long overdue explanation and the first in a series
@@ -149,261 +263,275 @@ time into one fairly quickly. &lt;/p&gt;
 database. I will never say that it’s the fastest or the best solution from a technical standpoint,
 but it is the quickest and easiest solution in regards to my time, which is the most important thing
 in my mind. I’m a researcher, not someone setting up production databases or something soul crushing
-like that ;)&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>Auto-slugification, drafts, and cooler queries</title><link>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?&lt;/p&gt;
+like that ;)&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>Make maps like a boss</title><link>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+&lt;/p&gt;
+
 &lt;!-- TEASER_END --&gt;
 
-&lt;h3&gt;Making slugs is boring, having slugs made is awesome&lt;/h3&gt;
-&lt;p&gt;If you follow the MongoDB Tumblelog post you'll be starting with a website that is pretty functional. 
-One of the things that it does do is it has you enter the slug field for each post in the admin section when you create it. 
-What is a slug? It's the string in the url bar you see after "/post/" and it identifies the post location in the website. 
-For me, and most of the time, we have the slug modelled after the post title so it is easily tracked. 
-It's annoying though to re-enter the title normalized for slug usage.&lt;/p&gt;
-&lt;p&gt;The first thing I tried was adding the prepopulated fields line to the &lt;code&gt;admin.py&lt;/code&gt; file. 
-This was supposed to prepopulate a slug field for a Post model using this code:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;PostAdmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-     &lt;span class="n"&gt;prepopulated_fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"slug"&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"title"&lt;/span&gt;&lt;span class="p"&gt;,)}&lt;/span&gt;
+&lt;p&gt;
+So far I've been working with a GIS specialist (if you've looked at the maps in my small area estimation &lt;a href="http://npcompleteheart.com/post/ever-wanted-to-estimate-small-area-effects-in-heal/"&gt;post&lt;/a&gt; those are from him), but that's not an ideal situation when I only need a quick picture or to look at how data is distributed in space. When I needed to place data on a map previously I typically needed interactivity, so I would make a visualization with D3.js. But now I just need to make lots of maps quickly to just do exploratory analysis. Fortunately, I was looking for a solution right around the time the PyData conference was happening and I saw Rob Story's &lt;a href="https://speakerdeck.com/wrobstory/up-and-down-the-python-data-and-web-visualization-stack"&gt;presentation on  &lt;/a&gt;&lt;a href="http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb"&gt;Up and Down the Python Data and Web Visualization Stack"&lt;/a&gt;. This talk turned me onto Folium, especially after seeing it work with iPython notebook (which has become one of my favorite workflow tools).
+&lt;/p&gt;
+
+&lt;h4&gt;Making maps with Folium&lt;/h4&gt;
+
+&lt;p&gt;
+...is pretty damn easy. If you follow the examples on the Gitub &lt;a href="https://github.com/wrobstory/folium"&gt;page&lt;/a&gt; with the example data you will be making maps in no time. Now comes the fun part, making maps with our own data!
+&lt;/p&gt;
+
+&lt;h5&gt;Step 1. Obtain Shapefile data&lt;/h5&gt;
+
+&lt;p&gt;
+To plot our own data we will need to get a GeoJSON or TopoJSON file that contains the path information about how to draw boundaries on the map. Unfortunately, the predominant file type for geographic data is a shapefile and geojson or topojson files are pretty scarce on the web. For the USA though we can easily get maps at all geographic resolutions from the &lt;a href="http://www.census.gov/geo/maps-data/data/tiger-line.html"&gt;census/TIGER&lt;/a&gt; website.
+&lt;/p&gt;
+
+&lt;h5&gt;Step 2. Converting from shapefile-&amp;gt;geojson-&amp;gt;topojson&lt;/h5&gt;
+
+&lt;p&gt;
+Since the open source world is rocking geojson or topojson files we just need to convert our new shapefile over. To do this we will need to install ogr2ogr (which is a part of the GDAL package) and topojson. On OSX this can be accomplished with homebrew and node.js very simply by:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ brew install gdal
+$ brew install node
+$ node install -g topojson
 &lt;/pre&gt;
 
 
-&lt;p&gt;but the admin section wasn't happy with this. 
-Posts entered without a slug would be flagged as having an error (due to omission of the slug field). 
-Quick googling suggests that there could be a problem with using django 1.3, and maybe django non-rel, but I didn't dwell on it too long.
-Instead I found django-autoslug. Installation is simple&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;autoslug&lt;/span&gt;
-&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;freeze&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;p&gt;
+For my needs I needed to plot data on Illinois zip codes so I downloaded the ZCTA (zip code tabulation area, not the exact same as zipcodes but close enough for me) file for Illinois. Proceeding with this file we first convert the shapefile to a geojson like so:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ ogr2ogr -f illinois.json tl_2010_17_zcta510.shp
+&lt;/pre&gt;
+&lt;br&gt;
+Next we convert the geojson to topojson. The only additional wrinkle from the geojson conversion is that we need to set the ID on each one of the areas (which is the same ID that we'll be binding to when we add data to the map). We can open up the geojson file and look at any of the "properties" entries to find the name of the needed key from the file. For the ZCTA file this key is "ZCTA5CE10". With that we convert the geojson to a topojson setting the ID and adding a zipcode property
+&lt;br&gt;
+&lt;pre&gt;
+$ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinois_topo.json
 &lt;/pre&gt;
 
 
-&lt;p&gt;and using it in the blog model is as easy as&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;autoslug&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;
-&lt;span class="cp"&gt;#Other imports&lt;/span&gt;
-&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;slug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;populate_from&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;attributes&lt;/span&gt;
+&lt;h5&gt;Step 3. Make one sweet map&lt;/h5&gt;
+
+&lt;p&gt;This step is pretty simple. Take our new topojson file and the csv of data we have keyed on zipcode and throw it over the map like:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+import folium
+import pandas as pd
+import numpy as np
+&lt;p&gt;df = pd.read(csv_file)
+bins = list(np.linspace(df['feature'].min(), df['feature'].max(), 6))
+city_map = folium.Map(location=[41.8819, -87.6278], width='700', tiles='Stamen Toner',  zoom_start=10)
+city_map.geo_json(geo_path='illinois_topo.json', topojson='objects.illinois',
+                             data=df, 
+                             threshold_scale=bins,
+                             columns=['zipcode', 'feature'], 
+                             key_on='feature.id',
+                             fill_opacity=1, 
+                             line_opacity=1,
+                             fill_color='PuBuGn',
+                             reset=True)
+city_map.create_map('city.html')
+&lt;/p&gt;&lt;/pre&gt;
+&lt;br&gt;
+and now we have a map which is embedded below!  The official library as it stands only has support for up to six colors. This wasn't enough for me, so I have a fork of it with additional color support added on my &lt;a href="https://github.com/adamrpah/folium"&gt;github&lt;/a&gt; page that anyone is welcome to (it also has diverging color scales!)
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;pt src="http://d3js.org/queue.v1.min.js"&amp;gt;
+&lt;script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"&gt;&lt;/script&gt;
+&lt;script src="http://d3js.org/topojson.v1.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"&gt;&lt;/p&gt;
+&lt;style&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nc"&gt;.legend&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt; &lt;span class="k"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;box&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shadow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;15px&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;5px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="nc"&gt;.key&lt;/span&gt; &lt;span class="nt"&gt;path&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;after that the slug field is removed from the admin section, slugs are automatically populated upon post addition, and the slugs are normalized to the title of the post. 
-Awesome!&lt;/p&gt;
-&lt;h3&gt;But I'm going to want to save partial work on the web content and query the heck out of the DB!&lt;/h3&gt;
-&lt;p&gt;For the next part I just wanted to add a draft field to the Post model so I could write posts on the admin section, 
-leave them half-finished but saved to the database so I could pick them up and finish them from anywhere. 
-That's a really simple change to the model of course, just:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt;
-    &lt;span class="n"&gt;draft&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BooleanField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;blank&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help_text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"Save as a draft on the server"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/style&gt;
+
+&lt;div id="map" style="width: 700px; height: 500px"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nx"&gt;queue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/asthma.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/topo_illinois.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;await&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+      &lt;span class="nx"&gt;topo_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;topojson&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;illinois&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+          &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;parseFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+          &lt;span class="p"&gt;};&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;threshold&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;89.743589743589737&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;179.48717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;269.23076923076923&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;448.71794871794867&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;538.46153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;628.20512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;807.69230769230762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;897.43589743589735&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;987.17948717948707&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1166.6666666666665&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1256.4102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1346.153846153846&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1525.6410256410256&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1615.3846153846152&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1705.1282051282051&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1884.6153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1974.3589743589741&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2064.102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2243.5897435897436&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2333.333333333333&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2423.0769230769229&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2602.5641025641025&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2692.3076923076919&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2782.0512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2961.5384615384614&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3051.2820512820513&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3141.0256410256407&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3320.5128205128203&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3410.2564102564102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3500.0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#f6eff7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#f0eaf4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#eae5f1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#e4e1ef&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#dedcec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d8d7e9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d2d3e7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#cccfe5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#c6cce3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#bfc9e1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b9c6e0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b2c3de&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#acc0dc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#a6bddb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#9cb9d9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#92b6d7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#88b3d5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#7fb0d3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#75add1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#6baacf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#63a7cd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#5ba3cb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#549fc9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4c9bc6&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4597c4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3d93c2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3690c0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#2e8db7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#268baf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#1e89a7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#16869e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#0e8496&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#06828e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017e85&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017a7c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017573&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#01716a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016c61&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016858&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016450&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;setView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;41.8819&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;87.6278&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+      &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tileLayer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="nx"&gt;maxZoom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="nx"&gt;attribution&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/3.0&amp;quot;&amp;gt;CC BY SA&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;
+      &lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+
+
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;fillColor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    &lt;span class="nx"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;opacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;fillOpacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;Now what we could do is just handle the display of this in the template if need be. 
-All posts are queried for when we want to display the list of available posts on the homepage. 
-This is the 'ListView' from the Tumblelog tutorial and we could solve it in the template easily like this&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;% if not post.draft %&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;---&lt;/span&gt; Display post code &lt;span class="o"&gt;--&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;% endif %&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;      &lt;span class="nx"&gt;gJson_layer_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;geoJson&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;topo_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+
+          &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;legend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;control&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nx"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;topright&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onAdd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;DomUtil&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;linear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3850&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;xAxis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;orient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;top&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickSize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickValues&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.legend.leaflet-control&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;svg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;450&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;g&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;transform&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;translate(25,16)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;selectAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="p"&gt;}))&lt;/span&gt;
+  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;enter&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fill&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;xAxis&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;caption&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Number of Asthma Cases, 2006-2012&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+  &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;but this doesn't really seem that great. We're still loading the data from the database, it's just not being displayed using the template. 
-It feels like we should really go the extra step here.&lt;/p&gt;
-&lt;p&gt;So what do you do? We should change the query in the url of course! Even better, let's get some real mongo access. 
-In the blog models.py we can actually open up the ability to do a raw query using django_mongodb_engine by:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django_mongodb_engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;
+&lt;/script&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</guid><pubDate>Sat, 17 May 2014 13:05:40 GMT</pubDate></item><item><title>Ever wanted to estimate small area effects in health data?</title><link>http://www.npcompleteheart.com/posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;h5&gt;
+Well now you sort of can!
+&lt;/h5&gt;
 
-&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;attributes&lt;/span&gt;
-    &lt;span class="n"&gt;objects&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
+&lt;p&gt;
+I just presented at AMIA on my methodology to use limited patient demographic/location data to estimate the number of patient cases at a smaller geographic locality. The methodology is split between a Monte Carlo simulation and GIS methods (Semi-variogram+Kriged Surface+Geographical Gaussian Simulation) to estimate patient cases. Currently the monte carlo part is already coded and freely available on my &lt;a href="https://bitbucket.org/adamrpah/geographic-record-disaggregation"&gt;bitbucket&lt;/a&gt;. The latter half of the code is coming as soon as we can identify an appropriate open source GIS library to port it the current code into.
+&lt;/p&gt;
 
-
-&lt;p&gt;and we can change our queryset in urls.py for the list view to be:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="err"&gt;$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PostListView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-        &lt;span class="n"&gt;queryset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;raw_query&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;draft&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;False&lt;/span&gt;&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="n"&gt;order_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-        &lt;span class="n"&gt;context_object_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"posts_list"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"home"&lt;/span&gt;
-    &lt;span class="p"&gt;),&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Whereas before it was:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="err"&gt;$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PostListView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="n"&gt;queryset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;order_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-    &lt;span class="n"&gt;context_object_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"posts_list"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"home"&lt;/span&gt;
-&lt;span class="p"&gt;),&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;What we've done is open up the raw_query field on objects. Now we can actually issue more complicated queries to the database. 
-While not essential now, this will be very useful for more complicated models/data types in the future.&lt;/p&gt;
-&lt;p&gt;And that was it, pretty fun, pretty simple, and fairly functional. As always this has been cribbed from the work of others and googling, 
-I just didn't keep track of my sources that well last night.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</guid><pubDate>Tue, 19 Mar 2013 19:01:25 GMT</pubDate></item><item><title>I guess posting content does make a difference</title><link>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;&lt;img alt="Website Stats" src="http://www.npcompleteheart.com/images/posting_content.jpg"&gt;&lt;/p&gt;</description><guid>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference.html</guid><pubDate>Sat, 16 Mar 2013 18:59:17 GMT</pubDate></item><item><title>A short introduction to Mercurial</title><link>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;We switched from SVN to Mercurial in my lab about a year ago now after we considered all of our
-needs as a bunch of researchers, many of whom don't want to care about or are not that interested in
-the tools we use.&lt;/p&gt;
 &lt;!-- TEASER_END --&gt;
 
-&lt;p&gt;In the meantime, I've kept sharing the slide decks I prepped with @frrrmack out of my dropbox folder
-with strangers.  That's pretty annoying since I have to add a person's e-mail to it each time. So
-I'm putting them here so it'll be quick and easy.&lt;/p&gt;
-&lt;p&gt;The first one is a quick introduction as to why you would want to switch away from SVN to Mercurial
-based on the benefits.  The second is a near exhaustive tutorial on how to do set up and use
-Mercurial.&lt;/p&gt;
-&lt;p&gt;There's definitely some pictures from &lt;a href="http://www.hginit.com"&gt;hg init&lt;/a&gt; in the
-introduction, so thanks for the great picture!&lt;/p&gt;
-&lt;p&gt;Enjoy!&lt;/p&gt;
-&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/16228692" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;
+&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/33430482" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
 
-&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/16228847" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</guid><pubDate>Mon, 28 Jan 2013 18:45:04 GMT</pubDate></item><item><title>Computers are not magical things, but at times they are beyond temperamental creatures</title><link>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I upgraded to OSX Lion over winter break (a post about which was supposed to be written forever
-ago), but I finally have come back to it. Upgrading has been completely obnoxious. If it weren't for
-how much I really need effective password management software (1Password, for what it is worth), I
-would have downgraded to Snow Leopard immediately. This is just a short collection of the fixes that
-I've done since switching (or what I can remember of them).&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div style="margin-bottom:5px"&gt; &lt;strong&gt; &lt;a href="https://www.slideshare.net/AdamPah/amia-cri-2014-san-francisco-patient-privacy-small-area-estimation-using-monte-carlo-methods" title="AMIA CRI 2014 San Francisco Patient Privacy Small Area Estimation using Monte Carlo Methods" target="_blank"&gt;AMIA CRI 2014 San Francisco Patient Privacy Small Area Estimation using Monte Carlo Methods&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href="http://www.slideshare.net/AdamPah" target="_blank"&gt;Adam Pah&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html</guid><pubDate>Fri, 11 Apr 2014 13:00:27 GMT</pubDate></item><item><title>Pandas + Matplotlib + Looking pretty good</title><link>http://www.npcompleteheart.com/posts/pandas-+-matplotlib-+-looking-pretty-good.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="pandas and matplotlib" src="http://www.npcompleteheart.com/images/pandas_matplotlib.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+Typically matplotlib produces plots that look, well, horrible. This can be a little bit of a pain, especially because I've switched my workflow to lean heavily on ipython notebook to maintain a lab notebook. This means removing xmgrace from my workflow except for manuscript figure preparation since it won't show up inline unless I make the plot, save it as a png, move the file to the notebook directory, and then link the file in a text section. Not exactly user friendly or an improvement to my workflow. Unfortunately, just because I want to make plots in python for exploration doesn't mean that I can tolerate ugly graphs and that godforsaken default font.
+&lt;/p&gt;
+
 &lt;!-- TEASER_END --&gt;
 
-&lt;p&gt;&lt;strong&gt;Adobe and the lack of printing&lt;/strong&gt; This is the simplest fix, do you use CS3 and it now will not print
-(and it crashes when it does)? This is actually easily fixed. All you have to do is delete the Adobe
-PPDs from the following folders:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Printers&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PPDs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;en&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lproj&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Printers&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PPDs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ko&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lproj&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Printers&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PPDs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Ja&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lproj&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Printers&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PPDs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Zh_CN&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lproj&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Printers&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PPDs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Zh_TW&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lproj&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;p&gt;
+So far I have two solutions and I'm quite happy with both (although neither one fixes the fact that matplotlib somehow renders an eps and makes it scale like a png). The first one has been to use prettyplotlib, which looks nice but is its own library and inherits from matplotlib. It sounds like this will eventually get merged as a style file into matplotlib in the future, which is great. The other way I describe below.
+&lt;/p&gt;
+
+&lt;h4&gt;mpltools with "ggplot"&lt;/h4&gt;
+
+&lt;p&gt;
+I'll be honest, I really do like ggplot in R but I don't think that the default grey background is the best for paper figures (looks great on the web though). Using mpltools you can easily change the style of plots using a simple style command like:
+&lt;/p&gt;&lt;pre&gt;
+from mpltools import style
+style.user("ggplot")
 &lt;/pre&gt;
+Even better, this is now in the matplotlib master branch!
 
 
-&lt;p&gt;&lt;a href="http://forums.adobe.com/message/3870055"&gt;Credit Where Credit is Due&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;MacFuse/MacFusion and the lack of 64-bit support&lt;/strong&gt; I've been using MacFuse with MacFusion for a long
-time now in order to do file system mounting over ssh (if you're not familiar with this concept it's
-awesome, you mount a remote directory over ssh and it's just like it was there locally). Now at some
-point MacFuse, as it was, was no longer developed for the newer versions of OS X. There are two ways
-around this, the first I found on a forum and required downloading 3 files to 'fix' Fuse. This is
-not the optimal solution, because there is some odd behavior in file management when not using the
-command line (GUI programs would be unable to save to anything but a new file handle). The better
-solution is to download the new OS X Fuse . It works awesome, just as MacFuse used to.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;RVM and X Code&lt;/strong&gt; Using Ruby version manager is wonderful; however, it and the packages definitely did
-not agree with the lion upgrade. The biggest reason is because of the switch to llvm-gcc instead of
-gcc. This was actually a pretty easy (and completely awesome to learn fix), somebody actually went
-and got plain old gcc for OS X. This actually makes it so that you don't need to install X Code to
-get everything working (Saving 1GB of downloading) but you will probably have to download it
-anyways. They're hosting it on GitHub . So far, I consider this the best thing ever. You just need
-to set it now as the default gcc compiler and now packages will magically install again.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;MacPorts, X Code, and so many head bashing moments&lt;/strong&gt; Now this was the worst part of the process (and
-what I put off for 3 months). MacPorts needs to be completely redone and upgraded to work in Lion.
-This wouldn't be nearly as bad, if it didn't involve uninstalling everything that was installed to
-begin with. Absolutely, make sure that you have the time to do this. The basic steps are all outline
-on the MacPorts Migration page. The even better part is that the automatically reinstall script does
-work, so don't bother doing this again by hand. However......&lt;/p&gt;
-&lt;p&gt;This all relies on X code working (ah ha, you know how I said you'll have to download anyway?). So
-now that X Code is at version 4.3 in the Mac App Store, which is the only place to get it now, it
-actually installs when you 'purchase' it there (it used to not prior to version 4.3). But installing
-it isn't good enough, you have to also download the command line tools. This is found in the
-'Download' pane of the X Code Preferences. Now is the time to try and see if you can install
-programs from MacPorts. If a program installs, Congratulations! It's all over. However, if it says
-something like 'A new version of X Code must be installed version 3.2 is too old' then we have to do
-one more thing.&lt;/p&gt;
-&lt;p&gt;X Code 4.3 installs in a different location than before. For some reason, instead of being in:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Developer&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Applications&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;p&gt;
+So now the best part is that it's easy to get generated using a default matplotlib command and have it look pretty decent. This is especially important when using pandas, because now I can just:
+&lt;/p&gt;&lt;pre&gt;
+import pandas as pd
+df = pd.read_csv('age_data.csv')
+df.age.hist(label='Age',  color='steelblue')
+plt.ylabel('Count')
+plt.legend()
 &lt;/pre&gt;
+and get the result below.
+&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/pandas-+-matplotlib-+-looking-pretty-good.html</guid><pubDate>Mon, 31 Mar 2014 12:59:11 GMT</pubDate></item><item><title>Arthur the overly adult half breed aardvark</title><link>http://www.npcompleteheart.com/posts/arthur-the-overly-adult-half-breed-aardvark.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;&lt;img alt="Arthur!" src="http://www.npcompleteheart.com/images/aardvark.png"&gt;&lt;/p&gt;</description><guid>http://www.npcompleteheart.com/posts/arthur-the-overly-adult-half-breed-aardvark.html</guid><pubDate>Mon, 31 Mar 2014 12:58:04 GMT</pubDate></item><item><title>If I had a time machine...</title><link>http://www.npcompleteheart.com/posts/if-i-had-a-time-machine.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I would go back and tell my 10 year old self:
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;Yes, you really don't need to have very good handwriting. &lt;/li&gt;
+&lt;li&gt;It is okay to scribble in the margins. It means you're bored, so if someone takes affront to the amount of scribbling on work turned in then it's their fault.&lt;/li&gt;&lt;li&gt;
+&lt;/li&gt;&lt;li&gt;Your decision that "I don't need to be good at writing since I'm good at math" was, in fact, the stupidest decision possible. You really shot future you in the foot with that one. So, thanks!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/if-i-had-a-time-machine.html</guid><pubDate>Sat, 15 Mar 2014 12:57:18 GMT</pubDate></item><item><title>I stopped checking my email and it feels great</title><link>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;
+That's a little bit of a misnomer. I didn't stop checking my email completely. I just started turning on "Do Not Disturb" on my laptop and phone all day. I only look at emails for about two hours every day and it's liberating. I highly suggest trying it.
+&lt;/p&gt;</description><guid>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</guid><pubDate>Tue, 04 Mar 2014 12:56:37 GMT</pubDate></item><item><title>Better late than never</title><link>http://www.npcompleteheart.com/posts/better-late-than-never.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I've been meaning to post my slides from my dissertation presentation for awhile. In general, I'm committing myself to practicing more "science in the open" (meaning my presentations/posters/code), so here is the embed link. Better late than never I always say.
+&lt;/p&gt;
 
+&lt;p&gt;
+I gave this presentation at Northwestern University on June 4, 2013 in order to attain the degree of Doctor of Philosophy in Biological Sciences. It goes along with the publication &lt;a href="http://www.nature.com/srep/2013/130422/srep01695/full/srep01695.html"&gt;"Use of a global metabolic network to curate organismal metabolic networks"&lt;/a&gt;. It also goes along with the &lt;a href="http://www.npcompleteheart.com/posts/metexplore.npcompleteheart.com"&gt;MetExplore&lt;/a&gt; application that I've detailed in the projects tab.
+&lt;/p&gt;
 
-&lt;p&gt;it's now in:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Applications&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;just like every other application. However, for some inexplicable reason, MacPorts doesn't auto
-recognize and you have to tell it where to look for the new X Code install (this is the head-bashing
-part to figure out). Now the way to tell it how to do that is:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;xcode&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Applications&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Xcode&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Contents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Developer&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;and now that it knows where to look, we have total utter success. Now I just hope that you planned
-for approximately the 1 day install time to get back to where you were before.
-Hope it helps and enjoy!&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</guid><pubDate>Wed, 23 Jan 2013 18:26:13 GMT</pubDate></item><item><title>First times at RoR and how I got up and running</title><link>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This blog is my first time starting a web page (for real at least) and using Ruby on Rails. Despite
-having some prior experience with Django I chose Ruby on Rails for two main reasons: (1) it
-integrates seamlessly with Heroku, which is an amazing service (for free! at least for my needs)
-that provides basic app hosting and is not replicated on the Django side of web development and (2)
-it's something I haven't done yet and I would rather learn something new. I'm not a massive fan of
-Django, so even though my primary programming experience is in python it didn't deter me from
-switching over for this. At a later point, I may detail what I feel are the differences between the
-platforms and which one excels in what area, but there's plenty on the web that goes on about the
-differences already.&lt;/p&gt;
 &lt;!-- TEASER_END --&gt;
 
-&lt;p&gt;So the real meat of this post is to detail how I went from absolutely nothing to a working blog, the
-actual resources I used and in what order (clear up conflicting suggestions from just mindlessly
-following google links which is how this got going), and to give credit where credit is due (if you
-go through any of these tutorials you can see how liberally I used the default CSS templates they
-generate, the CSS/HTML is my definitive weak point).&lt;/p&gt;
-&lt;h3&gt;Installing Ruby&lt;/h3&gt;
-&lt;p&gt;When I first went to go use Ruby there were some initial conflicts, since the newest version of
-Rails wasn't compatible with the version of Ruby that came stock on my computer (OS X 10.6 Snow
-Leopard). What I thought was the obvious answer from my python experience was to open up MacPorts
-and download the newest version of Ruby and Rails, not thinking that there were better solutions
-available (MacPorts is as good as it gets). I actually did get it up and running but not before
-spending a lot of time resolving the issue with rake (v0.9.0 was giving problems with the gemfile)
-and then mucking it all up by using a different version to check out and play with an app that was
-already written but with an earlier rails version.&lt;/p&gt;
-&lt;p&gt;The hilarious thing is, that there is a solution for this with RoR and it's great (despite the
-problems it's giving me now in checking out a head version of Ruby to use), it's RVM--Ruby Version
-Manager . It actually does work exactly as the tutorial shows (a real rarity) and it's simple,
-making it a terrible idea to try and manage Ruby yourself through MacPorts. The only hacky thing I
-did was to actually put a single line in my bash_profile to automatically use the default ruby
-because at some point it stopped initializing properly. This subsequently caused me to curse
-frequently when Rails would error out on starting a server. If that effects you then just execute:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;rvm&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;and it will resolve the problem, indefinitely. It does require that it executes every time you open
-a new terminal tab, so if that bothers you then you are properly warned.
-At this point you should also go ahead and sign up for GitHub and Heroku (if you plan on actually
-putting it on the web, otherwise just Git. Version control is a lifesaver when you don't entirely
-understand what you are doing).&lt;/p&gt;
-&lt;h3&gt;Starting your Rails App&lt;/h3&gt;
-&lt;p&gt;I started by using the Ruby on Rails tutorial to get the basic sauce of the website working. I also
-heavily used another resource to get the basic CSS and html of the website working, but I
-unfortunately cannot find it to save my life. At the same time I also immediately set up users and
-user authentication, I would highly recommend NOT doing this. Trying to do everything at once was
-not a seamless process when I was still grappling with the basics of getting the website up and
-running. Play around with Rails and get all the basic functionality that you want along with the
-styling that makes you happy enough to proceed and then start mucking it all up by adding
-authentication.&lt;/p&gt;
-&lt;p&gt;For user adding and authentication I decided on using Devise and CanCan, since it didn't require
-nearly as much work on my part and seemed to be a fairly easy set up and go process. That didn't
-turn out to be entirely true, but that was more my own fault. Instead of sitting down and getting it
-running in one go I pecked at it in bits and pieces, forgetting where I was when I last ran out of
-time trying to set it up. The tutorial that I used the most (and should be sufficient to create the
-entire process) can be found here and the follow up here. Although to be honest, my real problems
-occurred when I forgot the password to the user I created and subsequently tried creating a new user
-to supercede the old one when I had, effectively, locked myself out of my own app. If you make this
-same boneheaded mistake, I'll tell you now that it's just easier to go straight into the database
-and correct, so long as you are comfortable with basic SQL.&lt;/p&gt;
-&lt;h3&gt;How does this CSS thing work?&lt;/h3&gt;
-&lt;p&gt;This by far my weakest point. I really don't entirely understand how to use HTML and CSS although
-even initially I understood the reasons for using both and it makes sense (HTML for content, CSS for
-design). Even using the tutorial from the Rails app and the stock CSS it came with to start I still
-had lots of trouble modifying it to give me a look that I was at least semi satisfied with. One
-night I just bit the bullet and went all the way through the tutorials at HTMLDog. This didn't
-resolve my problems, it didn't make me like CSS or HTML any more (or less), than I already did, but
-it gave me enough of a basic understanding of the languages and what terms were used for what that I
-could actually start googling for what I wanted to do and get results. If you are coming at this
-from a programming starting point instead of a design standpoint this is by far the hardest part.
-HTML and CSS don't give stack traces and errors like real code does, it just takes what you give it
-and then does whatever the hell it wants with it, with no real indication as to why what you told it
-isn't going to be sufficient. Annoying to say the least.&lt;/p&gt;
-&lt;h3&gt;Getting it onto the web&lt;/h3&gt;
-&lt;p&gt;This part is by far the easiest, just buy a domain and set it up. There's a video in the Heroku
-articles section that explains how to set it up with GoDaddy and after that you're done! The video
-is only outdated on one aspect, setting up a CNAME with domainname.com. to refer to the site without
-the 'www' doesn't work anymore. GoDaddy wants you to do that using their domain forwarding, which
-can be set up from the dashboard page for your domain. 
-Now breathe a sigh of relief when everything works.&lt;/p&gt;
-&lt;p&gt;That's it! From start to finish of how I got going and a rundown of the tutorials that can be used.
-If you want to stray go for it (this website obviously isn't perfect and I'll be heavily modifying
-it as I get a better grip on using all of these things) but just be careful about what you start
-following. There are lots of Rails tutorials still kicking around from earlier versions and the
-techniques and code used don't all work in Rails 3. Reading first to make sure it's applicable saves
-you the pain of implementing and then banging your head against the screen as you get nothing but
-errors.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</guid><pubDate>Mon, 23 Jan 2012 18:07:14 GMT</pubDate></item></channel></rss>
+&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/30983226" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/better-late-than-never.html</guid><pubDate>Sat, 08 Feb 2014 12:49:13 GMT</pubDate></item></channel></rss>
