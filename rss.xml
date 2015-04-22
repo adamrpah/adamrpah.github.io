@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link href="http://www.npcompleteheart.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 21 Apr 2015 14:51:24 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Over the past three years I’ve been something of an evangelist for using MongoDB. This stance has
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 22 Apr 2015 00:57:09 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This week I had the, almost obscene, pleasure of participating in Northwestern’s Computational
+Research Day as a chairperson and poster judge.I typically cringe at the thought of attending
+conferences and symposia, since I am mainly a homebody (I love my desk, computer, research, and
+daily schedule), but at the symposium on Tuesday I felt constantly excited and engaged. The variety
+and quality of research presented was excellent and the diverse topics covered kept the gears
+turning in my head.&lt;/p&gt;
+&lt;p&gt;Most importantly, the sense of camaraderie that I felt amongst these computational researchers kept
+me energized. I wish that this event existed when I started graduate school. As a computational
+researcher that was purportedly a biologist, it was easy to feel that I was a part of a group that I
+was a red-headed stepchild. My home program was primarily concerned with experimentation or the
+application of rote computational biology (i.e. anything involving a computer that would have been
+published since the early 90s). Most of the other departments that included some computational
+research were ones where computational methods were de rigeur and field specific research dominated.
+Instead I was looking more for what made me gravitate towards the Northwestern Institute for
+complexity, computational researchers that were applying new techniques and conducting
+interdisciplinary research.&lt;/p&gt;
+&lt;p&gt;I can’t wait to see what new problems people will tackle as the quantity, diversity, and
+interdisciplinarity of computational research continues to expand. Because of my experience in
+biology, I realize how important it is to bring other fields and researcher into the fold of the
+computational community. It will help change how people view their research problems and hopefully
+lead to better research. This is what drives me to help put on the bootcamps as an introduction to
+programming and data science. It’s also why I believe that events like the Computational Research
+Day are integral to a healthy, productive research environment at a University.&lt;/p&gt;
+&lt;p&gt;Keep Growing, Computational Research! Keep Growing!&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</guid><pubDate>Wed, 22 Apr 2015 00:56:52 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Over the past three years I’ve been something of an evangelist for using MongoDB. This stance has
 drawn derision from some outside the lab, which frequently forces me to clarify in what
 circumstances I think MongoDB (or NoSQL in general) is so great. Unfortunately, I’ve been too lazy
 to put those thoughts into writing, so this is my long overdue explanation and the first in a series
@@ -279,5 +302,4 @@ I say this because in my last paper I provided an eps image of the chart that I'
 &lt;br&gt;
 All told, I think that process &lt;b&gt;sucks&lt;/b&gt; for both me and the journal. Especially because the method for distribution is predominantly moving to the internet where &lt;b&gt;none of these concerns even matter&lt;/b&gt;.
 &lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/let-me-just-scale-this-figure-down-3-times-then-skew-it-15-times.html</guid><pubDate>Sun, 16 Nov 2014 14:39:55 GMT</pubDate></item><item><title>I love old code...</title><link>http://www.npcompleteheart.com/posts/i-love-old-code.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="old code" src="http://www.npcompleteheart.com/images/old_code_easter_egg.png"&gt;&lt;/p&gt;
-&lt;p&gt;...it's always full of easter eggs.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/i-love-old-code.html</guid><pubDate>Tue, 30 Sep 2014 14:38:01 GMT</pubDate></item><item><title>Sometimes things are strange</title><link>http://www.npcompleteheart.com/posts/sometimes-things-are-strange.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="strange" src="http://www.npcompleteheart.com/images/sometimes_things_are_strange.png"&gt;&lt;/p&gt;
-&lt;p&gt;Offered without comment, in this the year 2014.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/sometimes-things-are-strange.html</guid><pubDate>Mon, 08 Sep 2014 14:36:48 GMT</pubDate></item></channel></rss>
+&lt;p&gt;...it's always full of easter eggs.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/i-love-old-code.html</guid><pubDate>Tue, 30 Sep 2014 14:38:01 GMT</pubDate></item></channel></rss>
