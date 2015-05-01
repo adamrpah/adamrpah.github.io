@@ -18,7 +18,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/2015/index.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/archive.html</loc>
@@ -34,23 +34,23 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-1.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-2.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-3.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-4.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/listings/index.html</loc>
@@ -106,7 +106,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</loc>
-  <lastmod>2015-04-21</lastmod>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</loc>
@@ -203,6 +203,10 @@
  <url>
   <loc>http://www.npcompleteheart.com/posts/starting-with-mongo-some-dos-and-donts.html</loc>
   <lastmod>2015-04-21</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</loc>
+  <lastmod>2015-05-01</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</loc>

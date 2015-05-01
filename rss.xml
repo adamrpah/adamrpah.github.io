@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 22 Apr 2015 00:57:09 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This week I had the, almost obscene, pleasure of participating in Northwestern’s Computational
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link href="http://www.npcompleteheart.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 01 May 2015 14:18:15 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I guess my post on (Django and MongoDB in 2015)[www.npcompleteheart.com/posts/django-and-mongodb-in-2015] 
+was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
+a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
+and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
+out &lt;code&gt;pre&lt;/code&gt; blocks and all that). At this point it made me feel like that barrier was keeping me from blogging. 
+Since producing at least a blog per month is on my New Year's resolutions list I decided to change up the 
+site to hopefully make it more conducive to me blogging.&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;This time around, I really just wanted something simple that had IPython notebook support baked in
+from the start. I wanted it to be lightweight, support markdown input (since it seemed like I'm the
+last human alive writing in html and I could never remember the damn markdown symbols for that
+reason), and I guess be a little bit anachronistic. For these reasons I just decided to go with
+(Nikola)[www.getnikola.org]. It looked cool, sounded simple (loved the part in the tutorial that
+just said, &lt;code&gt;don't read this tutorial, just start using&lt;/code&gt;), and it seems like the darkhorse in the
+race against Pelican. In any case, that was enough to persuade me to start using it.&lt;/p&gt;
+&lt;p&gt;The switch was pretty simple with the exception of the fact that I had to edit all my old posts to
+make them appear like I wanted on this website. I would write more, but there really wasn't much
+more to it than what's contained in teh basic introduction. The only thing that really held me up
+was getting Git Pages to work. Most of the methods written on the internet weren't working for me
+so I just did the lazy thing and made a separate repository for Github to serve as my website.&lt;/p&gt;
+&lt;p&gt;Most things made it over okay, with the only real holdovers being the D3 visualizations with
+javascript. I know that it's possible to move them over using an IPython notebook I just haven't had
+the time yet. Through this process I also found out that someone limited the Folium mapping package
+to only 6 colors again for apparently no fucking reason! Yay open source!&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This week I had the, almost obscene, pleasure of participating in Northwestern’s Computational
 Research Day as a chairperson and poster judge.I typically cringe at the thought of attending
 conferences and symposia, since I am mainly a homebody (I love my desk, computer, research, and
 daily schedule), but at the symposium on Tuesday I felt constantly excited and engaged. The variety
 and quality of research presented was excellent and the diverse topics covered kept the gears
 turning in my head.&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
 &lt;p&gt;Most importantly, the sense of camaraderie that I felt amongst these computational researchers kept
 me energized. I wish that this event existed when I started graduate school. As a computational
 researcher that was purportedly a biologist, it was easy to feel that I was a part of a group that I
@@ -301,5 +327,4 @@ I say this because in my last paper I provided an eps image of the chart that I'
 &lt;/ol&gt;
 &lt;br&gt;
 All told, I think that process &lt;b&gt;sucks&lt;/b&gt; for both me and the journal. Especially because the method for distribution is predominantly moving to the internet where &lt;b&gt;none of these concerns even matter&lt;/b&gt;.
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/let-me-just-scale-this-figure-down-3-times-then-skew-it-15-times.html</guid><pubDate>Sun, 16 Nov 2014 14:39:55 GMT</pubDate></item><item><title>I love old code...</title><link>http://www.npcompleteheart.com/posts/i-love-old-code.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="old code" src="http://www.npcompleteheart.com/images/old_code_easter_egg.png"&gt;&lt;/p&gt;
-&lt;p&gt;...it's always full of easter eggs.&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/i-love-old-code.html</guid><pubDate>Tue, 30 Sep 2014 14:38:01 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/let-me-just-scale-this-figure-down-3-times-then-skew-it-15-times.html</guid><pubDate>Sun, 16 Nov 2014 14:39:55 GMT</pubDate></item></channel></rss>
