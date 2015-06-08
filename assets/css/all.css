@@ -809,6 +809,10 @@ body {
   position: static;
 }
 
+.body-content {
+  max-width: 900px;
+}
+
 pre {
   padding: 0.4em;
   margin: 0px;
