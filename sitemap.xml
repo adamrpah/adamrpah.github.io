@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/2015/index.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:51:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/archive.html</loc>
@@ -47,11 +47,11 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-4.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T16:14:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:51:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/listings/index.html</loc>
@@ -107,7 +107,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html</loc>
@@ -115,7 +115,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:51:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html</loc>
@@ -135,7 +135,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:34:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</loc>
@@ -147,7 +147,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:24:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/i-graduated.html</loc>
@@ -163,7 +163,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</loc>
@@ -195,7 +195,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:42:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/pandas-+-matplotlib-+-looking-pretty-good.html</loc>
@@ -210,8 +210,12 @@
   <lastmod>2015-08-16T15:48:00Z</lastmod>
  </url>
  <url>
+  <loc>http://www.npcompleteheart.com/posts/test.html</loc>
+  <lastmod>2015-08-16T16:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</loc>
-  <lastmod>2015-08-16T15:48:00Z</lastmod>
+  <lastmod>2015-08-16T17:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</loc>
