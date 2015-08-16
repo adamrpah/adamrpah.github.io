@@ -40,13 +40,16 @@ MathJax.Hub.Config({
     
 
 
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css">
 </head>
+
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
-
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="wrapper">
+</div>
+<!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
     <div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
@@ -110,6 +113,7 @@ MathJax.Hub.Config({
     </header>
     <div class="p-summary entry-summary">
     <div>
+<p><img alt="wordpress riding heroku" src="images/wordpress_heroku.png"></p>
 <p>Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
 time to pay her back and help her get a website up and running. I went over the options that I knew
 (Nikola, Django, Node.js, Ruby on Rails) and it became quickly apparent that none of those were
@@ -135,7 +139,7 @@ wordpress site up and running in seconds. Woot!</p>
     </header>
     <div class="p-summary entry-summary">
     <div>
-<p>I guess my post on (Django and MongoDB in 2015)[www.npcompleteheart.com/posts/django-and-mongodb-in-2015] 
+<p>I guess my post on <a href="posts/www.npcompleteheart.com/posts/django-and-mongodb-in-2015">Django and MongoDB in 2015</a> 
 was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
 a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
 and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
@@ -354,7 +358,7 @@ I won't lie, I don't find the process of submitting an academic manuscript or ev
 <!-- End of social buttons -->
 
 
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
     <!-- fancy dates -->
     <script>
     moment.locale("");

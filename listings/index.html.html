@@ -39,13 +39,16 @@ MathJax.Hub.Config({
     
 
 
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css">
 </head>
+
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
-
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="wrapper">
+</div>
+<!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
     <div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
@@ -280,7 +283,7 @@ MathJax.Hub.Config({
 <a name="listingsindexhtml-23"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
 <a name="listingsindexhtml-24"></a><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
 <a name="listingsindexhtml-25"></a>    <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
-<a name="listingsindexhtml-26"></a>        <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'$'</span><span class="p">,</span><span class="s1">'$'</span><span class="p">],</span> <span class="p">[</span><span class="s2">"\\("</span><span class="p">,</span><span class="s2">"\\)"</span><span class="p">]</span> <span class="p">],</span>
+<a name="listingsindexhtml-26"></a>        <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'</span><span class="err">$</span><span class="s1">'</span><span class="p">,</span><span class="s1">'</span><span class="err">$</span><span class="s1">'</span><span class="p">],</span> <span class="p">[</span><span class="s2">"\\("</span><span class="p">,</span><span class="s2">"\\)"</span><span class="p">]</span> <span class="p">],</span>
 <a name="listingsindexhtml-27"></a>        <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'$$'</span><span class="p">,</span><span class="s1">'$$'</span><span class="p">],</span> <span class="p">[</span><span class="s2">"\\["</span><span class="p">,</span><span class="s2">"\\]"</span><span class="p">]</span> <span class="p">],</span>
 <a name="listingsindexhtml-28"></a>        <span class="nx">processEscapes</span><span class="o">:</span> <span class="kc">true</span>
 <a name="listingsindexhtml-29"></a>    <span class="p">},</span>
@@ -379,7 +382,7 @@ MathJax.Hub.Config({
 <a name="listingsindexhtml-122"></a><span class="c">&lt;!-- End of social buttons --&gt;</span>
 <a name="listingsindexhtml-123"></a>
 <a name="listingsindexhtml-124"></a>
-<a name="listingsindexhtml-125"></a>    <span class="nt">&lt;script&gt;</span><span class="nx">$</span><span class="p">(</span><span class="s1">'a.image-reference:not(.islink)'</span><span class="p">).</span><span class="nx">colorbox</span><span class="p">({</span><span class="nx">rel</span><span class="o">:</span><span class="s2">"gal"</span><span class="p">,</span><span class="nx">maxWidth</span><span class="o">:</span><span class="s2">"100%"</span><span class="p">,</span><span class="nx">maxHeight</span><span class="o">:</span><span class="s2">"100%"</span><span class="p">,</span><span class="nx">scalePhotos</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span><span class="nt">&lt;/script&gt;</span>
+<a name="listingsindexhtml-125"></a>    <span class="nt">&lt;script&gt;</span><span class="err">$</span><span class="p">(</span><span class="s1">'a.image-reference:not(.islink)'</span><span class="p">).</span><span class="nx">colorbox</span><span class="p">({</span><span class="nx">rel</span><span class="o">:</span><span class="s2">"gal"</span><span class="p">,</span><span class="nx">maxWidth</span><span class="o">:</span><span class="s2">"100%"</span><span class="p">,</span><span class="nx">maxHeight</span><span class="o">:</span><span class="s2">"100%"</span><span class="p">,</span><span class="nx">scalePhotos</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span><span class="nt">&lt;/script&gt;</span>
 <a name="listingsindexhtml-126"></a>    <span class="c">&lt;!-- fancy dates --&gt;</span>
 <a name="listingsindexhtml-127"></a>    <span class="nt">&lt;script&gt;</span>
 <a name="listingsindexhtml-128"></a>    <span class="nx">moment</span><span class="p">.</span><span class="nx">locale</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
@@ -429,7 +432,7 @@ MathJax.Hub.Config({
 <!-- End of social buttons -->
 
 
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
     <!-- fancy dates -->
     <script>
     moment.locale("");
