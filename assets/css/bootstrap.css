@@ -1401,7 +1401,7 @@ a.bg-danger:hover {
   background-color: #e4b9b9;
 }
 .page-header {
-  padding-bottom: 18.5px;
+  padding-bottom: 9.5px;
   margin: 42px 0 21px;
   border-bottom: 1px solid #dddddd;
 }
@@ -6885,4 +6885,7 @@ input[type="checkbox"] {
 }
 .modal .close {
   color: #222222;
+}
+#content{
+  padding-top: 60px;
 }
