@@ -3,23 +3,14 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Django nonrel, MongoDB, MongoHQ, and Heroku | NP Complete Heart</title>
-
-                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
-
-
-
-
-    
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-<script type="text/x-mathjax-config">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Django nonrel, MongoDB, MongoHQ, and Heroku | NP Complete Heart</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -31,37 +22,24 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="Adam Pah">
-        <meta property="og:site_name" content="NP Complete Heart">
-    <meta property="og:title" content="Django nonrel, MongoDB, MongoHQ, and Heroku">
-    <meta property="og:url" content="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
-    <meta property="og:description" content="So you want to make a Django app with a MongoDB backend? 
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
+<meta property="og:site_name" content="NP Complete Heart">
+<meta property="og:title" content="Django nonrel, MongoDB, MongoHQ, and Heroku">
+<meta property="og:url" content="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html">
+<meta property="og:description" content="So you want to make a Django app with a MongoDB backend? 
 Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?
 That's what I've ">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2013-03-14T07:21:25-05:00">
-
-    
-    
-
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2013-03-14T07:21:25-05:00">
 <link rel="stylesheet" href="assets/css/custom.css" type="text/css">
 </head>
-
 <body>
 
 <!-- Menubar -->
 <div class="wrapper">
 </div>
 <!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -78,7 +56,7 @@ That's what I've ">
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="../rss.xml"><img src="../images/rss.png"></a>
                 </li>
 <li>
@@ -96,26 +74,17 @@ That's what I've ">
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                
-            </ul>
-        </div>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-        <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Django nonrel, MongoDB, MongoHQ, and Heroku</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Django nonrel, MongoDB, MongoHQ, and Heroku</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
@@ -123,9 +92,7 @@ That's what I've ">
             
         </div>
         
-    </header>
-
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>So you want to make a Django app with a MongoDB backend? </p>
 <p>Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?</p>
@@ -326,54 +293,37 @@ heroku run python djangoapp/manage.py syncdb
 <p>Making models, templates, and so on as in the Mongo Tumblelog or do whatever you want!  You now have the base configuration to make a website.</p>
 </div>
     </div>
-    <aside class="postpromonav">
-    <nav>
-    
-            <ul class="pager">
-            <li class="previous">
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
                 <a href="a-more-thorough-explanation-and-example-on-how-to-make-a-d3js-line-graph.html" rel="prev" title="A more thorough explanation and example on how to make a D3.js line graph">Previous post</a>
             </li>
             <li class="next">
                 <a href="i-guess-posting-content-does-make-a-difference.html" rel="next" title="I guess posting content does make a difference">Next post</a>
             </li>
-        </ul>
-
-    </nav>
-    </aside>
-</article>
-
-        </div>
+        </ul></nav></aside></article>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
-<br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
 
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script>
-    
-<!-- Social buttons -->
-<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+            <script src="../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_twitter"></a>
 </div>
 <!-- End of social buttons -->
 
 
-    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script type="text/javascript">
+    </script><!-- end fancy dates --><script type="text/javascript">
   var _gaq = _gaq || [];
   var pluginUrl = 
     '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
@@ -386,7 +336,5 @@ heroku run python djangoapp/manage.py syncdb
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-
-
 </body>
 </html>

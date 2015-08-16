@@ -3,23 +3,14 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Make maps like a boss | NP Complete Heart</title>
-
-                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
-
-
-
-
-    
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-<script type="text/x-mathjax-config">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make maps like a boss | NP Complete Heart</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -31,35 +22,22 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="Adam Pah">
-        <meta property="og:site_name" content="NP Complete Heart">
-    <meta property="og:title" content="Make maps like a boss">
-    <meta property="og:url" content="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
-    <meta property="og:description" content="When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch ">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2014-05-17T08:05:40-05:00">
-
-    
-    
-
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
+<meta property="og:site_name" content="NP Complete Heart">
+<meta property="og:title" content="Make maps like a boss">
+<meta property="og:url" content="http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html">
+<meta property="og:description" content="When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-05-17T08:05:40-05:00">
 <link rel="stylesheet" href="assets/css/custom.css" type="text/css">
 </head>
-
 <body>
 
 <!-- Menubar -->
 <div class="wrapper">
 </div>
 <!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -76,7 +54,7 @@ MathJax.Hub.Config({
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="../rss.xml"><img src="../images/rss.png"></a>
                 </li>
 <li>
@@ -94,26 +72,17 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                
-            </ul>
-        </div>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-        <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Make maps like a boss</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Make maps like a boss</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
@@ -121,9 +90,7 @@ MathJax.Hub.Config({
             
         </div>
         
-    </header>
-
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>
 When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
@@ -151,8 +118,7 @@ To plot our own data we will need to get a GeoJSON or TopoJSON file that contain
 
 <p>
 Since the open source world is rocking geojson or topojson files we just need to convert our new shapefile over. To do this we will need to install ogr2ogr (which is a part of the GDAL package) and topojson. On OSX this can be accomplished with homebrew and node.js very simply by:
-<br>
-</p>
+<br></p>
 <pre>
 $ brew install gdal
 $ brew install node
@@ -162,15 +128,13 @@ $ node install -g topojson
 
 <p>
 For my needs I needed to plot data on Illinois zip codes so I downloaded the ZCTA (zip code tabulation area, not the exact same as zipcodes but close enough for me) file for Illinois. Proceeding with this file we first convert the shapefile to a geojson like so:
-<br>
-</p>
+<br></p>
 <pre>
 $ ogr2ogr -f illinois.json tl_2010_17_zcta510.shp
 </pre>
 <br>
 Next we convert the geojson to topojson. The only additional wrinkle from the geojson conversion is that we need to set the ID on each one of the areas (which is the same ID that we'll be binding to when we add data to the map). We can open up the geojson file and look at any of the "properties" entries to find the name of the needed key from the file. For the ZCTA file this key is "ZCTA5CE10". With that we convert the geojson to a topojson setting the ID and adding a zipcode property
-<br>
-<pre>
+<br><pre>
 $ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinois_topo.json
 </pre>
 
@@ -178,8 +142,7 @@ $ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinoi
 <h5>Step 3. Make one sweet map</h5>
 
 <p>This step is pretty simple. Take our new topojson file and the csv of data we have keyed on zipcode and throw it over the map like:
-<br>
-</p>
+<br></p>
 <pre>
 import folium
 import pandas as pd
@@ -202,9 +165,7 @@ city_map.create_map('city.html')
 and now we have a map which is embedded below!  The official library as it stands only has support for up to six colors. This wasn't enough for me, so I have a fork of it with additional color support added on my <a href="https://github.com/adamrpah/folium">github</a> page that anyone is welcome to (it also has diverging color scales!)
 <p></p>
 <p>pt src="http://d3js.org/queue.v1.min.js"&gt;
-<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"></p>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script><script src="http://d3js.org/topojson.v1.min.js"></script><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"></p>
 <style>
 
 <pre class="code literal-block">  <span class="nc">.legend</span> <span class="p">{</span>
@@ -223,7 +184,6 @@ and now we have a map which is embedded below!  The official library as it stand
 
 
 </style>
-
 <div id="map" style="width: 700px; height: 500px"></div>
 
 <script>
@@ -339,54 +299,37 @@ and now we have a map which is embedded below!  The official library as it stand
 </script>
 </div>
     </div>
-    <aside class="postpromonav">
-    <nav>
-    
-            <ul class="pager">
-            <li class="previous">
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
                 <a href="i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html" rel="prev" title="I wish I knew then what I know now (reproducible methods are awesome!)">Previous post</a>
             </li>
             <li class="next">
                 <a href="calculating-a-gini-coefficient.html" rel="next" title="Calculating a Gini Coefficient">Next post</a>
             </li>
-        </ul>
-
-    </nav>
-    </aside>
-</article>
-
-        </div>
+        </ul></nav></aside></article>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
-<br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
 
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script>
-    
-<!-- Social buttons -->
-<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+            <script src="../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_twitter"></a>
 </div>
 <!-- End of social buttons -->
 
 
-    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script type="text/javascript">
+    </script><!-- end fancy dates --><script type="text/javascript">
   var _gaq = _gaq || [];
   var pluginUrl = 
     '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
@@ -399,7 +342,5 @@ and now we have a map which is embedded below!  The official library as it stand
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-
-
 </body>
 </html>
