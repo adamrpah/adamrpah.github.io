@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So what is Big Data and Data Science? | NP Complete Heart</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
+<meta property="og:site_name" content="NP Complete Heart">
+<meta property="og:title" content="So what is Big Data and Data Science?">
+<meta property="og:url" content="http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html">
+<meta property="og:description" content="There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
+visualize its most common terms to give a sense of what is involved, like so:
+
+
+
+
+
+
+
+
+
+
+Others have tried t">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-09-09T21:00:11-05:00">
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css">
+</head>
+<body>
+
+<!-- Menubar -->
+<div class="wrapper">
+</div>
+<!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.npcompleteheart.com/">
+
+                <span id="blog-title">NP Complete Heart</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../rss.xml"><img src="../images/rss.png"></a>
+                </li>
+<li>
+<a href="../stories/about.html">About</a>
+                </li>
+<li>
+<a href="../pdf/curriculumvitae.pdf">Curriculum Vitae</a>
+                </li>
+<li>
+<a href="../stories/research.html">Research</a>
+                </li>
+<li>
+<a href="../stories/publications/publications.html">Publications</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">So what is Big Data and Data Science?</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-09-09T21:00:11-05:00" itemprop="datePublished" title="2015-09-09 21:00">2015-09-09 21:00</time></a></p>
+            
+        </div>
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div class="row">
+<div class="col-md-8">
+There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
+visualize its most common terms to give a sense of what is involved, like so:
+</div>
+<div class="col-md-4">
+<!--<img src='/images/ones_and_zeros.jpg'></img>-->
+<img src="http://d13zeczpqm2715.cloudfront.net/wp-content/uploads/2015/05/big-data2.jpg">
+</div>
+
+<!-- TEASER_END -->
+
+<div class="col-md-12">
+
+Others have tried to break it down into its key components, many times this means re-iterating the
+V's of big data
+<br><br><img src="http://sci2s.ugr.es/sites/default/files/files/TematicWebSites/BigData/v3.png" style="text-align: center;"><br><br>
+
+These V's are a constantly moving target though and it's hard to understand what they mean in
+application
+<br><br><img src="../images/vs_big_data.png" style="text-align: center;"><br><br>
+
+Big data is really a state, one that we have all currently entered into whether we realize it or
+not.
+<br><br><img src="../images/data_volume.png" style="text-align: center;"><br><br>
+
+That's why we need to equip ourselves with the programmatic skills to handle this influx of data.
+<br><br>
+
+The threshold for when some dataset becomes **big** is not absolute.
+<br><br>
+
+### Data is big whenever it outstrips your current capability handle it
+
+If you're a sociologist, big data happens when you want to analyze 1,000,000 survey responses
+instead of 1000. If you are a biologist, it happens when Excel crashes analyzing time course data
+from microfluidics. If you are an historian, it happens when you want to analyze 100 sources instead
+of 10.
+<br><br>
+
+### Data science goes hand in hand with big data
+
+Data science is really just a mixture of computer science, math and statistics, and domain
+knowledge. Some like to view it as a Venn diagram
+<br><br><img src="http://b-i.forbesimg.com/gilpress/files/2013/05/Data_Science_VD.png" style="text-align: center;"><br><br>
+
+But that's a silly distinction just like our Big Data V's.
+<br><br>
+
+### If big data is a state, then data science is just what we do in it
+
+The real change in big data isn't just the quantity of data, but the integration of data sources
+that have never been brought together before.
+<br><br>
+
+Data science covers a range of specialized areas, but most importantly it relies on creativity,
+asking the right questions, and statistical analysis to show that your hypothesis is right.
+<br><br>
+
+# So how will participating in a bootcamp help me?
+
+Lately there's been some talk about how the type of researcher we need to be is changing.
+<br><br><img src="https://jakevdp.github.io/images/pi_shaped.png" style="text-align: center;"><br><br>
+
+The classical research is called a *T-shaped* researcher. They have a broad, but shallow exposure to
+science and humanities from their undergraduate degree and then a deep specialization in their own
+domain.
+<br><br>
+
+Now people are talking about the need for *Pi-shaped*, modern researchers. One who not only have a
+deep domain specialization, but also understand how to use statistics and computing in their
+research as the size of their question, and the data it needs, grows.
+<br><br>
+
+The point of this bootcamp is to teach you basic skills in programming and data analysis. 
+<br><br><img src="../images/pi_nub.png" style="text-align:center"><br><br>
+
+We're trying to grow a little nub off your *T* of expertise. The skills that you learn this week
+will form the **foundation** (not entirety) of your growing arm of computational and statistical
+expertise.</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="follow-me-on-the-reading-rainbow.html" rel="prev" title="Follow me on the Reading Rainbow">Previous post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+<br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
+
+            
+        </footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_twitter"></a>
+</div>
+<!-- End of social buttons -->
+
+
+    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);  
+  _gaq.push(['_setAccount', 'UA-24774016-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
