@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (presentation)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/presentation.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 02:04:14 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>An introduction to the how and why of iPython Notebooks</title><link>http://www.npcompleteheart.com/posts/an-introduction-to-the-how-and-why-of-ipython-notebooks.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+This was a presentation and sample notebook that I whipped up for the Amaral lab to explain why and some basic hows of using iPython notebooks. This goes along with my previous &lt;a href="http://www.npcompleteheart.com/post/i-wish-i-knew-then-what-i-know-now-reproducible-me/"&gt;blog&lt;/a&gt; post and has this &lt;a href="http://nbviewer.ipython.org/gist/anonymous/f8e6d8985d2ea0e4bab1"&gt;gist&lt;/a&gt; to go along with it.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/36249217" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><category>ipython</category><category>presentation</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/an-introduction-to-the-how-and-why-of-ipython-notebooks.html</guid><pubDate>Tue, 24 Jun 2014 14:35:08 GMT</pubDate></item><item><title>Ever wanted to estimate small area effects in health data?</title><link>http://www.npcompleteheart.com/posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;h5&gt;
+Well now you sort of can!
+&lt;/h5&gt;
+
+&lt;p&gt;
+I just presented at AMIA on my methodology to use limited patient demographic/location data to estimate the number of patient cases at a smaller geographic locality. The methodology is split between a Monte Carlo simulation and GIS methods (Semi-variogram+Kriged Surface+Geographical Gaussian Simulation) to estimate patient cases. Currently the monte carlo part is already coded and freely available on my &lt;strike&gt;bitbucket&lt;/strike&gt;. The latter half of the code is coming as soon as we can identify an appropriate open source GIS library to port it the current code into.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/33430482" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;p&gt;&lt;/p&gt;&lt;div style="margin-bottom:5px"&gt; &lt;strong&gt; &lt;a href="https://www.slideshare.net/AdamPah/amia-cri-2014-san-francisco-patient-privacy-small-area-estimation-using-monte-carlo-methods" title="AMIA CRI 2014 San Francisco Patient Privacy Small Area Estimation using Monte Carlo Methods" target="_blank"&gt;AMIA CRI 2014 San Francisco Patient Privacy Small Area Estimation using Monte Carlo Methods&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href="http://www.slideshare.net/AdamPah" target="_blank"&gt;Adam Pah&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/div&gt;</description><category>presentation</category><category>research</category><guid>http://www.npcompleteheart.com/posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html</guid><pubDate>Fri, 11 Apr 2014 13:00:27 GMT</pubDate></item><item><title>Better late than never</title><link>http://www.npcompleteheart.com/posts/better-late-than-never.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I've been meaning to post my slides from my dissertation presentation for awhile. In general, I'm committing myself to practicing more "science in the open" (meaning my presentations/posters/code), so here is the embed link. Better late than never I always say.
+&lt;/p&gt;
+
+&lt;p&gt;
+I gave this presentation at Northwestern University on June 4, 2013 in order to attain the degree of Doctor of Philosophy in Biological Sciences. It goes along with the publication &lt;a href="http://www.nature.com/srep/2013/130422/srep01695/full/srep01695.html"&gt;"Use of a global metabolic network to curate organismal metabolic networks"&lt;/a&gt;. It also goes along with the &lt;a href="http://www.npcompleteheart.com/posts/metexplore.npcompleteheart.com"&gt;MetExplore&lt;/a&gt; application that I've detailed in the projects tab.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/30983226" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><category>presentation</category><category>research</category><guid>http://www.npcompleteheart.com/posts/better-late-than-never.html</guid><pubDate>Sat, 08 Feb 2014 12:49:13 GMT</pubDate></item></channel></rss>

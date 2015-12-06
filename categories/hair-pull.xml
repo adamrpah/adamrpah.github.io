@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (hair pull)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/categories/hair-pull.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:02:46 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Let me just scale this figure down 3 times, then skew it 1.5 times</title><link>http://www.npcompleteheart.com/posts/let-me-just-scale-this-figure-down-3-times-then-skew-it-15-times.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="journal image" src="http://www.npcompleteheart.com/images/publishing_figures.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+I won't lie, I don't find the process of submitting an academic manuscript or even the post-acceptance rigmarole to be pleasurable. However, the part of this process that most makes me want to put my head through the wall is the insistence of most journals on content being submitted in word documents and raster images.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;b&gt;This insistence is asinine.&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+Now let me be clear, I'm not stupid. I know that supporting additional input formats could make the process marginally more difficult or expensive for the journals to accommodate. But honestly, how much more could it reasonably cost to support pdf and vector images in the editorial process?
+&lt;/p&gt;
+
+&lt;h4&gt;blah blah blah, why does this even matter?&lt;/h4&gt;
+
+&lt;p&gt;
+I &lt;b&gt;care&lt;/b&gt; about what my work looks like. While I am more than satisfied with the formatting on manuscript texts that academic journals provide, I am far less happy with the support for images and the typical insistence on rasterized images being provided. Why is this such a sticking point for me? Because raster images look like ass when they are altered from their original size (some more than others, but all to some degree.
+&lt;/p&gt;
+
+&lt;p&gt;
+The size that any arbitrary journal decides to publish your figure in is relatively arbitrary as far as I can tell, it may or may not be compressed or stretched and margins will differ between different journal templates. When I provide a vector image (in eps/ps/svg format for those interested) the graphic can be scaled to within reason and still look nice and crisp as I intended in a relatively small file size. While it won't be perfect (text may get too small or big if it's scaled down) at the very least it will always look at least &lt;b&gt;good&lt;/b&gt; (in my mind at least) and, more importantly, &lt;b&gt;crisp&lt;/b&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Raster images (png/jpg/tiff for the curious) provide none of that. Raster images are built for the size of the original canvas since they are a bitmap. To change the size in any way means either discarding pixel information or inferring it based on the color values of nearby, known cells in the pixel grid. This means that changing the size causes a loss in crispness, &lt;b&gt;especially for text&lt;/b&gt;, and that your resulting image will end up looking like ass.
+&lt;/p&gt;
+
+&lt;p&gt; 
+I say this because in my last paper I provided an eps image of the chart that I've set as the image of this post. It looks fine at most sizes as an eps, until it gets rather small and that's largely because it needs to be a rather large chart. But when the tiff file for it is resized, it ends up looking rather horrible. However, since this is such a large chart I need to know the dimensions that it will be published as in order for me to optimize the raster image, which I can't do until the proof stage. So now the process becomes:
+&lt;br&gt;
+&lt;/p&gt;&lt;ol&gt;
+&lt;li&gt;Submit placeholder image to journal&lt;/li&gt;
+&lt;li&gt;Go through review process&lt;/li&gt;
+&lt;li&gt;Get accepted proof, measure published image dimensions&lt;/li&gt;
+&lt;li&gt;Resubmit altered raster image to published dimensions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+All told, I think that process &lt;b&gt;sucks&lt;/b&gt; for both me and the journal. Especially because the method for distribution is predominantly moving to the internet where &lt;b&gt;none of these concerns even matter&lt;/b&gt;.
+&lt;/div&gt;</description><category>academia</category><category>hair pull</category><category>research</category><category>soapbox</category><guid>http://www.npcompleteheart.com/posts/let-me-just-scale-this-figure-down-3-times-then-skew-it-15-times.html</guid><pubDate>Sun, 16 Nov 2014 14:39:55 GMT</pubDate></item></channel></rss>

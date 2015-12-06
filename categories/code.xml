@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (code)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://www.npcompleteheart.com/categories/code.xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:05:13 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-8"&gt;
+Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
+time to pay her back and help her get a website up and running. I went over the options that I knew
+(Nikola, Django, Node.js, Ruby on Rails) and it became quickly apparent that none of those were
+options that she liked. Instead she wanted to take a wordpress site that she made in a class and add
+some more to it/fix it up. The only logistical issue is that it's hard to find a wordpress host for
+free that allows you to use a custom domain (she's about to graduate from school so it's important
+that she have a real website name). For that privilege wordpress.org charges you $8/mon, which,
+while I may know nothing about Wordpress, I find to be crazy.
+&lt;/div&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/wordpress_heroku.png"&gt;
+&lt;/div&gt;
+
+&lt;!-- TEASER_END --&gt;
+&lt;div class="col-md-12"&gt;
+So instead I went around searching for how to shoehorn Wordpress onto Heroku's Cedar stack (which is
+where Django ends up). Luckily others have already had this desire and it was super easy!  Using
+this &lt;a src="https://github.com/mhoofman/wordpress-heroku"&gt;github&lt;/a&gt; repository and README I had the
+wordpress site up and running in seconds. Woot!
+&lt;/div&gt;
+&lt;/div&gt;</description><category>code</category><category>random</category><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Generate torque submission scripts</title><link>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+Most of us use some form of Torque in an academic environment to run scripts on a cluster. Typically I would have some form of script to generate the necessary qsub scripts for submission, but it wasn't ever generic enough. So this has been my working stab at making that happen. 
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+Here is how it works, say that you have a program called "cure_cancer.py" that you want to run on the cluster that takes no arguments. All you would do is type:
+
+&lt;/p&gt;&lt;pre&gt;
+$ generate_qsub cure_cancer.py
+&lt;/pre&gt;
+
+and then it will generate some file like:
+
+&lt;pre&gt;
+$ ls
+qsub_cure_cancer_897234.sh
+&lt;/pre&gt;
+
+that can be submitted on a cluster normally like:
+
+&lt;pre&gt;
+$ qsub qsub_cure_cancer_897234.sh
+&lt;/pre&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;h5&gt;
+Basic submission with arguments
+&lt;/h5&gt;
+&lt;p&gt;
+But what if your script needs an argument, like the filename it should read in?  Simple enough actually.
+
+&lt;/p&gt;&lt;pre&gt;
+$ generate_qsub cure_cancer.py whole_lotta_cancer.csv
+&lt;/pre&gt;
+
+The script supports an arbitrary number of command arguments, they just have to follow after the program name, be in the correct order for your script, and not contain spaces (REPEAT, NO SPACES IN FILENAMES). Pretty simple. 
+
+
+&lt;h5&gt;
+Basic submission with keyword arguments
+&lt;/h5&gt;
+
+&lt;p&gt;
+Sometimes we write a program with options to make something more flexible. So we could add to our cancer program to change the parameters of the model like so:
+&lt;/p&gt;&lt;pre&gt;
+$ python cure_cancer.py --alpha 0.5 --beta 0.3
+&lt;/pre&gt;
+The qsub generation script supports that too! You just have to tell it so, like:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py --kwargs '{"alpha": 0.5, "beta":0.3}'
+&lt;/pre&gt;
+It just needs to be the name that is given with the '--' option (so no single letters). Also, you can of course use the additional keyword arguments with command line arguments like so:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py whole_lotta_cancer.csv --kwargs '{"alpha": 0.5, "beta":0.3}'
+&lt;/pre&gt;
+That's the end of the basic usage. The generation script automatically recognizes the script type and can differentiate between python and bash.
+&lt;p&gt;
+
+&lt;/p&gt;&lt;h5&gt;
+Advanced (Options usage)
+&lt;/h5&gt;
+&lt;p&gt;
+There are three additional options to the script that are slightly more advanced. They are: 
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;"--home_repl"&lt;/li&gt;
+&lt;li&gt;"--execute"&lt;/li&gt;
+&lt;li&gt;"--temporary"&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+How to use them:
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;--home_repl&lt;br&gt;
+Allows you to do a custom replacement of the "home" address when specifying where the qsub script should say it executes/errors should be placed.
+This is great when you're creating the qsub script on a computer that doesn't share the same structure as the cluster (i.e. if you're like me and create the qsub on your laptop or you have a different cluster that you'll execute the file on). Its usage is pretty simple:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py --home_repl /home/visitors/adampah/
+&lt;/pre&gt;
+&lt;/li&gt;
+
+&lt;li&gt;--execute
+&lt;br&gt;
+After generating the file it will automatically add the job to the queue. This option can only be used when you generate the file on the cluster. Also, please run it dry at least once if you're planning to batch submit a large number of jobs
+&lt;/li&gt;
+
+&lt;li&gt;
+--temporary
+&lt;br&gt;
+Deletes the generated qsub file, can only be used with the execute option. For those that don't want file cruft.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+So here is the code!
+
+&lt;/p&gt;&lt;pre&gt;
+#!/usr/bin/env python
+
+'''
+File: qsub_generator.py
+Author: Adam Pah
+Description: 
+Generates a qsub file for a program to aid in job submission to 
+a torque scheduler.
+
+Usage is:
+    qsub_generator.py program_file optional_arg1 optional_arg2 --kwargs '{"string":"dictionary","on":"command_line"}'
+'''
+
+#Standard path imports
+from optparse import OptionParser
+import os
+import sys
+import json
+import random
+
+#Non-standard imports
+
+#Global directories and variables
+
+qsub_text='''
+#! /bin/bash
+#PBS -d %s/
+#PBS -e %s/%s.error
+#PBS -o %s/%s.out
+#PBS -N %s
+#PBS -q low
+
+%s
+'''
+
+def write_qsub_file(current_dir, wfname, wfpartial, commandLine, opt):
+    '''
+    Writes a qsub file given the generated contents and makes it executable
+    '''
+    wfile = open(wfname, 'w')
+    print &amp;gt;&amp;gt; wfile, qsub_text % (current_dir,
+                                 current_dir,
+                                 wfpartial,
+                                 current_dir,
+                                 wfpartial,
+                                 wfpartial,
+                                 commandLine)
+    wfile.close()
+    #Change the permissions  
+    os.chmod(wfname, 0755)
+    #Do the hacking, execute and possibly delete the file
+    if opt.execute:
+        os.system('qsub %s' % wfname)
+        if opt.temporary:
+            os.system('rm %s' % wfname)
+
+def generate_command_line(fname, fext, cmd_args, cmd_kwargs):
+    '''
+    Generates the bash script
+    '''
+    commandLine = '' 
+    #Get the correct starting command
+    if fext:
+        if fext=='.py':
+            commandLine += 'python '
+        elif fext=='.sh':
+            commandLine += 'bash '
+        else:
+            commandLine += './'
+        #append the program name
+        commandLine += fname + fext
+    else:
+        commandLine += './' + fname
+    #Add the program arguments
+    if cmd_args:
+        commandLine += ' ' + ' '.join(cmd_args)
+    if cmd_kwargs:
+        for k,v in cmd_kwargs.items():
+            commandLine += ' --'+str(k)+' '+str(v)
+    return commandLine
+
+def pull_current(opt):
+    '''
+    Pulls the current directory with home path substition if one is given in as opt.home_repl
+    '''
+    current_dir = os.getcwd()
+    if opt.home_repl:
+        if opt.home_repl != current_dir[:len(opt.home_repl)]:
+            current_dir = os.path.join(opt.home_repl, current_dir.lstrip(os.environ['HOME']))
+    return current_dir
+
+def generate_savename(fname, fext):
+    '''
+    Generates the filename to save the qsub script to
+    '''
+    obstructed_filename = True
+    while obstructed_filename:
+        wfpartial = '%s_%d' % (fname, random.randint(0, 9999999))
+        wfname = 'qsub_%s.sh' % wfpartial
+        if not os.path.exists(wfname):
+            obstructed_filename = False
+    return wfname, wfpartial
+
+def main(args, opt):
+    '''
+    Main function for calling.
+    '''
+    #Separate the program arguments from the input arguments
+    cmd_args, cmd_kwargs = [], []
+    if len(args)&amp;gt;1:
+        cmd_args = args[1:]
+    if opt.kwargs:
+        cmd_kwargs = json.loads(opt.kwargs)
+    #Get the current directory, modify it if a different home is set
+    current_dir = pull_current(opt)
+    #The executing scripts name
+    fname, fext = os.path.splitext(os.path.basename(args[0]))
+    wfname, wfpartial = generate_savename(fname, fext)
+    commandLine = generate_command_line(fname, fext, cmd_args, cmd_kwargs)
+    write_qsub_file(current_dir, wfname, wfpartial, commandLine, opt)
+
+if __name__ == '__main__':
+    usage = '''%prog qsub_generator.py program_file optional_arg1 optional_arg2 --kwargs '{"string":"dictionary","on":"command_line"}' '''
+    parser = OptionParser(usage = usage)
+    parser.add_option('--kwargs', action='store', default=None,
+                      help="String dictionary of keyword arguments to submit to program")
+    parser.add_option('--home_repl', action='store', default=None,
+                      help="path to replace up to the user directory with")
+    parser.add_option('--execute', action='store_true', default=False,
+                      help="Submits qsub script immediately after creation. Only use if on cluster")
+    parser.add_option('--temporary', action='store_true', default=False,
+                      help="Removes the qsub script immediately after submitting with the --execute option")
+    (opt, args) = parser.parse_args()
+    #Check that temporary isn't used without execute
+    if opt.temporary and not opt.execute:
+        print &amp;gt;&amp;gt; sys.stderr, "--temporary option is meant to be used with --execute option.\n" + \
+                             "Otherwise I would just generate and then delete files immediately, doing nothing.\n" + \
+                             "Continuing, but not respecting your choice and deleting the file."
+    #There must be an initial argument or else this ship is sunk
+    if len(args)&amp;gt; sys.stderr, m
+        sys.exit()
+    main(args, opt)
+&lt;/pre&gt;
+&lt;/div&gt;</description><category>code</category><category>hpc</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</guid><pubDate>Sat, 07 Jun 2014 14:34:11 GMT</pubDate></item><item><title>Calculating a Gini Coefficient</title><link>http://www.npcompleteheart.com/posts/calculating-a-gini-coefficient.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+For whatever reason none of the python packages have a function to calculate the Gini coefficient, which is a fairly standard metric for inequality used in economics circles. I wrote this function but I wanted to explain if first.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;h5&gt;A quick example&lt;/h5&gt;
+
+&lt;p&gt;
+Let's say that we have four individuals who are sharing 16 apples and we want to measure if the apples are equally distributed or not. If every individual has four apples then we have a list like so:
+&lt;/p&gt;&lt;pre&gt;
+apple_distribution = [4, 4, 4, 4]
+&lt;/pre&gt;
+and when we convert it to percentages (since the Gini is scaled from 0 to 100%) we have:
+&lt;pre&gt;
+apple_percs = [0.25, 0.25, 0.25, 0.25]
+&lt;/pre&gt;
+Now we just plot the cumulative of these points, which results in this graph
+&lt;a style="text-align:center" href="http://s529.photobucket.com/user/damagedtoo/media/Photobucket%20Desktop%20-%20ariel/Website/958E5C04-7CE0-4951-B3DB-9BF18E146BBD_zpsb2igjg1j.jpg.html" target="_blank"&gt;&lt;img src="http://i529.photobucket.com/albums/dd335/damagedtoo/Photobucket%20Desktop%20-%20ariel/Website/958E5C04-7CE0-4951-B3DB-9BF18E146BBD_zpsb2igjg1j.jpg" border="0" alt=" photo 958E5C04-7CE0-4951-B3DB-9BF18E146BBD_zpsb2igjg1j.jpg"&gt;&lt;/a&gt;
+
+
+&lt;p&gt;
+Since the Gini is effectively the difference in area between the line of equality (y=x) and the area under the Lorenz curve (which is generated from our data), we need to calculate the area under the curve for our data. Taking each bar separately and looking at the dashed line from the picture, we see that there are two components to each bar, because only half of the area for the new value that we are add is under the curve. This means that the first part of the bar is the full area for the previous height, and half of the area for the new value that we add.
+&lt;/p&gt;
+
+&lt;h5&gt;The code&lt;/h5&gt;
+
+&lt;p&gt;
+The code is relatively simple, it takes in an arbitrary list of data and calculates the Gini coefficient. If the values are already calculated as frequencies then it proceeds, but if the values are raw counts then it converts them to frequencies (if the sum of the list is greater than 1.0 it performs this conversion). The only real error handling is if the sum of the values equals zero, since this introduces wonky behavior.
+&lt;/p&gt;&lt;pre&gt;
+def gini(data):
+    ''' 
+    Calculates the gini coefficient for a given dataset.
+    input:
+        data- list of values, either raw counts or frequencies. 
+              Frequencies MUST sum to 1.0, otherwise will be transformed to frequencies
+              If raw counts data will be transformed to frequencies.
+    output:
+        gini- float, from 0.0 to 1.0 (1.0 most likely never realized since it is
+              only achieved in the limit)
+    '''
+
+    def _unit_area(height, value, width):
+        ''' 
+        Calculates a single bars area.
+        Area is composed of two parts:
+            The height of the bar up until that point
+            The addition from the current value (calculated as a triangle)
+        input:
+            height: previous bar height or sum of values up to current value
+            value: current value
+            width: width of individual bar
+        output:
+            bar_area: area of current bar
+        '''
+        bar_area = (height * width) + ((value * width) / 2.) 
+        return bar_area
+
+    #Fair area will always be 0.5 when frequencies are used
+    fair_area = 0.5 
+    #Check that input data has non-zero values, if not throw an error
+    datasum = float(sum(data))
+    if datasum==0:
+        import sys
+        m = 'Data sum is 0.0.\nCannot calculate Gini coefficient for non-responsive population.' 
+        print m
+        sys.exit()
+    #If data does not sum to 1.0 transform to frequencies
+    if datasum!=1.0:
+        data = [x/datasum for x in data]
+    #Calculate the area under the curve for the current dataset
+    data.sort()
+    width = 1/float(len(data))
+    height, area = 0.0, 0.0 
+    for value in data:
+        area += _unit_area(height, value, width)
+        height += value
+    #Calculate the gini
+    gini = (fair_area-area)/fair_area
+    return gini
+&lt;/pre&gt;
+&lt;/div&gt;</description><category>code</category><category>math</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/calculating-a-gini-coefficient.html</guid><pubDate>Sun, 18 May 2014 14:33:15 GMT</pubDate></item><item><title>Make maps like a boss</title><link>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+So far I've been working with a GIS specialist (if you've looked at the maps in my small area estimation &lt;a href="http://npcompleteheart.com/post/ever-wanted-to-estimate-small-area-effects-in-heal/"&gt;post&lt;/a&gt; those are from him), but that's not an ideal situation when I only need a quick picture or to look at how data is distributed in space. When I needed to place data on a map previously I typically needed interactivity, so I would make a visualization with D3.js. But now I just need to make lots of maps quickly to just do exploratory analysis. Fortunately, I was looking for a solution right around the time the PyData conference was happening and I saw Rob Story's &lt;a href="https://speakerdeck.com/wrobstory/up-and-down-the-python-data-and-web-visualization-stack"&gt;presentation on  &lt;/a&gt;&lt;a href="http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb"&gt;Up and Down the Python Data and Web Visualization Stack"&lt;/a&gt;. This talk turned me onto Folium, especially after seeing it work with iPython notebook (which has become one of my favorite workflow tools).
+&lt;/p&gt;
+
+&lt;h4&gt;Making maps with Folium&lt;/h4&gt;
+
+&lt;p&gt;
+...is pretty damn easy. If you follow the examples on the Gitub &lt;a href="https://github.com/wrobstory/folium"&gt;page&lt;/a&gt; with the example data you will be making maps in no time. Now comes the fun part, making maps with our own data!
+&lt;/p&gt;
+
+&lt;h5&gt;Step 1. Obtain Shapefile data&lt;/h5&gt;
+
+&lt;p&gt;
+To plot our own data we will need to get a GeoJSON or TopoJSON file that contains the path information about how to draw boundaries on the map. Unfortunately, the predominant file type for geographic data is a shapefile and geojson or topojson files are pretty scarce on the web. For the USA though we can easily get maps at all geographic resolutions from the &lt;a href="http://www.census.gov/geo/maps-data/data/tiger-line.html"&gt;census/TIGER&lt;/a&gt; website.
+&lt;/p&gt;
+
+&lt;h5&gt;Step 2. Converting from shapefile-&amp;gt;geojson-&amp;gt;topojson&lt;/h5&gt;
+
+&lt;p&gt;
+Since the open source world is rocking geojson or topojson files we just need to convert our new shapefile over. To do this we will need to install ogr2ogr (which is a part of the GDAL package) and topojson. On OSX this can be accomplished with homebrew and node.js very simply by:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ brew install gdal
+$ brew install node
+$ node install -g topojson
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+For my needs I needed to plot data on Illinois zip codes so I downloaded the ZCTA (zip code tabulation area, not the exact same as zipcodes but close enough for me) file for Illinois. Proceeding with this file we first convert the shapefile to a geojson like so:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ ogr2ogr -f illinois.json tl_2010_17_zcta510.shp
+&lt;/pre&gt;
+&lt;br&gt;
+Next we convert the geojson to topojson. The only additional wrinkle from the geojson conversion is that we need to set the ID on each one of the areas (which is the same ID that we'll be binding to when we add data to the map). We can open up the geojson file and look at any of the "properties" entries to find the name of the needed key from the file. For the ZCTA file this key is "ZCTA5CE10". With that we convert the geojson to a topojson setting the ID and adding a zipcode property
+&lt;br&gt;
+&lt;pre&gt;
+$ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinois_topo.json
+&lt;/pre&gt;
+
+
+&lt;h5&gt;Step 3. Make one sweet map&lt;/h5&gt;
+
+&lt;p&gt;This step is pretty simple. Take our new topojson file and the csv of data we have keyed on zipcode and throw it over the map like:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+import folium
+import pandas as pd
+import numpy as np
+&lt;p&gt;df = pd.read(csv_file)
+bins = list(np.linspace(df['feature'].min(), df['feature'].max(), 6))
+city_map = folium.Map(location=[41.8819, -87.6278], width='700', tiles='Stamen Toner',  zoom_start=10)
+city_map.geo_json(geo_path='illinois_topo.json', topojson='objects.illinois',
+                             data=df, 
+                             threshold_scale=bins,
+                             columns=['zipcode', 'feature'], 
+                             key_on='feature.id',
+                             fill_opacity=1, 
+                             line_opacity=1,
+                             fill_color='PuBuGn',
+                             reset=True)
+city_map.create_map('city.html')
+&lt;/p&gt;&lt;/pre&gt;
+&lt;br&gt;
+and now we have a map which is embedded below!  The official library as it stands only has support for up to six colors. This wasn't enough for me, so I have a fork of it with additional color support added on my &lt;a href="https://github.com/adamrpah/folium"&gt;github&lt;/a&gt; page that anyone is welcome to (it also has diverging color scales!)
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;pt src="http://d3js.org/queue.v1.min.js"&amp;gt;
+&lt;script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"&gt;&lt;/script&gt;
+&lt;script src="http://d3js.org/topojson.v1.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"&gt;&lt;/p&gt;
+&lt;style&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nc"&gt;.legend&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt; &lt;span class="k"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;box&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shadow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;15px&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;5px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="nc"&gt;.key&lt;/span&gt; &lt;span class="nt"&gt;path&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;/style&gt;
+
+&lt;div id="map" style="width: 700px; height: 500px"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nx"&gt;queue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/asthma.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/topo_illinois.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;await&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+      &lt;span class="nx"&gt;topo_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;topojson&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;illinois&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+          &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;parseFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+          &lt;span class="p"&gt;};&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;threshold&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;89.743589743589737&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;179.48717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;269.23076923076923&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;448.71794871794867&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;538.46153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;628.20512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;807.69230769230762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;897.43589743589735&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;987.17948717948707&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1166.6666666666665&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1256.4102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1346.153846153846&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1525.6410256410256&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1615.3846153846152&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1705.1282051282051&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1884.6153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1974.3589743589741&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2064.102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2243.5897435897436&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2333.333333333333&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2423.0769230769229&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2602.5641025641025&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2692.3076923076919&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2782.0512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2961.5384615384614&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3051.2820512820513&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3141.0256410256407&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3320.5128205128203&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3410.2564102564102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3500.0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#f6eff7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#f0eaf4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#eae5f1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#e4e1ef&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#dedcec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d8d7e9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d2d3e7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#cccfe5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#c6cce3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#bfc9e1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b9c6e0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b2c3de&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#acc0dc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#a6bddb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#9cb9d9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#92b6d7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#88b3d5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#7fb0d3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#75add1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#6baacf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#63a7cd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#5ba3cb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#549fc9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4c9bc6&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4597c4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3d93c2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3690c0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#2e8db7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#268baf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#1e89a7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#16869e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#0e8496&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#06828e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017e85&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017a7c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017573&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#01716a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016c61&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016858&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016450&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;setView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;41.8819&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;87.6278&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+      &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tileLayer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="nx"&gt;maxZoom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="nx"&gt;attribution&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/3.0&amp;quot;&amp;gt;CC BY SA&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;
+      &lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+
+
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;fillColor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    &lt;span class="nx"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;opacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;fillOpacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;      &lt;span class="nx"&gt;gJson_layer_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;geoJson&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;topo_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+
+          &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;legend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;control&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nx"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;topright&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onAdd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;DomUtil&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;linear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3850&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;xAxis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;orient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;top&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickSize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickValues&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.legend.leaflet-control&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;svg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;450&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;g&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;transform&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;translate(25,16)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;selectAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="p"&gt;}))&lt;/span&gt;
+  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;enter&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fill&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;xAxis&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;caption&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Number of Asthma Cases, 2006-2012&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+  &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;/script&gt;&lt;/div&gt;</description><category>code</category><category>gis</category><category>python</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</guid><pubDate>Sat, 17 May 2014 13:05:40 GMT</pubDate></item><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
+
+&lt;p&gt;There are a number of points that I want to hit on in the future but for now  I want to focus on:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Creating a standard library&lt;/li&gt;
+        &lt;li&gt;Record-keeping and on the fly analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;A standard library&lt;/h4&gt;
+
+&lt;p&gt;When I first started programming libraries were so &lt;strong&gt;damn&lt;/strong&gt; impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;There are many repetitive tasks, many that only take a line or two of code, such as parsing certain types of files that we willing type whenever the need arises. This isn’t really bad behavior, but it would be better to put these helper functions in a single place so that they can be called from anywhere (such as an interactive terminal or notebook session) and so that when we encounter a new feature we can add it into our code. Even more important is when we write more complicated functions or process data. With a standard function it’s easier to justify putting more time into testing the function and we never have to worry about slightly different processing based on fuzzy memory.&lt;/p&gt;
+
+&lt;p&gt;So what does this look like in practice? I made myself a “library” called &lt;span class="caps"&gt;GALE&lt;/span&gt; (“General Analytical Library Extensions” for the curious) and the structure is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;| GALE/
+|-&amp;gt; .hg/
+|-&amp;gt; gale/
+|--&amp;gt; __init__.py
+|--&amp;gt; functional_domain/
+|---&amp;gt; __init__.py
+|---&amp;gt; function.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why the double naming convention? Because I wanted to import with the gale name and have the name preserved in the repository so that it’s consistent even if I forget to name it properly when I clone it on a new machine. Otherwise, the structure is simple—-inside gale there are folders for a domain of code and then appropriately named python files containing functions are stored within those folders (and the &lt;i&gt;init&lt;/i&gt;.py files so that it’s all importable). As an example, since I’m  working with patient Electronic Health Records now I have inside gale a folder like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-&amp;gt; gale/
+|--&amp;gt; medical/
+|---&amp;gt; icd9Formatter.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The icd9Formatter file has all of the functions I use to translate ICD-9 codes to different ontologies or parse/clean the codes into a consistently readable format that my other modules will know how to use.&lt;/p&gt;
+
+&lt;p&gt;To make these code files useful everywhere we just need to add the library to our python path, which is easily accomplished by adding:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PYTHONPATH=$PYTHONPATH:/Your/Path/To/GALE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to our .bashrc file. After opening a new terminal or typing `source ~/.bashrc` this code will be accessible in any other program or interactive interpreter just by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import gale.medical.icd9Formatter as icdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To help paint the picture a little more completely this is the list of domains that I currently have in my library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;drwxr-xr-x  7 adampah  staff   238B Apr  3 10:39 databases
+drwxr-xr-x  8 adampah  staff   272B Apr  3 10:39 fileIO
+drwxr-xr-x  5 adampah  staff   170B Mar 16 21:52 general
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 graphMaths
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 graphs
+drwxr-xr-x  6 adampah  staff   204B Apr  8 10:42 medical
+drwxr-xr-x  4 adampah  staff   136B Apr  8 10:42 networks
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 settings
+drwxr-xr-x  6 adampah  staff   204B Apr  7 20:33 stats
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 timeseries
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this should all change based upon the type of research that you do. The key here is to not worry about writing a perfect function that will be as useful today as it will be in 20 years. The real value lies in just starting quickly and getting something down. After starting it’s much easier to get into the habit of adding simple helper functions to this central library than to keep building it into individual code pieces. &lt;span class="caps"&gt;DRY&lt;/span&gt; principles are great, letting ourselves be lazier while simultaneously being more productive is best (even better now this code can travel with you everywhere, on any computer, and always be accessible). &lt;/p&gt;
+
+&lt;h4&gt;Record-keeping and on-the-fly analysis&lt;/h4&gt;
+
+&lt;p&gt;Why on god’s green earth would these two subjects go together you ask? Because, as pythonistas, we will use the same damn tool for both, that’s why. Enter iPython Notebooks.&lt;/p&gt;
+
+&lt;p&gt;iPython Notebooks are finally ready for primetime in general usage I think. Why?&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;It has the ability to traverse directory structures now (iPython notebooks can be put in with&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;a repository now without starting up multiple notebook servers)
+&lt;/p&gt;&lt;ul&gt;
+        &lt;li&gt;Interactive features are compelling&lt;/li&gt;
+        &lt;li&gt;Accessibility and easy to show others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;iPython Notebook can come with iPython, or you might have to install it as a separate install  (all depends on how you decide to install it and your operating system. In any case you can start it up just by going `ipython notebook` on the command line. The service will start up and if you navigate your browser to http://localhost:8888 you will find the directory page. Here you can start a new notebook in any folder and it will open in a new browser. You can do just about anything that you want in these  active notebooks and some great examples can be found at the [github](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) page for ipython.  Next you can set up iPython notebooks on a desktop to be accessible (and password protected! make sure to do that part too!) from anywhere following this tutorial from [Thomas Sileo](http://thomassileo.com/blog/2012/11/19/setup-a-remote-ipython-notebook-server-with-numpyscipymaltplotlibpandas-in-a-virtualenv-on-ubuntu-server/). If you want to use a virtual environment you can follow the instructions exactly, or you can just skip that part and just let ipython notebook to use the system installed packages.&lt;/p&gt;
+
+&lt;p&gt;One last thing. I have been a real believer of using “in-line” images with the notebooks instead of having it pop up an interactive plot of the graph (the way matplotlib does typically from the command line). The primary reason is that after the graph is generated once it will remain in the notebook, even if it is shut down. That way you can close/shut down a notebook and when you open it again the graph will still be there. This makes it much more like a “real” lab notebook and allows for quick reference.  To do this we need to generate a notebook configuration file, from the command line we do this as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ipython profile create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output of this command it will tell you where it is storing your configuration files (changes based on operating system). Now edit the ‘ipython_notebook_config.py’ file which should be located at:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/.ipython/profile_default/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then change line 258 from &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# c.IPKernelApp.matplotlib = ‘’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c.IPKernelApp.matplotlib = ‘inline’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Voila!&lt;/p&gt;
+
+&lt;p&gt;Now, why is an iPython notebook so great? There’s a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Access your workstation from anywhere, with the same installed packages&lt;/li&gt;
+        &lt;li&gt;In-line plotting/analysis of data without having to run an X session (interactive X will frequently time out on me over long sessions, so I’ll need to start up a new connection to re-enable it)&lt;/li&gt;
+        &lt;li&gt;Ability to use bash commands, python, R, and many other languages simultaneously if configured properly&lt;/li&gt;
+        &lt;li&gt;Easy to show work to others&lt;/li&gt;
+        &lt;li&gt;Switch between code blocks and markdown blocks. This is important, in markdown blocks you should be ideally writing &lt;strong&gt;why&lt;/strong&gt; you are doing this research and what the analysis is. You can also include the commands or code used to generate the data that you are manipulating quickly.&lt;/li&gt;
+        &lt;li&gt;Embed images just like on any other web page. So even if you don’t generate images with matplotlib you can embed them in the notebook just using regular html. This makes it easy to keep track of results and important files from your analysis.&lt;/li&gt;
+        &lt;li&gt;Ability to very quickly do analysis, especially when you import functions from your standard library to quickly handle data manipulation!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All in all, iPython notebook has really come of age. The only thing it’s really missing at this point is robust support for multiple users on a single notebook instance.&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>development</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</guid><pubDate>Thu, 17 Apr 2014 13:01:36 GMT</pubDate></item><item><title>Pandas + Matplotlib + Looking pretty good</title><link>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="pandas and matplotlib" src="http://www.npcompleteheart.com/images/pandas_matplotlib.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+Typically matplotlib produces plots that look, well, horrible. This can be a little bit of a pain, especially because I've switched my workflow to lean heavily on ipython notebook to maintain a lab notebook. This means removing xmgrace from my workflow except for manuscript figure preparation since it won't show up inline unless I make the plot, save it as a png, move the file to the notebook directory, and then link the file in a text section. Not exactly user friendly or an improvement to my workflow. Unfortunately, just because I want to make plots in python for exploration doesn't mean that I can tolerate ugly graphs and that godforsaken default font.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+So far I have two solutions and I'm quite happy with both (although neither one fixes the fact that matplotlib somehow renders an eps and makes it scale like a png). The first one has been to use prettyplotlib, which looks nice but is its own library and inherits from matplotlib. It sounds like this will eventually get merged as a style file into matplotlib in the future, which is great. The other way I describe below.
+&lt;/p&gt;
+
+&lt;h4&gt;mpltools with "ggplot"&lt;/h4&gt;
+
+&lt;p&gt;
+I'll be honest, I really do like ggplot in R but I don't think that the default grey background is the best for paper figures (looks great on the web though). Using mpltools you can easily change the style of plots using a simple style command like:
+&lt;/p&gt;&lt;pre&gt;
+from mpltools import style
+style.user("ggplot")
+&lt;/pre&gt;
+Even better, this is now in the matplotlib master branch!
+
+
+&lt;p&gt;
+So now the best part is that it's easy to get generated using a default matplotlib command and have it look pretty decent. This is especially important when using pandas, because now I can just:
+&lt;/p&gt;&lt;pre&gt;
+import pandas as pd
+df = pd.read_csv('age_data.csv')
+df.age.hist(label='Age',  color='steelblue')
+plt.ylabel('Count')
+plt.legend()
+&lt;/pre&gt;
+and get the result below.
+&lt;/div&gt;</description><category>code</category><category>matplotlib</category><category>pandas</category><category>plots</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html</guid><pubDate>Mon, 31 Mar 2014 12:59:11 GMT</pubDate></item><item><title>A little something extra for managing PyMongo</title><link>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I really dislike boilerplate code, it drives me a little bit crazy. Starting database connections falls squarely into that realm. So in the vein of "sharing is caring" here is what I'm currently using with pymongo. It's pretty simple, but why code it twice right?
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+It's  pretty simple script that only contains one class: MongoConnection. It needs to be initialized with a dictionary containing the connection parameters (preferably stored in a config file that you're just feeding in) like so.
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+settings = {
+  'user' : 'username',
+  'pasword' : 'password',
+  'host' : 'hostname',
+  'port' : 'port',
+  'db': 'db_name',
+  'collection': 'collection_name'
+}
+
+import MongoConnect as mcxn
+dbConnection = mcxn.MongoConnection(settings)
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+With that it will have already initialized the specific database and collection needed, right away you can:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+#Insert a document
+dbConnection.collection.insert({"body": "I am a sample document body", "name": "FunnyBunny"})
+#Find that document!
+dbConnection.collection.find({"name" : "FunnyBunny"})
+#Close the connection to the database!
+dbConnection.tearDown()
+#Reopen it after closing it! Just go wild!
+dbConnection.connect()
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+So that's about it.  There is some basic error handling, which is to say don't push it.
+&lt;/p&gt;
+
+&lt;p&gt;
+The previous code is scratched, a new better version can be found in a &lt;a href="https://gist.github.com/adamrpah/18f67498daf8fb8573a3"&gt;gist&lt;/a&gt; that I will regularly update. Alternatively, you can just copy this &lt;a href="https://gist.githubusercontent.com/adamrpah/18f67498daf8fb8573a3/raw/15b11b9db449cf72b3e6870ddc7dbc3f0dd74b45/mongoConnect.py"&gt;url&lt;/a&gt; and use wget to download the script :)
+&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>mongodb</category><category>pymongo</category><category>python</category><guid>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo.html</guid><pubDate>Tue, 17 Dec 2013 12:46:48 GMT</pubDate></item></channel></rss>

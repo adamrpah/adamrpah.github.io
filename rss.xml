@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link href="http://www.npcompleteheart.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 02 Dec 2015 03:54:51 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" rel="self" href="http://www.npcompleteheart.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:18:04 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
 visualize its most common terms to give a sense of what is involved, like so:
@@ -96,7 +96,7 @@ The point of this bootcamp is to teach you basic skills in programming and data 
 
 We're trying to grow a little nub off your *T* of expertise. The skills that you learn this week
 will form the **foundation** (not entirety) of your growing arm of computational and statistical
-expertise.&lt;/div&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</guid><pubDate>Thu, 10 Sep 2015 02:00:11 GMT</pubDate></item><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+expertise.&lt;/div&gt;&lt;/div&gt;</description><category>big data</category><category>data science</category><guid>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</guid><pubDate>Thu, 10 Sep 2015 02:00:11 GMT</pubDate></item><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/everything_is_obvious.png"&gt;
 &lt;/div&gt;
@@ -157,7 +157,7 @@ randomness would become less dominant. Of course, we don’t see this. The socia
 chaotic, and difficult to predict. Not exactly the unifying laws that came from Physics after all. 
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
 time to pay her back and help her get a website up and running. I went over the options that I knew
@@ -179,7 +179,7 @@ where Django ends up). Luckily others have already had this desire and it was su
 this &lt;a src="https://github.com/mhoofman/wordpress-heroku"&gt;github&lt;/a&gt; repository and README I had the
 wordpress site up and running in seconds. Woot!
 &lt;/div&gt;
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/div&gt;</description><category>code</category><category>random</category><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
 &lt;/div&gt;
@@ -224,7 +224,7 @@ detail pages on individual publications) and figure out how to get some more jav
 completely against the whole starting premise). 
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Research Day as a chairperson and poster judge.I typically cringe at the thought of attending
 conferences and symposia, since I am mainly a homebody (I love my desk, computer, research, and
@@ -260,7 +260,7 @@ Day are integral to a healthy, productive research environment at a University.
 &lt;br&gt;&lt;br&gt;
 Keep Growing, Computational Research! Keep Growing!
 &lt;/div&gt;
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</guid><pubDate>Wed, 22 Apr 2015 00:56:52 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/div&gt;</description><category>conference</category><category>research</category><guid>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</guid><pubDate>Wed, 22 Apr 2015 00:56:52 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/mongodb.jpeg"&gt;
 &lt;/div&gt;
@@ -375,7 +375,7 @@ in my mind. I’m a researcher, not someone setting up production databases or s
 like that ;)
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/div&gt;</description><category>mongodb</category><category>research</category><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 I just finished reading Axelrod's &lt;strong&gt;The Complexity of Cooperation&lt;/strong&gt; and I have to say, it's one of the better scientific books that I can remember reading (period). This is surprising (for me), since it's really just a collection of seven of his published papers along with some commentary. However, his papers are so well written and the commentary is brilliant, especially for someone pursuing research as a career, since it not only provides insight into the genesis of the work but also how it was regarded by journals.
 &lt;/div&gt;
@@ -420,11 +420,11 @@ In any case this is wonderful book that only takes about a night and a glass of 
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>Do yourself a favor...</title><link>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/172185143&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;visual=true"&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><category>science</category><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>Do yourself a favor...</title><link>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/172185143&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;visual=true"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;
 and listen to this wonderful collaboration. It's a new album coming out in February between Ghostface Killah (shame on you if you don't know) and BadBadNotGood (a jazz trio from Toronto). The beats and backing music on these tracks are just nothing but...sublime.
-&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/p&gt;&lt;/div&gt;</description><category>music</category><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
 &lt;/div&gt;
@@ -457,7 +457,7 @@ All in all, it's hard to say what to do in this new world where static site gene
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
+&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
 &lt;p&gt;
 Twenty fourteen, what can I say. It was consistent and not always pretty but I made it through. I made my first actual contribution to an &lt;a href="http://github.com/python-visualization/folium/commits?author=adamrpah"&gt;open source project&lt;/a&gt;, learned the value of gists, started opening up &lt;a href="http://github.com/adamrpah/GALE"&gt;GALE&lt;/a&gt; to the world, and successfully made it through putting on a one week bootcamp transform non-coders into pythonistas. I at least got one manuscript out (albeit a &lt;a href="http://npcompleteheart.com/article/big-data-what-is-it-and-what-does-it-mean-for-card/"&gt;review&lt;/a&gt;) and a conference presentation at &lt;a href="http://npcompleteheart.com/article/unzipping-zip-codes-a-methodology-to-assign-de-ide/"&gt;AMIA&lt;/a&gt;. I even launched Socraticc as a part of OmegaK and brought it right down after no one wanted to use it after a few months.
 &lt;/p&gt;
@@ -497,7 +497,7 @@ I never took an introductory statistics course, and as such my understanding of 
 &lt;h5&gt;American Psycho&lt;/h5&gt;
 &lt;h5&gt;—Bret Easton Ellis&lt;/h5&gt;
 &lt;p&gt;
-I really like some of Bret Easotn Ellis' work, and &lt;i&gt;American Psycho&lt;/i&gt; was a great read but &lt;i&gt;The Informers&lt;/i&gt; was completely forgettable. 
+I really like some of Bret Easton Ellis' work, and &lt;i&gt;American Psycho&lt;/i&gt; was a great read but &lt;i&gt;The Informers&lt;/i&gt; was completely forgettable. 
 &lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;/p&gt;&lt;h5&gt;Do androids dream of electric sheep?&lt;/h5&gt;
@@ -508,4 +508,4 @@ Somehow these books slipped through the cracks when I read the rest of Dick's wo
 &lt;/p&gt;
 &lt;p&gt;
 And that's the end of 2014, time to make some goals for 2015 and deliver on them.
-&lt;/p&gt;&lt;/div&gt;</description><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item></channel></rss>
+&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>review</category><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NP Complete Heart (book reviews)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/book-reviews.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 01:42:33 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+Twenty fourteen, what can I say. It was consistent and not always pretty but I made it through. I made my first actual contribution to an &lt;a href="http://github.com/python-visualization/folium/commits?author=adamrpah"&gt;open source project&lt;/a&gt;, learned the value of gists, started opening up &lt;a href="http://github.com/adamrpah/GALE"&gt;GALE&lt;/a&gt; to the world, and successfully made it through putting on a one week bootcamp transform non-coders into pythonistas. I at least got one manuscript out (albeit a &lt;a href="http://npcompleteheart.com/article/big-data-what-is-it-and-what-does-it-mean-for-card/"&gt;review&lt;/a&gt;) and a conference presentation at &lt;a href="http://npcompleteheart.com/article/unzipping-zip-codes-a-methodology-to-assign-de-ide/"&gt;AMIA&lt;/a&gt;. I even launched Socraticc as a part of OmegaK and brought it right down after no one wanted to use it after a few months.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+But what I'm really happy about is that I've mostly maintained a promise to myself that I would be consistently reading throughout the year. This is my quick year in review of what I've made it through, if for nothing else other than posterity.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;/p&gt;&lt;h5&gt;Hard-Boiled Wonderland and the End of the World&lt;/h5&gt;
+&lt;h5&gt;1Q84&lt;/h5&gt;
+&lt;h5&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/h5&gt;
+&lt;h5&gt;Norwegian Wood&lt;/h5&gt;
+&lt;h5&gt;Kafka on the Shore&lt;/h5&gt;
+&lt;h5&gt;The Wind-Up Bird Chronicle&lt;/h5&gt;
+&lt;h5&gt;—Haruki Murakami&lt;/h5&gt;
+&lt;p&gt;
+This is the year wherein I found Haruki Murakami and was simply blown away. The amount of emotion and alienation induced by his writing is amazing and for most of the books I've tried to read them with a soundtrack that corresponds to the book (from whichever classical artists figured most prominently in the work) and it's been a wonderful experience. I can't recommend these works enough. I just finished &lt;i&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/i&gt; and, while I didn't feel as strongly about it while reading it, I'm already starting to form a much stronger attachment and opinion about it. You can't go wrong with any of these books, but my favorite would have to be &lt;i&gt;Kafka on the Shore&lt;/i&gt;.
+&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;/p&gt;&lt;h5&gt;Count Zero&lt;/h5&gt;
+&lt;h5&gt;Mona Lisa Overdrive&lt;/h5&gt;
+&lt;h5&gt;—William Gibson&lt;/h5&gt;
+&lt;p&gt;
+I finally finished the Neuromancer trilogy after seeing William Gibson do a Q&amp;amp;A during the Chicago Humanities Festival (his answers were wonderful and insightful, the questions were not so great however). I realized that I hadn't finished the rest of the trilogy so I went back and finished it (I was switching back and forth between Gibson and Stephenson when I read &lt;i&gt;Neuromancer&lt;/i&gt;). These books were actually great additions to the series and I felt that they really enhanced the story in &lt;i&gt;Neuromancer&lt;/i&gt;. Next year, I'll start &lt;i&gt;The Peripheral&lt;/i&gt; once I'm certain I've forgotten all the spoilers I've seen. 
+&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;/p&gt;&lt;h5&gt;Statistics&lt;/h5&gt;
+&lt;h5&gt;—David Freedman&lt;/h5&gt;
+&lt;p&gt;
+I never took an introductory statistics course, and as such my understanding of the statistician "language" and viewpoint was pretty lacking (I'm more a fan of Monte Carlo methods and bootstrapping to test statistical hypotheses), so I wanted to shore up my ability to understand that viewpoint and the language. This book was very well written and I really enjoyed all of the examples given. Now I just need to finish Andrew Gelman's &lt;i&gt;Bayesian Data Analysis&lt;/i&gt; and Tibshirani's &lt;i&gt;Elements of Statistical Learning&lt;/i&gt; next year.
+&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;/p&gt;&lt;h5&gt;The Informers&lt;/h5&gt;
+&lt;h5&gt;American Psycho&lt;/h5&gt;
+&lt;h5&gt;—Bret Easton Ellis&lt;/h5&gt;
+&lt;p&gt;
+I really like some of Bret Easotn Ellis' work, and &lt;i&gt;American Psycho&lt;/i&gt; was a great read but &lt;i&gt;The Informers&lt;/i&gt; was completely forgettable. 
+&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;/p&gt;&lt;h5&gt;Do androids dream of electric sheep?&lt;/h5&gt;
+&lt;h5&gt;We can remember it for you wholesale&lt;/h5&gt;
+&lt;h5&gt;Philip K. Dick&lt;/h5&gt;
+&lt;p&gt;
+Somehow these books slipped through the cracks when I read the rest of Dick's work earlier. &lt;i&gt;Do androids dream of electric sheep?&lt;/i&gt; is a wonderful story, that I was surprised to read in terms of how much it differed from Ridley Scott's movie adaptation. The same can be said for &lt;i&gt;We can remember it for you wholesale&lt;/i&gt;, the funny thing is that I'm rather surprised with how successful the adaptations of Dick's work are (even when they deviate from the written story) while Gibson made an explicit comment about how he hated the adaptation of Johnny Mnemonic (which I can understand after seeing it).
+&lt;/p&gt;
+&lt;p&gt;
+And that's the end of 2014, time to make some goals for 2015 and deliver on them.
+&lt;/p&gt;&lt;/div&gt;</description><category>book reviews</category><category>books</category><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item></channel></rss>

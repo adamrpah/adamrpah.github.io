@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NP Complete Heart (development)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/development.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:01:57 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
+
+&lt;p&gt;There are a number of points that I want to hit on in the future but for now  I want to focus on:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Creating a standard library&lt;/li&gt;
+        &lt;li&gt;Record-keeping and on the fly analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;A standard library&lt;/h4&gt;
+
+&lt;p&gt;When I first started programming libraries were so &lt;strong&gt;damn&lt;/strong&gt; impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;There are many repetitive tasks, many that only take a line or two of code, such as parsing certain types of files that we willing type whenever the need arises. This isn’t really bad behavior, but it would be better to put these helper functions in a single place so that they can be called from anywhere (such as an interactive terminal or notebook session) and so that when we encounter a new feature we can add it into our code. Even more important is when we write more complicated functions or process data. With a standard function it’s easier to justify putting more time into testing the function and we never have to worry about slightly different processing based on fuzzy memory.&lt;/p&gt;
+
+&lt;p&gt;So what does this look like in practice? I made myself a “library” called &lt;span class="caps"&gt;GALE&lt;/span&gt; (“General Analytical Library Extensions” for the curious) and the structure is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;| GALE/
+|-&amp;gt; .hg/
+|-&amp;gt; gale/
+|--&amp;gt; __init__.py
+|--&amp;gt; functional_domain/
+|---&amp;gt; __init__.py
+|---&amp;gt; function.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why the double naming convention? Because I wanted to import with the gale name and have the name preserved in the repository so that it’s consistent even if I forget to name it properly when I clone it on a new machine. Otherwise, the structure is simple—-inside gale there are folders for a domain of code and then appropriately named python files containing functions are stored within those folders (and the &lt;i&gt;init&lt;/i&gt;.py files so that it’s all importable). As an example, since I’m  working with patient Electronic Health Records now I have inside gale a folder like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-&amp;gt; gale/
+|--&amp;gt; medical/
+|---&amp;gt; icd9Formatter.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The icd9Formatter file has all of the functions I use to translate ICD-9 codes to different ontologies or parse/clean the codes into a consistently readable format that my other modules will know how to use.&lt;/p&gt;
+
+&lt;p&gt;To make these code files useful everywhere we just need to add the library to our python path, which is easily accomplished by adding:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PYTHONPATH=$PYTHONPATH:/Your/Path/To/GALE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to our .bashrc file. After opening a new terminal or typing `source ~/.bashrc` this code will be accessible in any other program or interactive interpreter just by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import gale.medical.icd9Formatter as icdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To help paint the picture a little more completely this is the list of domains that I currently have in my library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;drwxr-xr-x  7 adampah  staff   238B Apr  3 10:39 databases
+drwxr-xr-x  8 adampah  staff   272B Apr  3 10:39 fileIO
+drwxr-xr-x  5 adampah  staff   170B Mar 16 21:52 general
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 graphMaths
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 graphs
+drwxr-xr-x  6 adampah  staff   204B Apr  8 10:42 medical
+drwxr-xr-x  4 adampah  staff   136B Apr  8 10:42 networks
+drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 settings
+drwxr-xr-x  6 adampah  staff   204B Apr  7 20:33 stats
+drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 timeseries
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this should all change based upon the type of research that you do. The key here is to not worry about writing a perfect function that will be as useful today as it will be in 20 years. The real value lies in just starting quickly and getting something down. After starting it’s much easier to get into the habit of adding simple helper functions to this central library than to keep building it into individual code pieces. &lt;span class="caps"&gt;DRY&lt;/span&gt; principles are great, letting ourselves be lazier while simultaneously being more productive is best (even better now this code can travel with you everywhere, on any computer, and always be accessible). &lt;/p&gt;
+
+&lt;h4&gt;Record-keeping and on-the-fly analysis&lt;/h4&gt;
+
+&lt;p&gt;Why on god’s green earth would these two subjects go together you ask? Because, as pythonistas, we will use the same damn tool for both, that’s why. Enter iPython Notebooks.&lt;/p&gt;
+
+&lt;p&gt;iPython Notebooks are finally ready for primetime in general usage I think. Why?&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;It has the ability to traverse directory structures now (iPython notebooks can be put in with&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;a repository now without starting up multiple notebook servers)
+&lt;/p&gt;&lt;ul&gt;
+        &lt;li&gt;Interactive features are compelling&lt;/li&gt;
+        &lt;li&gt;Accessibility and easy to show others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;iPython Notebook can come with iPython, or you might have to install it as a separate install  (all depends on how you decide to install it and your operating system. In any case you can start it up just by going `ipython notebook` on the command line. The service will start up and if you navigate your browser to http://localhost:8888 you will find the directory page. Here you can start a new notebook in any folder and it will open in a new browser. You can do just about anything that you want in these  active notebooks and some great examples can be found at the [github](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) page for ipython.  Next you can set up iPython notebooks on a desktop to be accessible (and password protected! make sure to do that part too!) from anywhere following this tutorial from [Thomas Sileo](http://thomassileo.com/blog/2012/11/19/setup-a-remote-ipython-notebook-server-with-numpyscipymaltplotlibpandas-in-a-virtualenv-on-ubuntu-server/). If you want to use a virtual environment you can follow the instructions exactly, or you can just skip that part and just let ipython notebook to use the system installed packages.&lt;/p&gt;
+
+&lt;p&gt;One last thing. I have been a real believer of using “in-line” images with the notebooks instead of having it pop up an interactive plot of the graph (the way matplotlib does typically from the command line). The primary reason is that after the graph is generated once it will remain in the notebook, even if it is shut down. That way you can close/shut down a notebook and when you open it again the graph will still be there. This makes it much more like a “real” lab notebook and allows for quick reference.  To do this we need to generate a notebook configuration file, from the command line we do this as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ipython profile create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output of this command it will tell you where it is storing your configuration files (changes based on operating system). Now edit the ‘ipython_notebook_config.py’ file which should be located at:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/.ipython/profile_default/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then change line 258 from &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# c.IPKernelApp.matplotlib = ‘’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c.IPKernelApp.matplotlib = ‘inline’
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Voila!&lt;/p&gt;
+
+&lt;p&gt;Now, why is an iPython notebook so great? There’s a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Access your workstation from anywhere, with the same installed packages&lt;/li&gt;
+        &lt;li&gt;In-line plotting/analysis of data without having to run an X session (interactive X will frequently time out on me over long sessions, so I’ll need to start up a new connection to re-enable it)&lt;/li&gt;
+        &lt;li&gt;Ability to use bash commands, python, R, and many other languages simultaneously if configured properly&lt;/li&gt;
+        &lt;li&gt;Easy to show work to others&lt;/li&gt;
+        &lt;li&gt;Switch between code blocks and markdown blocks. This is important, in markdown blocks you should be ideally writing &lt;strong&gt;why&lt;/strong&gt; you are doing this research and what the analysis is. You can also include the commands or code used to generate the data that you are manipulating quickly.&lt;/li&gt;
+        &lt;li&gt;Embed images just like on any other web page. So even if you don’t generate images with matplotlib you can embed them in the notebook just using regular html. This makes it easy to keep track of results and important files from your analysis.&lt;/li&gt;
+        &lt;li&gt;Ability to very quickly do analysis, especially when you import functions from your standard library to quickly handle data manipulation!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All in all, iPython notebook has really come of age. The only thing it’s really missing at this point is robust support for multiple users on a single notebook instance.&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>development</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</guid><pubDate>Thu, 17 Apr 2014 13:01:36 GMT</pubDate></item></channel></rss>

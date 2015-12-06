@@ -31,6 +31,10 @@ Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal se
 That's what I've ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2013-03-14T07:21:25-05:00">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="mongodb">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="web">
 <link rel="stylesheet" href="assets/css/custom.css" type="text/css">
 </head>
 <body>
@@ -58,6 +62,9 @@ That's what I've ">
             <ul class="nav navbar-nav">
 <li>
 <a href="../rss.xml"><img src="../images/rss.png"></a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
                 </li>
 <li>
 <a href="../stories/about.html">About</a>
@@ -122,22 +129,22 @@ state that I didn't know how to fix it out of.  So here is an actual step by ste
 </ul>
 <h3>Installing python, django-nonrel, and mongo support</h3>
 <p>Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the <a href="https://devcenter.heroku.com/articles/quickstart">heroku dev toolbelt</a>. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.</p>
-<pre class="code literal-block"><span class="n">mkdir</span> <span class="n">djangoapp</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">djangoapp</span>
-<span class="n">virtualenv</span> <span class="n">venv</span> <span class="o">--</span><span class="n">distribute</span>
-<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="n">vi</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<pre class="code literal-block">mkdir djangoapp &amp;&amp; cd djangoapp
+virtualenv venv --distribute
+source venv/bin/activate
+vi requirements.txt
+pip install -r requirements.txt
 </pre>
 
 
 <p>where you edit your requirements.txt file in vim and it then looks like:</p>
-<pre class="code literal-block"><span class="n">distribute</span><span class="o">==</span><span class="mf">0.6.24</span>
-<span class="n">wsgiref</span><span class="o">==</span><span class="mf">0.1.2</span>
-<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-nonrel.git@master</span>
-<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-permission-backend-nonrel.git@master</span>
-<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/adamrpah/mongodb-engine.git</span>
-<span class="n">djangotoolbox</span><span class="o">==</span><span class="mf">0.9.2</span>
-<span class="n">pymongo</span><span class="o">==</span><span class="mf">2.4</span>
+<pre class="code literal-block">distribute==0.6.24
+wsgiref==0.1.2
+git+git://github.com/django-nonrel/django-nonrel.git@master
+git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
+git+https://github.com/adamrpah/mongodb-engine.git
+djangotoolbox==0.9.2
+pymongo==2.4
 </pre>
 
 
@@ -298,7 +305,13 @@ heroku run python djangoapp/manage.py syncdb
 <p>Making models, templates, and so on as in the Mongo Tumblelog or do whatever you want!  You now have the base configuration to make a website.</p>
 </div>
     </div>
-    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+    <br><aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/django.html" rel="tag">django</a></li>
+            <li><a class="tag p-category" href="../categories/mongodb.html" rel="tag">mongodb</a></li>
+            <li><a class="tag p-category" href="../categories/tutorial.html" rel="tag">tutorial</a></li>
+            <li><a class="tag p-category" href="../categories/web.html" rel="tag">web</a></li>
+        </ul>
+<ul class="pager hidden-print">
 <li class="previous">
                 <a href="a-more-thorough-explanation-and-example-on-how-to-make-a-d3js-line-graph.html" rel="prev" title="A more thorough explanation and example on how to make a D3.js line graph">Previous post</a>
             </li>

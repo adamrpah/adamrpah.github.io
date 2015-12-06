@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (web)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://www.npcompleteheart.com/categories/web.xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:06:29 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+    &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+I guess my post on &lt;a src="http://www.npcompleteheart.com/posts/www.npcompleteheart.com/posts/django-and-mongodb-in-2015"&gt;Django and MongoDB in 2015&lt;/a&gt; 
+was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
+a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
+and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
+out `pre` blocks and all that). At this point it made me feel like that barrier was keeping me from blogging. 
+Since producing at least a blog per month is on my New Year's resolutions list I decided to change up the 
+site to hopefully make it more conducive to me blogging.
+&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;!-- TEASER_END --&gt;
+&lt;div class="col-md-12"&gt;
+This time around, I really just wanted something simple that had IPython notebook support baked in
+from the start. I wanted it to be lightweight, support markdown input (since it seemed like I'm the
+last human alive writing in html and I could never remember the damn markdown symbols for that
+reason), and I guess be a little bit anachronistic. For these reasons I just decided to go with
+(Nikola)[www.getnikola.org]. It looked cool, sounded simple (loved the part in the tutorial that
+just said, `don't read this tutorial, just start using`), and it seems like the darkhorse in the
+race against Pelican. In any case, that was enough to persuade me to start using it.
+&lt;br&gt;&lt;br&gt;
+The switch was pretty simple with the exception of the fact that I had to edit all my old posts to
+make them appear like I wanted on this website. I would write more, but there really wasn't much
+more to it than what's contained in teh basic introduction. The only thing that really held me up
+was getting Git Pages to work. Most of the methods written on the internet weren't working for me
+so I just did the lazy thing and made a separate repository for Github to serve as my website.
+&lt;br&gt;&lt;br&gt;
+
+Most things made it over okay, with the only real holdovers being the D3 visualizations with
+javascript. I know that it's possible to move them over using an IPython notebook I just haven't had
+the time yet. Through this process I also found out that someone limited the Folium mapping package
+to only 6 colors again for apparently no fucking reason! Yay open source! Oh, and I killed some
+high-traffic pages that I hated just because, like how to make a volcano plot. It was just too old
+and out of date.
+&lt;br&gt;&lt;br&gt;
+
+Otherwise, the website isn't completely up yet (I need to add the projects back in, maybe give the
+detail pages on individual publications) and figure out how to get some more javascript working (I know
+completely against the whole starting premise). 
+&lt;/div&gt;
+
+&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+&lt;p&gt;
+So believe it or not my post from 2013 on setting up a Django website with a MongoDB back-end is still one of my most visited pages. Actually that's not hard to believe, it's not like this site is a trove of content (but it's a goal for 2015 to get content more consistently up here!), but 2013 is more than ancient in technology times so I just wanted to do a quick revisit.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- TEASER_END --&gt;
+&lt;div class="col-md-12"&gt;
+&lt;h5&gt;Should I follow that blog post and set up a Django app with MongoDB?&lt;/h5&gt;
+&lt;h5&gt;Hell no, definitely not now&lt;/h5&gt;
+
+&lt;p&gt;
+Admittedly, my website still uses it but that is out of pure laziness and a lack of desire to migrate/work up something new. As is, I'm pretty sure that I have another year and a half before there's a catastrophic problem or a new feature that I absolutely have to have before I need to redo it all. And therein lies the biggest problem with trying to go down this path.
+&lt;/p&gt;
+
+&lt;p&gt;
+The reason that I wanted to use MongoDB so much was its native usage of JSON (well, BSON) so that I could quickly and easily store data or javascript code for quick on-the-fly visualizations. I wanted Django for its robust admin backend (still why I love it! Nothing else that I've used has anything quite as good). However, now with the newest version of PostgreSQL and its support of JSON as a column type it's possible to get everything I want out of a website using a traditional SQL database (actually the one that Heroku has always wanted you to use anyways). Granted, this means going back to the world of migrations will be a pain but it's easy enough concession to be back on the main branch of Django development.
+&lt;/p&gt;
+
+&lt;h5&gt;But what if I really want to put the two together still?&lt;/h5&gt;
+&lt;p&gt;
+There could still be a pretty valid reason why you want an easy admin interface and a NoSQL backend, but in that case I don't think any of the old instructions may still apply with all of the time that has passed. In all honesty, if you're not making a blog site (or you won't be blogging consistently like me, womp womp) I would suggest not using Django at all and using a custom flask app (which would be simple enough) instead and provide lots of flexibility. If you were tr Buying to make a site as a product, then I wouldn't recommend python at all then and recommend node.js due to the performance benefits. 
+&lt;/p&gt;
+
+&lt;p&gt;
+All in all, it's hard to say what to do in this new world where static site generators are the new hot thing. I still like having the ability to write and save drafts on my website instead of being stuck to a checked out instance of my website (I switch computers and locations...too often still). But in any case, I still like using Heroku even if it is apart of the giant SalesForce conglomerate.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>Make maps like a boss</title><link>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+So far I've been working with a GIS specialist (if you've looked at the maps in my small area estimation &lt;a href="http://npcompleteheart.com/post/ever-wanted-to-estimate-small-area-effects-in-heal/"&gt;post&lt;/a&gt; those are from him), but that's not an ideal situation when I only need a quick picture or to look at how data is distributed in space. When I needed to place data on a map previously I typically needed interactivity, so I would make a visualization with D3.js. But now I just need to make lots of maps quickly to just do exploratory analysis. Fortunately, I was looking for a solution right around the time the PyData conference was happening and I saw Rob Story's &lt;a href="https://speakerdeck.com/wrobstory/up-and-down-the-python-data-and-web-visualization-stack"&gt;presentation on  &lt;/a&gt;&lt;a href="http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb"&gt;Up and Down the Python Data and Web Visualization Stack"&lt;/a&gt;. This talk turned me onto Folium, especially after seeing it work with iPython notebook (which has become one of my favorite workflow tools).
+&lt;/p&gt;
+
+&lt;h4&gt;Making maps with Folium&lt;/h4&gt;
+
+&lt;p&gt;
+...is pretty damn easy. If you follow the examples on the Gitub &lt;a href="https://github.com/wrobstory/folium"&gt;page&lt;/a&gt; with the example data you will be making maps in no time. Now comes the fun part, making maps with our own data!
+&lt;/p&gt;
+
+&lt;h5&gt;Step 1. Obtain Shapefile data&lt;/h5&gt;
+
+&lt;p&gt;
+To plot our own data we will need to get a GeoJSON or TopoJSON file that contains the path information about how to draw boundaries on the map. Unfortunately, the predominant file type for geographic data is a shapefile and geojson or topojson files are pretty scarce on the web. For the USA though we can easily get maps at all geographic resolutions from the &lt;a href="http://www.census.gov/geo/maps-data/data/tiger-line.html"&gt;census/TIGER&lt;/a&gt; website.
+&lt;/p&gt;
+
+&lt;h5&gt;Step 2. Converting from shapefile-&amp;gt;geojson-&amp;gt;topojson&lt;/h5&gt;
+
+&lt;p&gt;
+Since the open source world is rocking geojson or topojson files we just need to convert our new shapefile over. To do this we will need to install ogr2ogr (which is a part of the GDAL package) and topojson. On OSX this can be accomplished with homebrew and node.js very simply by:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ brew install gdal
+$ brew install node
+$ node install -g topojson
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+For my needs I needed to plot data on Illinois zip codes so I downloaded the ZCTA (zip code tabulation area, not the exact same as zipcodes but close enough for me) file for Illinois. Proceeding with this file we first convert the shapefile to a geojson like so:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+$ ogr2ogr -f illinois.json tl_2010_17_zcta510.shp
+&lt;/pre&gt;
+&lt;br&gt;
+Next we convert the geojson to topojson. The only additional wrinkle from the geojson conversion is that we need to set the ID on each one of the areas (which is the same ID that we'll be binding to when we add data to the map). We can open up the geojson file and look at any of the "properties" entries to find the name of the needed key from the file. For the ZCTA file this key is "ZCTA5CE10". With that we convert the geojson to a topojson setting the ID and adding a zipcode property
+&lt;br&gt;
+&lt;pre&gt;
+$ topojson --id-property ZCTA5CE10 -p zipcode=ZCTA5CE10 illinois.json -o illinois_topo.json
+&lt;/pre&gt;
+
+
+&lt;h5&gt;Step 3. Make one sweet map&lt;/h5&gt;
+
+&lt;p&gt;This step is pretty simple. Take our new topojson file and the csv of data we have keyed on zipcode and throw it over the map like:
+&lt;br&gt;
+&lt;/p&gt;&lt;pre&gt;
+import folium
+import pandas as pd
+import numpy as np
+&lt;p&gt;df = pd.read(csv_file)
+bins = list(np.linspace(df['feature'].min(), df['feature'].max(), 6))
+city_map = folium.Map(location=[41.8819, -87.6278], width='700', tiles='Stamen Toner',  zoom_start=10)
+city_map.geo_json(geo_path='illinois_topo.json', topojson='objects.illinois',
+                             data=df, 
+                             threshold_scale=bins,
+                             columns=['zipcode', 'feature'], 
+                             key_on='feature.id',
+                             fill_opacity=1, 
+                             line_opacity=1,
+                             fill_color='PuBuGn',
+                             reset=True)
+city_map.create_map('city.html')
+&lt;/p&gt;&lt;/pre&gt;
+&lt;br&gt;
+and now we have a map which is embedded below!  The official library as it stands only has support for up to six colors. This wasn't enough for me, so I have a fork of it with additional color support added on my &lt;a href="https://github.com/adamrpah/folium"&gt;github&lt;/a&gt; page that anyone is welcome to (it also has diverging color scales!)
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;pt src="http://d3js.org/queue.v1.min.js"&amp;gt;
+&lt;script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"&gt;&lt;/script&gt;
+&lt;script src="http://d3js.org/topojson.v1.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"&gt;&lt;/p&gt;
+&lt;style&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nc"&gt;.legend&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt; &lt;span class="m"&gt;0px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt; &lt;span class="k"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;255&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;box&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shadow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;15px&lt;/span&gt; &lt;span class="n"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;5px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="nc"&gt;.key&lt;/span&gt; &lt;span class="nt"&gt;path&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;/style&gt;
+
+&lt;div id="map" style="width: 700px; height: 500px"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+&lt;pre class="code literal-block"&gt;  &lt;span class="nx"&gt;queue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/asthma.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/media/d3-files/topo_illinois.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;await&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;makeMap&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+      &lt;span class="nx"&gt;topo_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;topojson&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tjson_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;illinois&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+          &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+              &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;parseFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key_variable&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;][&lt;/span&gt;&lt;span class="nx"&gt;datapoint&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+          &lt;span class="p"&gt;};&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;threshold&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;89.743589743589737&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;179.48717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;269.23076923076923&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;448.71794871794867&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;538.46153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;628.20512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;807.69230769230762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;897.43589743589735&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;987.17948717948707&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1166.6666666666665&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1256.4102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1346.153846153846&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1525.6410256410256&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1615.3846153846152&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1705.1282051282051&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1884.6153846153845&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1974.3589743589741&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2064.102564102564&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2243.5897435897436&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2333.333333333333&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2423.0769230769229&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2602.5641025641025&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2692.3076923076919&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2782.0512820512818&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2961.5384615384614&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3051.2820512820513&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3141.0256410256407&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3320.5128205128203&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3410.2564102564102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3500.0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#f6eff7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#f0eaf4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#eae5f1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#e4e1ef&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#dedcec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d8d7e9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#d2d3e7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#cccfe5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#c6cce3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#bfc9e1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b9c6e0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#b2c3de&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#acc0dc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#a6bddb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#9cb9d9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#92b6d7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#88b3d5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#7fb0d3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#75add1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#6baacf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#63a7cd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#5ba3cb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#549fc9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4c9bc6&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#4597c4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3d93c2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#3690c0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#2e8db7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#268baf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#1e89a7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#16869e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#0e8496&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#06828e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017e85&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017a7c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#017573&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#01716a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016c61&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016858&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#016450&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;setView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;41.8819&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;87.6278&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+      &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tileLayer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="nx"&gt;maxZoom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="nx"&gt;attribution&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/3.0&amp;quot;&amp;gt;CC BY SA&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;
+      &lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+
+
+
+
+
+
+
+
+      &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;fillColor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;matchKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data_1&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    &lt;span class="nx"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;opacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;fillOpacity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;      &lt;span class="nx"&gt;gJson_layer_1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;geoJson&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;topo_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;style_1&lt;/span&gt;&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+
+          &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;legend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;control&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nx"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;topright&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onAdd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;DomUtil&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;div&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;linear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3850&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;xAxis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;orient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;top&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickSize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tickValues&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;358.97435897435895&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;717.9487179487179&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1076.9230769230769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1435.8974358974358&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1794.8717948717947&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2153.8461538461538&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2512.8205128205127&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2871.7948717948716&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3230.7692307692305&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.legend.leaflet-control&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;svg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;legend&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;450&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;svg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;g&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;transform&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;translate(25,16)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;selectAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;
+      &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="p"&gt;}))&lt;/span&gt;
+  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;enter&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;style&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fill&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;xAxis&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;caption&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Number of Asthma Cases, 2006-2012&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+
+  &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;/script&gt;&lt;/div&gt;</description><category>code</category><category>gis</category><category>python</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/make-maps-like-a-boss.html</guid><pubDate>Sat, 17 May 2014 13:05:40 GMT</pubDate></item><item><title>What is the structure of my Django app?</title><link>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+This post is supposed to carry on from &lt;a href="http://www.npcompleteheart.com/post/django-nonrel-mongodb-mongohq-heroku/"&gt; setting up a Django app on Heroku with MongoDB &lt;/a&gt; and help fill in a hole from the MongoDB &lt;a href="http://docs.mongodb.org/manual/tutorial/write-a-tumblelog-application-with-django-mongodb-engine/"&gt; Tumblelog &lt;/a&gt; tutorial.  The biggest question is, what is my directory structure?  The tutorial jumps around a lot, assuming that you already know where everything should go.  So let's tackle that first.
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;h3&gt;What is the structure of my Django project?&lt;/h3&gt;
+
+&lt;p&gt;
+This is probably the only part that most people starting out that are familiar with programming but not Django or the web will need.  Here is what your directory structure for a Tumblelog should look like:
+
+&lt;/p&gt;&lt;pre class="prettyprint lang-bash"&gt;
+djangoapp/
+|- .git/
+|- .gitignore
+|- venv/
+|- requirements.txt
+|- Procfile
+|- djangoapp/
+    |- __init__.py
+    |- urls.py
+    |- settings.py
+    |- manage.py
+    |- tumblelog/
+        |- models.py
+        |- views.py
+        |- tests.py
+        |- forms.py
+|- media/
+    |- robots.txt
+    |- js/
+    |- img/
+    |- css/
+|- templates/
+    |- base.html
+    |- _form.html
+    |- tumblelog/
+        |- post_detail.html
+        |- post_list.html
+&lt;/pre&gt;
+
+If you fit that first description then this is all you probably wanted, so happy web app'ing!
+
+
+&lt;h3&gt;How do I configure it?&lt;/h3&gt;
+
+&lt;p&gt;
+So the only two directories really left are the media and template directories.  Media contains pictures (in the img/ folder), javascript (I would suggest that would be applied on every page, in the js/ folder), and site-wide css to style it (you guessed it, in the css/ folder).  You can make a directory in here and use it in an ad-hoc fashion too, before I added a javascript field in my Post model I had a folder in "media/" called "d3-files/". In that "d3-files/" folder I put javascript to execute visualizations, supporting data and css, and I could call it on a post page like this:
+
+&lt;/p&gt;&lt;pre class="prettyprint lang-html"&gt;
+script type="text/javascript" src="/media/d3-files/time_series.js"
+&lt;/pre&gt;
+
+And to get the right path for media working, in settings.py we do:
+
+&lt;pre class="prettyprint lang-python"&gt;
+2 import os
+3 #Tons of Code
+49 # Absolute filesystem path to the directory that will hold user-uploaded files.
+50 # Example: "/home/media/media.lawrence.com/media/"
+51 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../media/')
+52 
+53 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+54 # trailing slash.
+55 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+56 MEDIA_URL = '/media/'
+&lt;/pre&gt;
+
+and that's it.  Media to serve for all!  Just watch out, there's not a lot of space on Heroku for something like images. So you'll be better off hosting images elsewhere (photobucket, flickr, picasa, etc.) and embedding the tags in your posts.
+
+
+&lt;p&gt;
+Hopefully that helps in some fashion!
+&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</guid><pubDate>Wed, 20 Mar 2013 12:27:44 GMT</pubDate></item><item><title>Auto-slugification, drafts, and cooler queries</title><link>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
+&lt;h3&gt;Making slugs is boring, having slugs made is awesome&lt;/h3&gt;
+&lt;p&gt;If you follow the MongoDB Tumblelog post you'll be starting with a website that is pretty functional. 
+One of the things that it does do is it has you enter the slug field for each post in the admin section when you create it. 
+What is a slug? It's the string in the url bar you see after "/post/" and it identifies the post location in the website. 
+For me, and most of the time, we have the slug modelled after the post title so it is easily tracked. 
+It's annoying though to re-enter the title normalized for slug usage.&lt;/p&gt;
+&lt;p&gt;The first thing I tried was adding the prepopulated fields line to the &lt;code&gt;admin.py&lt;/code&gt; file. 
+This was supposed to prepopulate a slug field for a Post model using this code:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;PostAdmin&lt;/span&gt;(&lt;span class="n"&gt;admin&lt;/span&gt;.&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;):
+     &lt;span class="n"&gt;prepopulated_fields&lt;/span&gt; = {&lt;span class="s"&gt;"slug"&lt;/span&gt;: (&lt;span class="s"&gt;"title"&lt;/span&gt;,)}
+&lt;/pre&gt;
+
+
+&lt;p&gt;but the admin section wasn't happy with this. 
+Posts entered without a slug would be flagged as having an error (due to omission of the slug field). 
+Quick googling suggests that there could be a problem with using django 1.3, and maybe django non-rel, but I didn't dwell on it too long.
+Instead I found django-autoslug. Installation is simple&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;pip install django-autoslug
+pip freeze &amp;gt; requirements.txt
+&lt;/pre&gt;
+
+
+&lt;p&gt;and using it in the blog model is as easy as&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;autoslug&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;
+&lt;span class="c"&gt;#Other imports&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;slug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;populate_from&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'title'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c"&gt;#Other model attributes&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;after that the slug field is removed from the admin section, slugs are automatically populated upon post addition, and the slugs are normalized to the title of the post. 
+Awesome!&lt;/p&gt;
+&lt;h3&gt;But I'm going to want to save partial work on the web content and query the heck out of the DB!&lt;/h3&gt;
+&lt;p&gt;For the next part I just wanted to add a draft field to the Post model so I could write posts on the admin section, 
+leave them half-finished but saved to the database so I could pick them up and finish them from anywhere. 
+That's a really simple change to the model of course, just:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;(&lt;span class="n"&gt;models&lt;/span&gt;.&lt;span class="n"&gt;Model&lt;/span&gt;):
+    &lt;span class="c-Singleline"&gt;#Other model fields&lt;/span&gt;
+    &lt;span class="n"&gt;draft&lt;/span&gt; = &lt;span class="n"&gt;models&lt;/span&gt;.&lt;span class="n"&gt;BooleanField&lt;/span&gt;(&lt;span class="n"&gt;blank&lt;/span&gt;=&lt;span class="nb"&gt;False&lt;/span&gt;, &lt;span class="n"&gt;help_text&lt;/span&gt;=&lt;span class="s"&gt;"Save as a draft on the server"&lt;/span&gt;)
+&lt;/pre&gt;
+
+
+&lt;p&gt;Now what we could do is just handle the display of this in the template if need be. 
+All posts are queried for when we want to display the list of available posts on the homepage. 
+This is the 'ListView' from the Tumblelog tutorial and we could solve it in the template easily like this&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;post.draft&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;  &amp;lt;--- Display post code --&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;but this doesn't really seem that great. We're still loading the data from the database, it's just not being displayed using the template. 
+It feels like we should really go the extra step here.&lt;/p&gt;
+&lt;p&gt;So what do you do? We should change the query in the url of course! Even better, let's get some real mongo access. 
+In the blog models.py we can actually open up the ability to do a raw query using django_mongodb_engine by:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_mongodb_engine.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;#Other attributes&lt;/span&gt;
+    &lt;span class="n"&gt;objects&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;and we can change our queryset in urls.py for the list view to be:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;    url(r'^$', PostListView.as_view(
+        queryset=Post.objects.raw_query({'draft': False}).order_by('created_at').reverse(),
+        context_object_name="posts_list"),
+        name="home"
+    ),
+&lt;/pre&gt;
+
+
+&lt;p&gt;Whereas before it was:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;url(r'^$', PostListView.as_view(
+    queryset=Post.objects.all().order_by('created_at').reverse(),
+    context_object_name="posts_list"),
+    name="home"
+),
+&lt;/pre&gt;
+
+
+&lt;p&gt;What we've done is open up the raw_query field on objects. Now we can actually issue more complicated queries to the database. 
+While not essential now, this will be very useful for more complicated models/data types in the future.&lt;/p&gt;
+&lt;p&gt;And that was it, pretty fun, pretty simple, and fairly functional. As always this has been cribbed from the work of others and googling, 
+I just didn't keep track of my sources that well last night.&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>web</category><guid>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</guid><pubDate>Tue, 19 Mar 2013 19:01:25 GMT</pubDate></item><item><title>I guess posting content does make a difference</title><link>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;&lt;img alt="Website Stats" src="http://www.npcompleteheart.com/images/posting_content.jpg"&gt;&lt;/p&gt;</description><category>web</category><guid>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference.html</guid><pubDate>Sat, 16 Mar 2013 18:59:17 GMT</pubDate></item><item><title>Django nonrel, MongoDB, MongoHQ, and Heroku</title><link>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;So you want to make a Django app with a MongoDB backend? &lt;/p&gt;
+&lt;p&gt;Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?&lt;/p&gt;
+&lt;p&gt;That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).&lt;br&gt;
+After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate 
+that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a 
+state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
+&lt;h3&gt;Update&lt;/h3&gt;
+&lt;p&gt;This post survived for almost two months on the internet being correct about technology. Not too shabby. However, the wheels turn and things get outdated, namely that MongoDB was updated to 2.4 and changed behavior. By default all collections are capped and pymongo with the django fork wasn't handling that properly. If you follow the requirements list &lt;em&gt;exactly&lt;/em&gt; this will not work.  You need to update the version of PyMongo to version&amp;gt;2.5 for it to work. Happy Coding!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Resume Old Post&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;--------------&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So you want to make a Django app with a MongoDB backend? &lt;/p&gt;
+&lt;p&gt;Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?&lt;/p&gt;
+&lt;p&gt;That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).  After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.&lt;/p&gt;
+&lt;p&gt;But as with all my posts, I want to put out the relevant sites that I've used and am cribbing heavily from (I'm nothing without the google).  So these are where my references are from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html" title="https://devcenter.heroku.com/articles/django"&gt;Heroku Guide to a Vanilla Django App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html" title="http://www.gdovicak.com/2012/02/Django-Nonrel-and-MongoDB-on-Heroku"&gt;G. Dovicak's awesome stub on configuring MongoHQ settings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html" title="http://docs.mongodb.org/manual/tutorial/write-a-tumblelog-application-with-django-mongodb-engine/"&gt;MongoDB's How to make a tumblelog tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Installing python, django-nonrel, and mongo support&lt;/h3&gt;
+&lt;p&gt;Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the &lt;a href="https://devcenter.heroku.com/articles/quickstart"&gt;heroku dev toolbelt&lt;/a&gt;. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;mkdir djangoapp &amp;amp;&amp;amp; cd djangoapp
+virtualenv venv --distribute
+source venv/bin/activate
+vi requirements.txt
+pip install -r requirements.txt
+&lt;/pre&gt;
+
+
+&lt;p&gt;where you edit your requirements.txt file in vim and it then looks like:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;distribute==0.6.24
+wsgiref==0.1.2
+git+git://github.com/django-nonrel/django-nonrel.git@master
+git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
+git+https://github.com/adamrpah/mongodb-engine.git
+djangotoolbox==0.9.2
+pymongo==2.4
+&lt;/pre&gt;
+
+
+&lt;p&gt;I took the advice in G. Dovicak's post and forked/cloned mongodb-engine as a git repository just so it was locked.  I don't feel that this step is entirely necessary, but you can feel free to use that fork if you want (it's public).
+Now we have Django nonrel and its supporting packages installed inside a virtual environment.  &lt;/p&gt;
+&lt;h3&gt;Starting a Django App and deploying it to Heroku&lt;/h3&gt;
+
+&lt;p&gt;Next we start the app:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+django-admin.py startproject djangoapp
+&lt;/pre&gt;
+
+&lt;p&gt;and let's check that it runs locally (checking at every step is how you make sure you haven't gone too far while borking something instrumental up).&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+python djangoapp/manage.py runserver
+&lt;/pre&gt;
+
+&lt;p&gt;Navigate to localhost:8000 in your web browser.  You should see a "It Works!" page.  Wooo! We have a Django app sans database now.&lt;/p&gt;
+&lt;p&gt;So now let's get this app ready to ship out to Heroku.  To do that we need to create a Procfile that contains the process that Heroku should run. so we do:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+vi Procfile
+&lt;/pre&gt;
+
+&lt;p&gt;and then insert into the file:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+web python djangoapp/manage.py runserver 0.0.0.0:$PORT --noreload
+&lt;/pre&gt;
+
+&lt;p&gt;Next set up git with a proper gitignore, initialize the repository, add the files, and commit it.  Afterwards we work with heroku, creating a heroku app and pushing our django app repository to heroku.&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+vi .gitignore
+git init
+git add .
+git commit -m 'initial django app'
+heroku create
+git push heroku master
+&lt;/pre&gt;
+
+&lt;p&gt;.gitignore file contents&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+*.pyc
+venv
+*.swp
+&lt;/pre&gt;
+
+&lt;p&gt;Now let's start up the process so that there's a dyno serving the website, check the activity on the heroku app to make sure it works, and view the 'It Works!' Django page in a browser to confirm.&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+heroku ps:scale web=1
+heroku ps 
+-&amp;gt; Scaling web processes... done, now running 1
+heroku open
+&lt;/pre&gt;
+
+&lt;p&gt;Perfect!  We've launched our app in Heroku now.  &lt;/p&gt;
+&lt;h3&gt;Configuring MongoHQ settings with Django&lt;/h3&gt;
+
+&lt;p&gt;Let's get that Mongo database working as a complement to our django app.  We do that by enabling the MongoHQ add-on.&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+heroku addons:add mongohq:sandbox
+&lt;/pre&gt;
+
+&lt;p&gt;Now we actually have to figure out &lt;em&gt;WHERE&lt;/em&gt; and &lt;em&gt;HOW&lt;/em&gt; to connect to our MongoHQ database.  We do that by running&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+heroku config| grep "MONGOHQ"
+-&amp;gt; MONGOHQ_URL:                  mongodb://USER:PASSWORD@linus.mongohq.com:PORT/APP_ID
+&lt;/pre&gt;
+
+&lt;p&gt;We see that the heroku config command gives us all of the pertinent connection information for our instance. Or as an even more explicit example, your where should look like:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+heroku config| grep "MONGOHQ"
+-&amp;gt; MONGOHQ_URL:                  mongodb://heroku:aaaaaaaaaaaaaaaaaaaaaaaaaa@linus.mongohq.com:10000/app55555
+&lt;/pre&gt;
+
+&lt;p&gt;Now we have to populate our django settings file with it.  Initially the database connection settings for your django app will look like this:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': '',                      # Or path to database file if using sqlite3.
+ 16         'USER': '',                      # Not used with sqlite3.
+ 17         'PASSWORD': '',                  # Not used with sqlite3.
+ 18         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+&lt;/pre&gt;
+
+&lt;p&gt;We will change that to look like this using our heroku config settings:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': 'APPID',                      # Or path to database file if using sqlite3.
+ 16         'USER': 'USER',                      # Not used with sqlite3.
+ 17         'PASSWORD': 'PASSWORD',                  # Not used with sqlite3.
+ 18         'HOST': 'mongodb://linus.mongohq.com/APPID',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': PORT,                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+&lt;/pre&gt;
+
+&lt;p&gt;Or using our super explicit example:&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+ 12 DATABASES = {
+ 13     'default': {
+ 14         'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+ 15         'NAME': 'app55555',                      # Or path to database file if using sqlite3.
+ 16         'USER': 'heroku',                      # Not used with sqlite3.
+ 17         'PASSWORD': 'aaaaaaaaaaaaaaaaaaaaaaaaaa',                  # Not used with sqlite3.
+ 18         'HOST': 'mongodb://linus.mongohq.com/app55555',                      # Set to empty string for localhost. Not used with sqlite3.
+ 19         'PORT': 10000,                      # Set to empty string for default. Not used with sqlite3.
+ 20     }
+ 21 }
+&lt;/pre&gt;
+
+&lt;p&gt;Here are some important things to note, to make sure everyone is on the same page.  The USER will always be prepopulated as 'heroku', that's why I'm using it in our super explicit example.  So on line 16 it will look like&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+16         'USER': 'heroku',                      # Not used with sqlite3.
+&lt;/pre&gt;
+
+&lt;p&gt;even in your own settings. PASSWORD is a long string of numbers and digits, PORT is a 5 digit number, and APPID is app[0-9]{8} (app followed by 8 numbers). There is one important point to note and I screwed this up twice in a row on two different projects.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;
+To connect to the MongoDB database it needs a port number that is an integer. 
+By default there are string quotes in the field.&lt;br&gt;
+DO NOT USE THE STRING QUOTES.  PUT IT IN AS AN INTEGER.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I have forgotten this both times, hopefully I (and who reads this) will not make the same mistake anymore. The last step is to comment out one line (line 115, 'django.contrib.sites') in the settings file to remove a default django behavior.&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+111 INSTALLED_APPS = (
+112     'django.contrib.auth',
+113     'django.contrib.contenttypes',
+114     'django.contrib.sessions',
+115     #'django.contrib.sites',
+116     'django.contrib.messages',
+117     'django.contrib.staticfiles',
+118     # Uncomment the next line to enable the admin:
+119     # 'django.contrib.admin',
+120     # Uncomment the next line to enable admin documentation:
+121     # 'django.contrib.admindocs',
+122 )
+&lt;/pre&gt;
+
+&lt;p&gt;If we don't do this django will try to enter a site document into the Mongo database with a primary key of '1', which Mongo will not like and will stop your database sync.  Now we just have to package up these settings changes and push to heroku as&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+git add .
+git commit -m 'Configured settings file to work with MongoHQ'
+git push heroku master
+&lt;/pre&gt;
+
+&lt;p&gt;and now we very simply start up the database using the remote heroku machine with&lt;/p&gt;
+&lt;pre class="prettyprint lang-bash"&gt;
+heroku run python djangoapp/manage.py syncdb
+&lt;/pre&gt;
+
+&lt;p&gt;And we're there! Making a database user with a password finishes this round out.&lt;/p&gt;
+&lt;h3&gt;Next Steps&lt;/h3&gt;
+
+&lt;p&gt;Making models, templates, and so on as in the Mongo Tumblelog or do whatever you want!  You now have the base configuration to make a website.&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku.html</guid><pubDate>Thu, 14 Mar 2013 12:21:25 GMT</pubDate></item><item><title>First times at RoR and how I got up and running</title><link>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This blog is my first time starting a web page (for real at least) and using Ruby on Rails. Despite
+having some prior experience with Django I chose Ruby on Rails for two main reasons: (1) it
+integrates seamlessly with Heroku, which is an amazing service (for free! at least for my needs)
+that provides basic app hosting and is not replicated on the Django side of web development and (2)
+it's something I haven't done yet and I would rather learn something new. I'm not a massive fan of
+Django, so even though my primary programming experience is in python it didn't deter me from
+switching over for this. At a later point, I may detail what I feel are the differences between the
+platforms and which one excels in what area, but there's plenty on the web that goes on about the
+differences already.&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;So the real meat of this post is to detail how I went from absolutely nothing to a working blog, the
+actual resources I used and in what order (clear up conflicting suggestions from just mindlessly
+following google links which is how this got going), and to give credit where credit is due (if you
+go through any of these tutorials you can see how liberally I used the default CSS templates they
+generate, the CSS/HTML is my definitive weak point).&lt;/p&gt;
+&lt;h3&gt;Installing Ruby&lt;/h3&gt;
+&lt;p&gt;When I first went to go use Ruby there were some initial conflicts, since the newest version of
+Rails wasn't compatible with the version of Ruby that came stock on my computer (OS X 10.6 Snow
+Leopard). What I thought was the obvious answer from my python experience was to open up MacPorts
+and download the newest version of Ruby and Rails, not thinking that there were better solutions
+available (MacPorts is as good as it gets). I actually did get it up and running but not before
+spending a lot of time resolving the issue with rake (v0.9.0 was giving problems with the gemfile)
+and then mucking it all up by using a different version to check out and play with an app that was
+already written but with an earlier rails version.&lt;/p&gt;
+&lt;p&gt;The hilarious thing is, that there is a solution for this with RoR and it's great (despite the
+problems it's giving me now in checking out a head version of Ruby to use), it's RVM--Ruby Version
+Manager . It actually does work exactly as the tutorial shows (a real rarity) and it's simple,
+making it a terrible idea to try and manage Ruby yourself through MacPorts. The only hacky thing I
+did was to actually put a single line in my bash_profile to automatically use the default ruby
+because at some point it stopped initializing properly. This subsequently caused me to curse
+frequently when Rails would error out on starting a server. If that effects you then just execute:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;echo&lt;/span&gt;&lt;span class="x"&gt; 'rvm use default' &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;and it will resolve the problem, indefinitely. It does require that it executes every time you open
+a new terminal tab, so if that bothers you then you are properly warned.
+At this point you should also go ahead and sign up for GitHub and Heroku (if you plan on actually
+putting it on the web, otherwise just Git. Version control is a lifesaver when you don't entirely
+understand what you are doing).&lt;/p&gt;
+&lt;h3&gt;Starting your Rails App&lt;/h3&gt;
+&lt;p&gt;I started by using the Ruby on Rails tutorial to get the basic sauce of the website working. I also
+heavily used another resource to get the basic CSS and html of the website working, but I
+unfortunately cannot find it to save my life. At the same time I also immediately set up users and
+user authentication, I would highly recommend NOT doing this. Trying to do everything at once was
+not a seamless process when I was still grappling with the basics of getting the website up and
+running. Play around with Rails and get all the basic functionality that you want along with the
+styling that makes you happy enough to proceed and then start mucking it all up by adding
+authentication.&lt;/p&gt;
+&lt;p&gt;For user adding and authentication I decided on using Devise and CanCan, since it didn't require
+nearly as much work on my part and seemed to be a fairly easy set up and go process. That didn't
+turn out to be entirely true, but that was more my own fault. Instead of sitting down and getting it
+running in one go I pecked at it in bits and pieces, forgetting where I was when I last ran out of
+time trying to set it up. The tutorial that I used the most (and should be sufficient to create the
+entire process) can be found here and the follow up here. Although to be honest, my real problems
+occurred when I forgot the password to the user I created and subsequently tried creating a new user
+to supercede the old one when I had, effectively, locked myself out of my own app. If you make this
+same boneheaded mistake, I'll tell you now that it's just easier to go straight into the database
+and correct, so long as you are comfortable with basic SQL.&lt;/p&gt;
+&lt;h3&gt;How does this CSS thing work?&lt;/h3&gt;
+&lt;p&gt;This by far my weakest point. I really don't entirely understand how to use HTML and CSS although
+even initially I understood the reasons for using both and it makes sense (HTML for content, CSS for
+design). Even using the tutorial from the Rails app and the stock CSS it came with to start I still
+had lots of trouble modifying it to give me a look that I was at least semi satisfied with. One
+night I just bit the bullet and went all the way through the tutorials at HTMLDog. This didn't
+resolve my problems, it didn't make me like CSS or HTML any more (or less), than I already did, but
+it gave me enough of a basic understanding of the languages and what terms were used for what that I
+could actually start googling for what I wanted to do and get results. If you are coming at this
+from a programming starting point instead of a design standpoint this is by far the hardest part.
+HTML and CSS don't give stack traces and errors like real code does, it just takes what you give it
+and then does whatever the hell it wants with it, with no real indication as to why what you told it
+isn't going to be sufficient. Annoying to say the least.&lt;/p&gt;
+&lt;h3&gt;Getting it onto the web&lt;/h3&gt;
+&lt;p&gt;This part is by far the easiest, just buy a domain and set it up. There's a video in the Heroku
+articles section that explains how to set it up with GoDaddy and after that you're done! The video
+is only outdated on one aspect, setting up a CNAME with domainname.com. to refer to the site without
+the 'www' doesn't work anymore. GoDaddy wants you to do that using their domain forwarding, which
+can be set up from the dashboard page for your domain. 
+Now breathe a sigh of relief when everything works.&lt;/p&gt;
+&lt;p&gt;That's it! From start to finish of how I got going and a rundown of the tutorials that can be used.
+If you want to stray go for it (this website obviously isn't perfect and I'll be heavily modifying
+it as I get a better grip on using all of these things) but just be careful about what you start
+following. There are lots of Rails tutorials still kicking around from earlier versions and the
+techniques and code used don't all work in Rails 3. Reading first to make sure it's applicable saves
+you the pain of implementing and then banging your head against the screen as you get nothing but
+errors.&lt;/p&gt;&lt;/div&gt;</description><category>rails</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running.html</guid><pubDate>Mon, 23 Jan 2012 18:07:14 GMT</pubDate></item></channel></rss>

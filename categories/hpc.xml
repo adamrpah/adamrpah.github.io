@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NP Complete Heart (hpc)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/hpc.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 02:07:59 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Generate torque submission scripts</title><link>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+Most of us use some form of Torque in an academic environment to run scripts on a cluster. Typically I would have some form of script to generate the necessary qsub scripts for submission, but it wasn't ever generic enough. So this has been my working stab at making that happen. 
+&lt;/p&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;
+Here is how it works, say that you have a program called "cure_cancer.py" that you want to run on the cluster that takes no arguments. All you would do is type:
+
+&lt;/p&gt;&lt;pre&gt;
+$ generate_qsub cure_cancer.py
+&lt;/pre&gt;
+
+and then it will generate some file like:
+
+&lt;pre&gt;
+$ ls
+qsub_cure_cancer_897234.sh
+&lt;/pre&gt;
+
+that can be submitted on a cluster normally like:
+
+&lt;pre&gt;
+$ qsub qsub_cure_cancer_897234.sh
+&lt;/pre&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;h5&gt;
+Basic submission with arguments
+&lt;/h5&gt;
+&lt;p&gt;
+But what if your script needs an argument, like the filename it should read in?  Simple enough actually.
+
+&lt;/p&gt;&lt;pre&gt;
+$ generate_qsub cure_cancer.py whole_lotta_cancer.csv
+&lt;/pre&gt;
+
+The script supports an arbitrary number of command arguments, they just have to follow after the program name, be in the correct order for your script, and not contain spaces (REPEAT, NO SPACES IN FILENAMES). Pretty simple. 
+
+
+&lt;h5&gt;
+Basic submission with keyword arguments
+&lt;/h5&gt;
+
+&lt;p&gt;
+Sometimes we write a program with options to make something more flexible. So we could add to our cancer program to change the parameters of the model like so:
+&lt;/p&gt;&lt;pre&gt;
+$ python cure_cancer.py --alpha 0.5 --beta 0.3
+&lt;/pre&gt;
+The qsub generation script supports that too! You just have to tell it so, like:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py --kwargs '{"alpha": 0.5, "beta":0.3}'
+&lt;/pre&gt;
+It just needs to be the name that is given with the '--' option (so no single letters). Also, you can of course use the additional keyword arguments with command line arguments like so:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py whole_lotta_cancer.csv --kwargs '{"alpha": 0.5, "beta":0.3}'
+&lt;/pre&gt;
+That's the end of the basic usage. The generation script automatically recognizes the script type and can differentiate between python and bash.
+&lt;p&gt;
+
+&lt;/p&gt;&lt;h5&gt;
+Advanced (Options usage)
+&lt;/h5&gt;
+&lt;p&gt;
+There are three additional options to the script that are slightly more advanced. They are: 
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;"--home_repl"&lt;/li&gt;
+&lt;li&gt;"--execute"&lt;/li&gt;
+&lt;li&gt;"--temporary"&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+How to use them:
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;--home_repl&lt;br&gt;
+Allows you to do a custom replacement of the "home" address when specifying where the qsub script should say it executes/errors should be placed.
+This is great when you're creating the qsub script on a computer that doesn't share the same structure as the cluster (i.e. if you're like me and create the qsub on your laptop or you have a different cluster that you'll execute the file on). Its usage is pretty simple:
+&lt;pre&gt;
+$ generate_qsub cure_cancer.py --home_repl /home/visitors/adampah/
+&lt;/pre&gt;
+&lt;/li&gt;
+
+&lt;li&gt;--execute
+&lt;br&gt;
+After generating the file it will automatically add the job to the queue. This option can only be used when you generate the file on the cluster. Also, please run it dry at least once if you're planning to batch submit a large number of jobs
+&lt;/li&gt;
+
+&lt;li&gt;
+--temporary
+&lt;br&gt;
+Deletes the generated qsub file, can only be used with the execute option. For those that don't want file cruft.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+So here is the code!
+
+&lt;/p&gt;&lt;pre&gt;
+#!/usr/bin/env python
+
+'''
+File: qsub_generator.py
+Author: Adam Pah
+Description: 
+Generates a qsub file for a program to aid in job submission to 
+a torque scheduler.
+
+Usage is:
+    qsub_generator.py program_file optional_arg1 optional_arg2 --kwargs '{"string":"dictionary","on":"command_line"}'
+'''
+
+#Standard path imports
+from optparse import OptionParser
+import os
+import sys
+import json
+import random
+
+#Non-standard imports
+
+#Global directories and variables
+
+qsub_text='''
+#! /bin/bash
+#PBS -d %s/
+#PBS -e %s/%s.error
+#PBS -o %s/%s.out
+#PBS -N %s
+#PBS -q low
+
+%s
+'''
+
+def write_qsub_file(current_dir, wfname, wfpartial, commandLine, opt):
+    '''
+    Writes a qsub file given the generated contents and makes it executable
+    '''
+    wfile = open(wfname, 'w')
+    print &amp;gt;&amp;gt; wfile, qsub_text % (current_dir,
+                                 current_dir,
+                                 wfpartial,
+                                 current_dir,
+                                 wfpartial,
+                                 wfpartial,
+                                 commandLine)
+    wfile.close()
+    #Change the permissions  
+    os.chmod(wfname, 0755)
+    #Do the hacking, execute and possibly delete the file
+    if opt.execute:
+        os.system('qsub %s' % wfname)
+        if opt.temporary:
+            os.system('rm %s' % wfname)
+
+def generate_command_line(fname, fext, cmd_args, cmd_kwargs):
+    '''
+    Generates the bash script
+    '''
+    commandLine = '' 
+    #Get the correct starting command
+    if fext:
+        if fext=='.py':
+            commandLine += 'python '
+        elif fext=='.sh':
+            commandLine += 'bash '
+        else:
+            commandLine += './'
+        #append the program name
+        commandLine += fname + fext
+    else:
+        commandLine += './' + fname
+    #Add the program arguments
+    if cmd_args:
+        commandLine += ' ' + ' '.join(cmd_args)
+    if cmd_kwargs:
+        for k,v in cmd_kwargs.items():
+            commandLine += ' --'+str(k)+' '+str(v)
+    return commandLine
+
+def pull_current(opt):
+    '''
+    Pulls the current directory with home path substition if one is given in as opt.home_repl
+    '''
+    current_dir = os.getcwd()
+    if opt.home_repl:
+        if opt.home_repl != current_dir[:len(opt.home_repl)]:
+            current_dir = os.path.join(opt.home_repl, current_dir.lstrip(os.environ['HOME']))
+    return current_dir
+
+def generate_savename(fname, fext):
+    '''
+    Generates the filename to save the qsub script to
+    '''
+    obstructed_filename = True
+    while obstructed_filename:
+        wfpartial = '%s_%d' % (fname, random.randint(0, 9999999))
+        wfname = 'qsub_%s.sh' % wfpartial
+        if not os.path.exists(wfname):
+            obstructed_filename = False
+    return wfname, wfpartial
+
+def main(args, opt):
+    '''
+    Main function for calling.
+    '''
+    #Separate the program arguments from the input arguments
+    cmd_args, cmd_kwargs = [], []
+    if len(args)&amp;gt;1:
+        cmd_args = args[1:]
+    if opt.kwargs:
+        cmd_kwargs = json.loads(opt.kwargs)
+    #Get the current directory, modify it if a different home is set
+    current_dir = pull_current(opt)
+    #The executing scripts name
+    fname, fext = os.path.splitext(os.path.basename(args[0]))
+    wfname, wfpartial = generate_savename(fname, fext)
+    commandLine = generate_command_line(fname, fext, cmd_args, cmd_kwargs)
+    write_qsub_file(current_dir, wfname, wfpartial, commandLine, opt)
+
+if __name__ == '__main__':
+    usage = '''%prog qsub_generator.py program_file optional_arg1 optional_arg2 --kwargs '{"string":"dictionary","on":"command_line"}' '''
+    parser = OptionParser(usage = usage)
+    parser.add_option('--kwargs', action='store', default=None,
+                      help="String dictionary of keyword arguments to submit to program")
+    parser.add_option('--home_repl', action='store', default=None,
+                      help="path to replace up to the user directory with")
+    parser.add_option('--execute', action='store_true', default=False,
+                      help="Submits qsub script immediately after creation. Only use if on cluster")
+    parser.add_option('--temporary', action='store_true', default=False,
+                      help="Removes the qsub script immediately after submitting with the --execute option")
+    (opt, args) = parser.parse_args()
+    #Check that temporary isn't used without execute
+    if opt.temporary and not opt.execute:
+        print &amp;gt;&amp;gt; sys.stderr, "--temporary option is meant to be used with --execute option.\n" + \
+                             "Otherwise I would just generate and then delete files immediately, doing nothing.\n" + \
+                             "Continuing, but not respecting your choice and deleting the file."
+    #There must be an initial argument or else this ship is sunk
+    if len(args)&amp;gt; sys.stderr, m
+        sys.exit()
+    main(args, opt)
+&lt;/pre&gt;
+&lt;/div&gt;</description><category>code</category><category>hpc</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</guid><pubDate>Sat, 07 Jun 2014 14:34:11 GMT</pubDate></item></channel></rss>
