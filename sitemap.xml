@@ -19,11 +19,11 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/2015/index.html</loc>
-  <lastmod>2015-12-06T03:18:00Z</lastmod>
+  <lastmod>2015-12-11T03:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/archive.html</loc>
-  <lastmod>2015-12-06T01:40:00Z</lastmod>
+  <lastmod>2015-12-11T03:34:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/academia.html</loc>
@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/code.html</loc>
-  <lastmod>2015-12-06T03:05:00Z</lastmod>
+  <lastmod>2015-12-11T03:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/conference.html</loc>
@@ -167,7 +167,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/productivity.html</loc>
-  <lastmod>2015-12-06T03:07:00Z</lastmod>
+  <lastmod>2015-12-11T03:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/pymongo.html</loc>
@@ -175,7 +175,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/python.html</loc>
-  <lastmod>2015-12-06T03:05:00Z</lastmod>
+  <lastmod>2015-12-11T03:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/categories/rails.html</loc>
@@ -267,11 +267,11 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index-4.html</loc>
-  <lastmod>2015-12-06T03:05:00Z</lastmod>
+  <lastmod>2015-12-11T03:34:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/index.html</loc>
-  <lastmod>2015-12-06T03:18:00Z</lastmod>
+  <lastmod>2015-12-11T03:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/listings/index.html</loc>
@@ -312,6 +312,10 @@
  <url>
   <loc>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</loc>
   <lastmod>2015-12-06T03:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</loc>
+  <lastmod>2015-12-11T03:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/better-late-than-never.html</loc>
@@ -423,7 +427,7 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</loc>
-  <lastmod>2015-12-06T03:10:00Z</lastmod>
+  <lastmod>2015-12-11T03:34:00Z</lastmod>
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/posts/sometimes-things-are-strange.html</loc>
@@ -503,6 +507,6 @@
  </url>
  <url>
   <loc>http://www.npcompleteheart.com/stories/socialdna/index.html</loc>
-  <lastmod>2015-12-08T14:33:00Z</lastmod>
+  <lastmod>2015-12-11T03:50:00Z</lastmod>
  </url>
 </urlset>

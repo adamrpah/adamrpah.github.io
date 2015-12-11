@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" rel="self" href="http://www.npcompleteheart.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:18:04 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" rel="self" href="http://www.npcompleteheart.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Fri, 11 Dec 2015 03:36:52 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+    &lt;img src="http://www.npcompleteheart.com/images/keynote2pdf.png"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+So I use Macs (you probably noticed, right? It has unix but it can still connect to any random
+projector and still work so it's a winner in academia) and that leads me to using some nonstandard
+software every now and then that's OS X only. Keynote is one of those programs. Powerpoint drives me
+crazy, so I've been driven into its user-friendly, unshareable arms.
+&lt;br&gt; &lt;br&gt;
+&lt;/div&gt;
+&lt;!-- TEASER_END --&gt;
+
+But the good times have finally come to an end. Using Keynote for presentations and using my own
+laptop or exporting a single presentation to a PDF hasn't ever been an issue, but now I have 20
+course lectures that I need to distribute to my students and I'm not about to open each one and
+export it to PDF every time I make a change to a single slide.
+&lt;br&gt; &lt;br&gt;
+
+Googling for a quick, straightforward answer was a nightmare. Some examples I found used
+Applescript, which I couldn't get to work on Yosemite (OS X 10.10). Scratch that, I've never gotten
+any Applescripts to really work/written one (who the hell knows why). But this was still fairly
+annoying as accessibility errors kept popping up and I didn't care enough to figure out why.
+&lt;br&gt; &lt;br&gt;
+
+So instead I went ahead and cobbled together various parts of other bash scripts I found. I think in
+the end I put together two or three of them to get a final working product. I ended up with a
+workflow like this:
+&lt;br&gt; &lt;br&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;tt&gt;qlmanage&lt;/tt&gt; to unpack a Keynote into a folder with a PDF of each slide and an HTML page that says
+the order&lt;/li&gt;
+&lt;li&gt;Read the HTML page to find the order of the PDFs&lt;/li&gt;
+&lt;li&gt;Use a built in OS X executable to join the individual PDF pages are&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt; &lt;br&gt;
+
+which led to this script that I put up as a &lt;a href="https://gist.github.com/adamrpah/a10f335b889b2bd0f19b"&gt;gist&lt;/a&gt;. 
+It's hacky, hacky, hacky, hacky (I threw it together as quick as I could after a couple total hours
+invested in this). Right now it'll execute in a directory and export every single Keynote file it finds. It should be changed to do either a directory or a single file, use some actual command execution instead of &lt;tt&gt;os.system&lt;/tt&gt;, something to actually clean filenames other than three quick lines....but, hey.  It's done!&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
 visualize its most common terms to give a sense of what is involved, like so:
@@ -457,55 +497,4 @@ All in all, it's hard to say what to do in this new world where static site gene
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
-&lt;p&gt;
-Twenty fourteen, what can I say. It was consistent and not always pretty but I made it through. I made my first actual contribution to an &lt;a href="http://github.com/python-visualization/folium/commits?author=adamrpah"&gt;open source project&lt;/a&gt;, learned the value of gists, started opening up &lt;a href="http://github.com/adamrpah/GALE"&gt;GALE&lt;/a&gt; to the world, and successfully made it through putting on a one week bootcamp transform non-coders into pythonistas. I at least got one manuscript out (albeit a &lt;a href="http://npcompleteheart.com/article/big-data-what-is-it-and-what-does-it-mean-for-card/"&gt;review&lt;/a&gt;) and a conference presentation at &lt;a href="http://npcompleteheart.com/article/unzipping-zip-codes-a-methodology-to-assign-de-ide/"&gt;AMIA&lt;/a&gt;. I even launched Socraticc as a part of OmegaK and brought it right down after no one wanted to use it after a few months.
-&lt;/p&gt;
-
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;
-But what I'm really happy about is that I've mostly maintained a promise to myself that I would be consistently reading throughout the year. This is my quick year in review of what I've made it through, if for nothing else other than posterity.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Hard-Boiled Wonderland and the End of the World&lt;/h5&gt;
-&lt;h5&gt;1Q84&lt;/h5&gt;
-&lt;h5&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/h5&gt;
-&lt;h5&gt;Norwegian Wood&lt;/h5&gt;
-&lt;h5&gt;Kafka on the Shore&lt;/h5&gt;
-&lt;h5&gt;The Wind-Up Bird Chronicle&lt;/h5&gt;
-&lt;h5&gt;—Haruki Murakami&lt;/h5&gt;
-&lt;p&gt;
-This is the year wherein I found Haruki Murakami and was simply blown away. The amount of emotion and alienation induced by his writing is amazing and for most of the books I've tried to read them with a soundtrack that corresponds to the book (from whichever classical artists figured most prominently in the work) and it's been a wonderful experience. I can't recommend these works enough. I just finished &lt;i&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/i&gt; and, while I didn't feel as strongly about it while reading it, I'm already starting to form a much stronger attachment and opinion about it. You can't go wrong with any of these books, but my favorite would have to be &lt;i&gt;Kafka on the Shore&lt;/i&gt;.
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Count Zero&lt;/h5&gt;
-&lt;h5&gt;Mona Lisa Overdrive&lt;/h5&gt;
-&lt;h5&gt;—William Gibson&lt;/h5&gt;
-&lt;p&gt;
-I finally finished the Neuromancer trilogy after seeing William Gibson do a Q&amp;amp;A during the Chicago Humanities Festival (his answers were wonderful and insightful, the questions were not so great however). I realized that I hadn't finished the rest of the trilogy so I went back and finished it (I was switching back and forth between Gibson and Stephenson when I read &lt;i&gt;Neuromancer&lt;/i&gt;). These books were actually great additions to the series and I felt that they really enhanced the story in &lt;i&gt;Neuromancer&lt;/i&gt;. Next year, I'll start &lt;i&gt;The Peripheral&lt;/i&gt; once I'm certain I've forgotten all the spoilers I've seen. 
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Statistics&lt;/h5&gt;
-&lt;h5&gt;—David Freedman&lt;/h5&gt;
-&lt;p&gt;
-I never took an introductory statistics course, and as such my understanding of the statistician "language" and viewpoint was pretty lacking (I'm more a fan of Monte Carlo methods and bootstrapping to test statistical hypotheses), so I wanted to shore up my ability to understand that viewpoint and the language. This book was very well written and I really enjoyed all of the examples given. Now I just need to finish Andrew Gelman's &lt;i&gt;Bayesian Data Analysis&lt;/i&gt; and Tibshirani's &lt;i&gt;Elements of Statistical Learning&lt;/i&gt; next year.
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;The Informers&lt;/h5&gt;
-&lt;h5&gt;American Psycho&lt;/h5&gt;
-&lt;h5&gt;—Bret Easton Ellis&lt;/h5&gt;
-&lt;p&gt;
-I really like some of Bret Easton Ellis' work, and &lt;i&gt;American Psycho&lt;/i&gt; was a great read but &lt;i&gt;The Informers&lt;/i&gt; was completely forgettable. 
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Do androids dream of electric sheep?&lt;/h5&gt;
-&lt;h5&gt;We can remember it for you wholesale&lt;/h5&gt;
-&lt;h5&gt;Philip K. Dick&lt;/h5&gt;
-&lt;p&gt;
-Somehow these books slipped through the cracks when I read the rest of Dick's work earlier. &lt;i&gt;Do androids dream of electric sheep?&lt;/i&gt; is a wonderful story, that I was surprised to read in terms of how much it differed from Ridley Scott's movie adaptation. The same can be said for &lt;i&gt;We can remember it for you wholesale&lt;/i&gt;, the funny thing is that I'm rather surprised with how successful the adaptations of Dick's work are (even when they deviate from the written story) while Gibson made an explicit comment about how he hated the adaptation of Johnny Mnemonic (which I can understand after seeing it).
-&lt;/p&gt;
-&lt;p&gt;
-And that's the end of 2014, time to make some goals for 2015 and deliver on them.
-&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>review</category><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item></channel></rss>
