@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (socialdna)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/categories/socialdna.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 15 Dec 2015 16:45:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Big seeds and viral marketing</title><link>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (virality)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/categories/virality.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 15 Dec 2015 16:45:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Big seeds and viral marketing</title><link>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Having a product or campaign go viral is no small feat. As someone who has made a number of software
 tools that no one else on Earth has used (whether I've published the code to the world or not!), I can promise you that 
@@ -122,65 +122,4 @@ from a celebrity) unless your acquisition costs are extravagant and that user is
 product sector.&lt;/li&gt;
 &lt;li&gt;Do spend that same budget to seed hundreds or thousands of users. Expect most of those tweets to
 not travel very far, but at least you've gotten some decent reach for your budget.&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>socialdna</category><category>viral marketing</category><category>virality</category><guid>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</guid><pubDate>Mon, 14 Dec 2015 20:44:56 GMT</pubDate></item><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
-&lt;div class="col-md-4"&gt;
-    &lt;img src="http://www.npcompleteheart.com/images/everything_is_obvious.png"&gt;
-&lt;/div&gt;
-&lt;div class="col-md-8"&gt;
-Over the summer I've been able to successfully chisel away at my goal of reading 20 books by 16
-different authors in 2015, with my two weeks of travel to and around Spain providing me ample time
-to dive into my iPad and digest. For this tour, I went back in time and read Nicholas Christakis'
-&lt;strong&gt;Connected&lt;/strong&gt;, which actually provided me with some insight on researchers and topics that I thought I
-already knew pretty well. In terms of an overview of how networks affect social phenomena, I would
-highly recommend it. I also plowed through Nate Silver's &lt;strong&gt;The Signal and The Noise&lt;/strong&gt;, because I'm
-convinced that being acquainted with Nate Silver's work is the litmus test in the public for
-understanding data science. It was pretty good, although some of his metaphors were clunky and only
-really stuck with me because of reading fivethirtyeight (his own data science news blog) since its
-inception.
-&lt;br&gt; &lt;br&gt;
-&lt;/div&gt;
-
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-However, it was the third book that really stuck with me. Duncan Watts' "Everything is Obvious
-...once you know the answer" is a quick tour through his work starting with Steven Strogatz at
-Cornell and covering his work at Columbia University and Yahoo Research. The opening vignette, of
-how his roommate reads a newspaper article about something silly in sociological research and
-remarks to him that "He should switch to the social sciences and solve all the problems in a week".
-That remark, which has been said many times by physicists (both positively and negatively as they
-continue to enter new fields) sets us out on our journey.
-&lt;br&gt; &lt;br&gt;
-
-The reality is that it's been a decade, and while Duncan and many others quantitative scientists
-have published great work investigating social science problems, understanding of social systems and
-human behavior remains as elusive today as 20 years ago. If anything, what we've learned is that
-randomness and unseen or unmeasurable effects have the ability to impede making predictions that go
-far into the future.
-&lt;br&gt; &lt;br&gt;
-
-A great experiment from Watts’ team demonstrates this: users were able to go to a website (called
-Music Lab) and listen to music for free. After listening to a song they would be asked to rate it
-(on a 5 point scale) and were then given the opportunity to download it. However, there were
-multiple 'worlds' constructed for the users (all containing the same songs). In the first world, the
-songs were merely displayed, in the other worlds the songs were ranked by and displayed the number
-of downloads. 
-&lt;br&gt; &lt;br&gt;
-
-Now, if behavior was in any way predictable, the end ratings and downloads from these different
-worlds should match. With large enough populations the true 'quality' of a song should shine through
-and there should be a strong correlation between ratings in the different “worlds”.  
-&lt;br&gt; &lt;br&gt;
-
-Not at all. When we allow for social influence, the winners become even bigger winners. Furthermore,
-the 'more' that they win is highly variable between worlds. A song that gets a high rating early
-accumulates more high ratings. And the initial ratings are extremely stochastic. 
-&lt;br&gt; &lt;br&gt;
-
-This may seem obvious in hindsight (the name of the book, right?), but it's really not. Behaviors
-are erratic, and difficult to predict. If the social world behaved like the physical world,
-individuals would have a negligible influence on each other. Or at least, in larger populations the
-randomness would become less dominant. Of course, we don’t see this. The social world is weird,
-chaotic, and difficult to predict. Not exactly the unifying laws that came from Physics after all. 
-&lt;/div&gt;
-
-&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>socialdna</category><category>viral marketing</category><category>virality</category><guid>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</guid><pubDate>Mon, 14 Dec 2015 20:44:56 GMT</pubDate></item></channel></rss>

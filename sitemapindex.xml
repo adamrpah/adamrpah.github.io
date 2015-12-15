@@ -203,7 +203,7 @@
  </sitemap>
  <sitemap>
   <loc>http://www.npcompleteheart.com/categories/socialdna.xml</loc>
-  <lastmod>2015-12-06T03:18:00Z</lastmod>
+  <lastmod>2015-12-15T16:45:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://www.npcompleteheart.com/categories/tutorial.xml</loc>
@@ -212,6 +212,14 @@
  <sitemap>
   <loc>http://www.npcompleteheart.com/categories/vcs.xml</loc>
   <lastmod>2015-12-06T01:57:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://www.npcompleteheart.com/categories/viral-marketing.xml</loc>
+  <lastmod>2015-12-15T16:45:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://www.npcompleteheart.com/categories/virality.xml</loc>
+  <lastmod>2015-12-15T16:45:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://www.npcompleteheart.com/categories/web.xml</loc>
@@ -231,10 +239,10 @@
  </sitemap>
  <sitemap>
   <loc>http://www.npcompleteheart.com/rss.xml</loc>
-  <lastmod>2015-12-11T17:13:00Z</lastmod>
+  <lastmod>2015-12-15T16:45:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://www.npcompleteheart.com/sitemap.xml</loc>
-  <lastmod>2015-12-12T03:00:00Z</lastmod>
+  <lastmod>2015-12-15T16:45:00Z</lastmod>
  </sitemap>
 </sitemapindex>

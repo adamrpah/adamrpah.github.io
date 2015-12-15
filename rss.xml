@@ -1,5 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link rel="self" href="http://www.npcompleteheart.com/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 11 Dec 2015 17:13:30 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link type="application/rss+xml" href="http://www.npcompleteheart.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 15 Dec 2015 16:45:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Big seeds and viral marketing</title><link>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;div class="row"&gt;
+&lt;div class="col-md-8"&gt;
+Having a product or campaign go viral is no small feat. As someone who has made a number of software
+tools that no one else on Earth has used (whether I've published the code to the world or not!), I can promise you that 
+non-virality is a common state for a product to be in.
+&lt;/div&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/socialdna/virality.png"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- TEASER_END --&gt;
+
+&lt;p&gt;This lack of virality goes beyond my own failed efforts at helping the world with my code though, and extends to most products 
+and campaigns. While there are &lt;a href="http://socialtriggers.com/craft-contagious-content/"&gt;numerous&lt;/a&gt; 
+&lt;a href="http://www.sparringmind.com/viral-content/"&gt;pieces&lt;/a&gt;
+&lt;a href="http://www.amazon.com/gp/product/1591840929/ref=as_li_ss_tl?ie=UTF8&amp;amp;tag=ciotti-20&amp;amp;linkCode=as2&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1591840929"&gt;written&lt;/a&gt;
+&lt;a href="http://neilpatel.com/2015/06/23/how-to-create-viral-content-that-will-drive-2500-visitors-per-day/"&gt;about&lt;/a&gt;
+&lt;a href="http://www.inc.com/minda-zetlin/yes-you-can-create-viral-content-here-s-how.html"&gt;how&lt;/a&gt;
+&lt;a href="https://blog.kissmetrics.com/creating-viral-content/"&gt;to&lt;/a&gt;
+&lt;a href="http://backlinko.com/viral-content"&gt;create&lt;/a&gt;
+&lt;a href="http://www.forbes.com/sites/dorieclark/2013/06/23/how-to-create-viral-content/"&gt;viral&lt;/a&gt;
+&lt;a href="http://www.amazon.com/exec/obidos/ASIN/1451686579/simonsayscom"&gt;content&lt;/a&gt;,
+the simple truth is that not every ad gets watched a billion times on Youtube (and &lt;strong&gt;please&lt;/strong&gt; don't
+click all those links, I was just trying to make a point). &lt;/p&gt;
+&lt;p&gt;To be certain there are some similarities between pieces of content that do go viral. They are fun
+or funny and they do resonate with their audiences. Some people have even created multiple campaigns
+that have all gone viral. &lt;/p&gt;
+&lt;p&gt;However, even if you integrate all of the advice that you find on how to create viral content, 
+you &lt;strong&gt;still wouldn't&lt;/strong&gt; be guaranteed of making a viral hit every time (life's unfair, I know). We know this
+scientifically from the &lt;a href="http://snap.stanford.edu/class/cs224w-readings/bakshy11influencers.pdf"&gt;great
+work&lt;/a&gt; that Bakshy, Hofman,
+Mason, and Watts did quantifying influence on Twitter. In this work there are two main take-aways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users that had started cascades in the past were likely to start another cascade
+(Unsurprising)&lt;/li&gt;
+&lt;li&gt;Features of the content do not improve predictions (Suprising)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So let's tackle these two points.&lt;/p&gt;
+&lt;h4&gt;Some users are better at starting cascades than others&lt;/h4&gt;
+
+&lt;p&gt;This is the part where you say "HA! THERE IS A KEY TO GOING VIRAL! YOU LIED TO ME!" and I say "Hold
+on, let's explain some boring stats". &lt;/p&gt;
+&lt;p&gt;In the paper, they construct a model to predict the influence that a single user will have. They
+feed into this model the following features for each user:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; Number of followers &lt;/li&gt;
+&lt;li&gt; Number of friends &lt;/li&gt;
+&lt;li&gt; Number of tweets &lt;/li&gt;
+&lt;li&gt; Date of joining &lt;/li&gt;
+&lt;li&gt; Past total influence&lt;/li&gt;
+&lt;li&gt; Past local influence&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;where local influence is the number of reposts by immediate followers and total influence refers to
+the total cascade size. Once that model is fit to the data there are only two features that end up
+mattering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; Number of followers &lt;/li&gt;
+&lt;li&gt; Past local influence&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All this points to the fact that paying someone that has a large number of followers and frequently
+posts content that its immediate followers repost is a solid strategy to go viral. And it is.&lt;/p&gt;
+&lt;p&gt;But that model (which is the best fitting one!) only explains 31% of the variation in the data. That
+means that 69% of the variance in the data is unexplained by the model. It also means that if you try to predict
+how big of a cascade your piece of content will get, you will have a huge error associated with the prediction.&lt;/p&gt;
+&lt;h4&gt;So how does content not matter???&lt;/h4&gt;
+
+&lt;p&gt;What the authors did is had a sample of the content labelled by Mechanical Turkers (a cheap way to
+have humans do simple tasks on Amazon). The turkers rated the content on a few different categories,
+specifically these ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rated interestingness&lt;/li&gt;
+&lt;li&gt;Perceived interestingness to an average person&lt;/li&gt;
+&lt;li&gt;Rated positive feeling&lt;/li&gt;
+&lt;li&gt;Willingness to share&lt;/li&gt;
+&lt;li&gt;Type of URL (Social Media, Blog, Other, News)&lt;/li&gt;
+&lt;li&gt;Category of content (Sports, Business, Gaming, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When these different categories were analyzed there were differences in the average cascade size
+given the different types of URLs or the category of the content (See Figures 8 and 9). However, when these features were added 
+to the existing model, none of the content features improved the predictive ability of the model.
+That point is where we derive the sensational headline that content does not matter.&lt;/p&gt;
+&lt;h4&gt;Oh geez, what do these points mean?&lt;/h4&gt;
+
+&lt;p&gt;These points inherently makes sense if we think about all of the data at our disposal. If you engage in tweeting, 
+you know that some of your tweets are positive and engage with your audience but very few of them are
+retweeted broadly. Even if you had successes before, most of the content that you author doesn't go
+viral either. However, if you have created a cascade before I'd much rather have you tweet about
+something than an egg (a twitter egg is someone who hasn't even added a profile picture to their
+account).&lt;/p&gt;
+&lt;p&gt;And that is the really important point that this paper drove home. Most of the articles that you've
+read about creating viral content really only examined observed successes. The reality is that there
+are hundreds of thousands more pieces of content that have all of the same features as those success
+that went nowhere!&lt;/p&gt;
+&lt;h3&gt;So how can we combat this? (Back to the post name)&lt;/h3&gt;
+
+&lt;p&gt;Watts mentions this insight in the manuscript, but I feel like the
+&lt;a href="https://hbr.org/2007/05/viral-marketing-for-the-real-world"&gt;HBR&lt;/a&gt; article is a more accessible way
+to read about it. 
+The key when trying to conduct a successful 'viral' (note the quotes!) is to not plan on going
+viral, but trying to achieve as much reach as possible. &lt;/p&gt;
+&lt;p&gt;Typically when creating advertising content you would plan on just creating an ad that you show to specific people. 
+But if you make that ad worth sharing (either through an explicit call to action to your viewers or through 
+creating shareable content, like a gif of a cat using your product) then you will get your viewers
+to share your content for you. This sharing is what leads to increased reach for your content, even
+if it doesn't go viral. &lt;/p&gt;
+&lt;h3&gt;What do you take away from this?&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Don't build your campaign around the expectation that it will go viral. That's a fool's
+errand.&lt;/li&gt;
+&lt;li&gt;Do use viral features to increase your reach beyond your built-in audience. Hopefully this will
+lead to more subscriptions and a bigger audience for you to seed in future rounds (i.e. ever
+expanding reach until saturation)&lt;/li&gt;
+&lt;li&gt;Don't spend large amounts of money to seed a single user (i.e. paying for a promotional tweet
+from a celebrity) unless your acquisition costs are extravagant and that user is relevant to your
+product sector.&lt;/li&gt;
+&lt;li&gt;Do spend that same budget to seed hundreds or thousands of users. Expect most of those tweets to
+not travel very far, but at least you've gotten some decent reach for your budget.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>socialdna</category><category>viral marketing</category><category>virality</category><guid>http://www.npcompleteheart.com/posts/big-seeds-and-viral-marketing.html</guid><pubDate>Mon, 14 Dec 2015 20:44:56 GMT</pubDate></item><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/keynote2pdf.png"&gt;
 &lt;/div&gt;
@@ -464,37 +587,4 @@ In any case this is wonderful book that only takes about a night and a glass of 
 
 &lt;p&gt;
 and listen to this wonderful collaboration. It's a new album coming out in February between Ghostface Killah (shame on you if you don't know) and BadBadNotGood (a jazz trio from Toronto). The beats and backing music on these tracks are just nothing but...sublime.
-&lt;/p&gt;&lt;/div&gt;</description><category>music</category><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
-&lt;div class="col-md-4"&gt;
-&lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
-&lt;/div&gt;
-&lt;div class="col-md-8"&gt;
-&lt;p&gt;
-So believe it or not my post from 2013 on setting up a Django website with a MongoDB back-end is still one of my most visited pages. Actually that's not hard to believe, it's not like this site is a trove of content (but it's a goal for 2015 to get content more consistently up here!), but 2013 is more than ancient in technology times so I just wanted to do a quick revisit.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-&lt;h5&gt;Should I follow that blog post and set up a Django app with MongoDB?&lt;/h5&gt;
-&lt;h5&gt;Hell no, definitely not now&lt;/h5&gt;
-
-&lt;p&gt;
-Admittedly, my website still uses it but that is out of pure laziness and a lack of desire to migrate/work up something new. As is, I'm pretty sure that I have another year and a half before there's a catastrophic problem or a new feature that I absolutely have to have before I need to redo it all. And therein lies the biggest problem with trying to go down this path.
-&lt;/p&gt;
-
-&lt;p&gt;
-The reason that I wanted to use MongoDB so much was its native usage of JSON (well, BSON) so that I could quickly and easily store data or javascript code for quick on-the-fly visualizations. I wanted Django for its robust admin backend (still why I love it! Nothing else that I've used has anything quite as good). However, now with the newest version of PostgreSQL and its support of JSON as a column type it's possible to get everything I want out of a website using a traditional SQL database (actually the one that Heroku has always wanted you to use anyways). Granted, this means going back to the world of migrations will be a pain but it's easy enough concession to be back on the main branch of Django development.
-&lt;/p&gt;
-
-&lt;h5&gt;But what if I really want to put the two together still?&lt;/h5&gt;
-&lt;p&gt;
-There could still be a pretty valid reason why you want an easy admin interface and a NoSQL backend, but in that case I don't think any of the old instructions may still apply with all of the time that has passed. In all honesty, if you're not making a blog site (or you won't be blogging consistently like me, womp womp) I would suggest not using Django at all and using a custom flask app (which would be simple enough) instead and provide lots of flexibility. If you were tr Buying to make a site as a product, then I wouldn't recommend python at all then and recommend node.js due to the performance benefits. 
-&lt;/p&gt;
-
-&lt;p&gt;
-All in all, it's hard to say what to do in this new world where static site generators are the new hot thing. I still like having the ability to write and save drafts on my website instead of being stuck to a checked out instance of my website (I switch computers and locations...too often still). But in any case, I still like using Heroku even if it is apart of the giant SalesForce conglomerate.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item></channel></rss>
+&lt;/p&gt;&lt;/div&gt;</description><category>music</category><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item></channel></rss>
