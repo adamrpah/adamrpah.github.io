@@ -10,7 +10,7 @@ article: http://ogp.me/ns/article#
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -22,7 +22,7 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
+</script><script src="http://d3js.org/d3.v3.min.js"></script><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script type="text/javascript" src="jquery.v1-7-2.js"></script><script type="text/javascript" src="jquery.tipsy.js"></script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
 <meta property="og:site_name" content="NP Complete Heart">
 <meta property="og:title" content="Computers are not magical things, but at times they are beyond tempera">
 <meta property="og:url" content="http://www.npcompleteheart.com/posts/computers-are-not-magical-things-but-at-times-they-are-beyond-temperamental-creatures.html">
@@ -113,11 +113,11 @@ I've done since switching (or what I can remember of them).</p>
 <p><strong>Adobe and the lack of printing</strong> This is the simplest fix, do you use CS3 and it now will not print
 (and it crashes when it does)? This is actually easily fixed. All you have to do is delete the Adobe
 PPDs from the following folders:</p>
-<pre class="code literal-block">/Library/Printers/PPDs/contents/Resources/en.lproj/
-/Library/Printers/PPDs/contents/Resources/ko.lproj/
-/Library/Printers/PPDs/contents/Resources/Ja.lproj/
-/Library/Printers/PPDs/contents/Resources/Zh_CN.lproj/
-/Library/Printers/PPDs/contents/Resources/Zh_TW.lproj/
+<pre class="code literal-block"><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">en</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
+<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">ko</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
+<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Ja</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
+<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Zh_CN</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
+<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Zh_TW</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
 </pre>
 
 
@@ -152,19 +152,19 @@ programs from MacPorts. If a program installs, Congratulations! It's all over. H
 something like 'A new version of X Code must be installed version 3.2 is too old' then we have to do
 one more thing.</p>
 <p>X Code 4.3 installs in a different location than before. For some reason, instead of being in:</p>
-<pre class="code literal-block">/Developer/Applications/
+<pre class="code literal-block"><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span>
 </pre>
 
 
 <p>it's now in:</p>
-<pre class="code literal-block">/Applications/
+<pre class="code literal-block"><span class="o">/</span><span class="n">Applications</span><span class="o">/</span>
 </pre>
 
 
 <p>just like every other application. However, for some inexplicable reason, MacPorts doesn't auto
 recognize and you have to tell it where to look for the new X Code install (this is the head-bashing
 part to figure out). Now the way to tell it how to do that is:</p>
-<pre class="code literal-block"><span class="nv">$ </span>sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+<pre class="code literal-block"><span class="err">$</span> <span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">-</span><span class="k">switch</span> <span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">Xcode</span><span class="p">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">Developer</span>
 </pre>
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (mongodb)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/mongodb.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:06:57 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (mongodb)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/mongodb.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
 &lt;/div&gt;
@@ -560,22 +560,22 @@ state that I didn't know how to fix it out of.  So here is an actual step by ste
 &lt;/ul&gt;
 &lt;h3&gt;Installing python, django-nonrel, and mongo support&lt;/h3&gt;
 &lt;p&gt;Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the &lt;a href="https://devcenter.heroku.com/articles/quickstart"&gt;heroku dev toolbelt&lt;/a&gt;. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;mkdir djangoapp &amp;amp;&amp;amp; cd djangoapp
-virtualenv venv --distribute
-source venv/bin/activate
-vi requirements.txt
-pip install -r requirements.txt
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt;
+&lt;span class="n"&gt;virtualenv&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
+&lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;where you edit your requirements.txt file in vim and it then looks like:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;distribute==0.6.24
-wsgiref==0.1.2
-git+git://github.com/django-nonrel/django-nonrel.git@master
-git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
-git+https://github.com/adamrpah/mongodb-engine.git
-djangotoolbox==0.9.2
-pymongo==2.4
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.6.24&lt;/span&gt;
+&lt;span class="n"&gt;wsgiref&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.1.2&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-nonrel.git@master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-permission-backend-nonrel.git@master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/adamrpah/mongodb-engine.git&lt;/span&gt;
+&lt;span class="n"&gt;djangotoolbox&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.9.2&lt;/span&gt;
+&lt;span class="n"&gt;pymongo&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;2.4&lt;/span&gt;
 &lt;/pre&gt;
 
 

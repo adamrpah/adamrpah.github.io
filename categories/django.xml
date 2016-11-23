@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (django)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://www.npcompleteheart.com/categories/django.xml"></atom:link><language>en</language><lastBuildDate>Sun, 06 Dec 2015 03:06:29 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (django)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/django.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:03 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
 &lt;/div&gt;
@@ -150,7 +150,7 @@ and that's it.  Media to serve for all!  Just watch out, there's not a lot of sp
 
 &lt;p&gt;
 Hopefully that helps in some fashion!
-&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</guid><pubDate>Wed, 20 Mar 2013 12:27:44 GMT</pubDate></item><item><title>Auto-slugification, drafts, and cooler queries</title><link>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?&lt;/p&gt;
+&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app.html</guid><pubDate>Wed, 20 Mar 2013 12:27:44 GMT</pubDate></item><item><title>Auto-slugification, drafts, and cooler queries</title><link>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?&lt;/p&gt;
 &lt;!-- TEASER_END --&gt;
 
 &lt;h3&gt;Making slugs is boring, having slugs made is awesome&lt;/h3&gt;
@@ -161,8 +161,8 @@ For me, and most of the time, we have the slug modelled after the post title so 
 It's annoying though to re-enter the title normalized for slug usage.&lt;/p&gt;
 &lt;p&gt;The first thing I tried was adding the prepopulated fields line to the &lt;code&gt;admin.py&lt;/code&gt; file. 
 This was supposed to prepopulate a slug field for a Post model using this code:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;PostAdmin&lt;/span&gt;(&lt;span class="n"&gt;admin&lt;/span&gt;.&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;):
-     &lt;span class="n"&gt;prepopulated_fields&lt;/span&gt; = {&lt;span class="s"&gt;"slug"&lt;/span&gt;: (&lt;span class="s"&gt;"title"&lt;/span&gt;,)}
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;PostAdmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+     &lt;span class="n"&gt;prepopulated_fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"slug"&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"title"&lt;/span&gt;&lt;span class="p"&gt;,)}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -170,17 +170,17 @@ This was supposed to prepopulate a slug field for a Post model using this code:&
 Posts entered without a slug would be flagged as having an error (due to omission of the slug field). 
 Quick googling suggests that there could be a problem with using django 1.3, and maybe django non-rel, but I didn't dwell on it too long.
 Instead I found django-autoslug. Installation is simple&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;pip install django-autoslug
-pip freeze &amp;gt; requirements.txt
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;autoslug&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;freeze&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;and using it in the blog model is as easy as&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;autoslug&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;
-&lt;span class="c"&gt;#Other imports&lt;/span&gt;
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;slug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;populate_from&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'title'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c"&gt;#Other model attributes&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;autoslug&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;
+&lt;span class="cp"&gt;#Other imports&lt;/span&gt;
+&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;slug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AutoSlugField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;populate_from&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;attributes&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -190,18 +190,18 @@ Awesome!&lt;/p&gt;
 &lt;p&gt;For the next part I just wanted to add a draft field to the Post model so I could write posts on the admin section, 
 leave them half-finished but saved to the database so I could pick them up and finish them from anywhere. 
 That's a really simple change to the model of course, just:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;(&lt;span class="n"&gt;models&lt;/span&gt;.&lt;span class="n"&gt;Model&lt;/span&gt;):
-    &lt;span class="c-Singleline"&gt;#Other model fields&lt;/span&gt;
-    &lt;span class="n"&gt;draft&lt;/span&gt; = &lt;span class="n"&gt;models&lt;/span&gt;.&lt;span class="n"&gt;BooleanField&lt;/span&gt;(&lt;span class="n"&gt;blank&lt;/span&gt;=&lt;span class="nb"&gt;False&lt;/span&gt;, &lt;span class="n"&gt;help_text&lt;/span&gt;=&lt;span class="s"&gt;"Save as a draft on the server"&lt;/span&gt;)
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt;
+    &lt;span class="n"&gt;draft&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BooleanField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;blank&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help_text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"Save as a draft on the server"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;Now what we could do is just handle the display of this in the template if need be. 
 All posts are queried for when we want to display the list of available posts on the homepage. 
 This is the 'ListView' from the Tumblelog tutorial and we could solve it in the template easily like this&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;post.draft&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
-&lt;span class="x"&gt;  &amp;lt;--- Display post code --&amp;gt;&lt;/span&gt;
-&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;% if not post.draft %&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;---&lt;/span&gt; Display post code &lt;span class="o"&gt;--&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;% endif %&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -209,29 +209,29 @@ This is the 'ListView' from the Tumblelog tutorial and we could solve it in the 
 It feels like we should really go the extra step here.&lt;/p&gt;
 &lt;p&gt;So what do you do? We should change the query in the url of course! Even better, let's get some real mongo access. 
 In the blog models.py we can actually open up the ability to do a raw query using django_mongodb_engine by:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_mongodb_engine.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django_mongodb_engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;
 
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c"&gt;#Other attributes&lt;/span&gt;
+&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Other&lt;/span&gt; &lt;span class="n"&gt;attributes&lt;/span&gt;
     &lt;span class="n"&gt;objects&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MongoDBManager&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;and we can change our queryset in urls.py for the list view to be:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;    url(r'^$', PostListView.as_view(
-        queryset=Post.objects.raw_query({'draft': False}).order_by('created_at').reverse(),
-        context_object_name="posts_list"),
-        name="home"
-    ),
+&lt;pre class="code literal-block"&gt;    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="err"&gt;$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PostListView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;queryset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;raw_query&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;draft&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;False&lt;/span&gt;&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="n"&gt;order_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="n"&gt;context_object_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"posts_list"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"home"&lt;/span&gt;
+    &lt;span class="p"&gt;),&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;Whereas before it was:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;url(r'^$', PostListView.as_view(
-    queryset=Post.objects.all().order_by('created_at').reverse(),
-    context_object_name="posts_list"),
-    name="home"
-),
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="err"&gt;$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PostListView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;queryset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;order_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+    &lt;span class="n"&gt;context_object_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"posts_list"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"home"&lt;/span&gt;
+&lt;span class="p"&gt;),&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -261,22 +261,22 @@ state that I didn't know how to fix it out of.  So here is an actual step by ste
 &lt;/ul&gt;
 &lt;h3&gt;Installing python, django-nonrel, and mongo support&lt;/h3&gt;
 &lt;p&gt;Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the &lt;a href="https://devcenter.heroku.com/articles/quickstart"&gt;heroku dev toolbelt&lt;/a&gt;. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;mkdir djangoapp &amp;amp;&amp;amp; cd djangoapp
-virtualenv venv --distribute
-source venv/bin/activate
-vi requirements.txt
-pip install -r requirements.txt
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt;
+&lt;span class="n"&gt;virtualenv&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
+&lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;where you edit your requirements.txt file in vim and it then looks like:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;distribute==0.6.24
-wsgiref==0.1.2
-git+git://github.com/django-nonrel/django-nonrel.git@master
-git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
-git+https://github.com/adamrpah/mongodb-engine.git
-djangotoolbox==0.9.2
-pymongo==2.4
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.6.24&lt;/span&gt;
+&lt;span class="n"&gt;wsgiref&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.1.2&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-nonrel.git@master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-permission-backend-nonrel.git@master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/adamrpah/mongodb-engine.git&lt;/span&gt;
+&lt;span class="n"&gt;djangotoolbox&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.9.2&lt;/span&gt;
+&lt;span class="n"&gt;pymongo&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;2.4&lt;/span&gt;
 &lt;/pre&gt;
 
 

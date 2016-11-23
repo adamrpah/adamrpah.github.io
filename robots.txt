@@ -1,2 +1,4 @@
 Sitemap: http://www.npcompleteheart.com/sitemapindex.xml
 
+User-Agent: *
+Host: www.npcompleteheart.com
