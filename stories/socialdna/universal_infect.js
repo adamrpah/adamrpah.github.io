@@ -453,7 +453,7 @@ var viz_change = function(){
   $('#button_labels').text("Player 1");
   d3.select("#button_labels").attr("value", "Player 1");
   //run i tup the flag pole
-  var netfile = $('#data_sources').chosen().val();
+  var netfile = $('#data_sources').val();
   main(netfile)
 }
 
