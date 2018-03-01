@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (hpc)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/hpc.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Generate torque submission scripts</title><link>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about hpc)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/hpc.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Generate torque submission scripts</title><link>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
 Most of us use some form of Torque in an academic environment to run scripts on a cluster. Typically I would have some form of script to generate the necessary qsub scripts for submission, but it wasn't ever generic enough. So this has been my working stab at making that happen. 
 &lt;/p&gt;
 
@@ -93,6 +93,7 @@ After generating the file it will automatically add the job to the queue. This o
 Deletes the generated qsub file, can only be used with the execute option. For those that don't want file cruft.
 &lt;/li&gt;
 &lt;/ul&gt;
+
 
 
 &lt;p&gt;
@@ -238,7 +239,10 @@ if __name__ == '__main__':
                              "Otherwise I would just generate and then delete files immediately, doing nothing.\n" + \
                              "Continuing, but not respecting your choice and deleting the file."
     #There must be an initial argument or else this ship is sunk
-    if len(args)&amp;gt; sys.stderr, m
+    if len(args)&amp;lt;1:
+        m='''Must have a program name to use as the argument for the qsub file.\n''' + \
+          '''If the file has no extension then it will be submitted as an executable.'''
+        print &amp;gt;&amp;gt; sys.stderr, m
         sys.exit()
     main(args, opt)
 &lt;/pre&gt;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (random)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/random.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about random)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/random.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:47 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
 time to pay her back and help her get a website up and running. I went over the options that I knew
@@ -82,7 +82,7 @@ def identify_additional_words(seed, max_list_size, word_list = []):
     the seed words are so small/narrow that it just loops on itself.
     '''
     num_try = 1
-    while len(word_list)  1000:
+    while len(word_list) &amp;lt; 100 or num_try &amp;gt; 1000:
         for seed_word in seed:
             for lemma_start in wordnet.synsets(seed_word):
                 for lemma_word in lemma_start.lemma_names:

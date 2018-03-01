@@ -94,7 +94,7 @@ how">
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Computers are not magical things, but at times they are beyond temperamental creatures</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                     Adam Pah
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2013-01-23T13:26:13-05:00" itemprop="datePublished" title="2013-01-23 13:26">2013-01-23 13:26</time></a></p>
@@ -113,11 +113,11 @@ I've done since switching (or what I can remember of them).</p>
 <p><strong>Adobe and the lack of printing</strong> This is the simplest fix, do you use CS3 and it now will not print
 (and it crashes when it does)? This is actually easily fixed. All you have to do is delete the Adobe
 PPDs from the following folders:</p>
-<pre class="code literal-block"><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">en</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
-<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">ko</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
-<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Ja</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
-<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Zh_CN</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
-<span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Printers</span><span class="o">/</span><span class="n">PPDs</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">Resources</span><span class="o">/</span><span class="n">Zh_TW</span><span class="p">.</span><span class="n">lproj</span><span class="o">/</span>
+<pre class="code literal-block"><span></span>/Library/Printers/PPDs/contents/Resources/en.lproj/
+/Library/Printers/PPDs/contents/Resources/ko.lproj/
+/Library/Printers/PPDs/contents/Resources/Ja.lproj/
+/Library/Printers/PPDs/contents/Resources/Zh_CN.lproj/
+/Library/Printers/PPDs/contents/Resources/Zh_TW.lproj/
 </pre>
 
 
@@ -152,19 +152,19 @@ programs from MacPorts. If a program installs, Congratulations! It's all over. H
 something like 'A new version of X Code must be installed version 3.2 is too old' then we have to do
 one more thing.</p>
 <p>X Code 4.3 installs in a different location than before. For some reason, instead of being in:</p>
-<pre class="code literal-block"><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span>
+<pre class="code literal-block"><span></span>/Developer/Applications/
 </pre>
 
 
 <p>it's now in:</p>
-<pre class="code literal-block"><span class="o">/</span><span class="n">Applications</span><span class="o">/</span>
+<pre class="code literal-block"><span></span>/Applications/
 </pre>
 
 
 <p>just like every other application. However, for some inexplicable reason, MacPorts doesn't auto
 recognize and you have to tell it where to look for the new X Code install (this is the head-bashing
 part to figure out). Now the way to tell it how to do that is:</p>
-<pre class="code literal-block"><span class="err">$</span> <span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">-</span><span class="k">switch</span> <span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">Xcode</span><span class="p">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">Developer</span>
+<pre class="code literal-block"><span></span>$ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 </pre>
 
 
@@ -188,7 +188,7 @@ Hope it helps and enjoy!</p>
         <!--End of body content-->
 
         <footer>
-            Contents © 2017         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+            Contents © 2018         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
 <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
 

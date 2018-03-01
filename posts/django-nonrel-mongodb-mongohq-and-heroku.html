@@ -97,7 +97,7 @@ That's what I've ">
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Django nonrel, MongoDB, MongoHQ, and Heroku</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                     Adam Pah
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2013-03-14T07:21:25-05:00" itemprop="datePublished" title="2013-03-14 07:21">2013-03-14 07:21</time></a></p>
@@ -129,22 +129,22 @@ state that I didn't know how to fix it out of.  So here is an actual step by ste
 </ul>
 <h3>Installing python, django-nonrel, and mongo support</h3>
 <p>Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the <a href="https://devcenter.heroku.com/articles/quickstart">heroku dev toolbelt</a>. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.</p>
-<pre class="code literal-block"><span class="n">mkdir</span> <span class="n">djangoapp</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">djangoapp</span>
-<span class="n">virtualenv</span> <span class="n">venv</span> <span class="o">--</span><span class="n">distribute</span>
-<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="n">vi</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<pre class="code literal-block"><span></span>mkdir djangoapp &amp;&amp; cd djangoapp
+virtualenv venv --distribute
+source venv/bin/activate
+vi requirements.txt
+pip install -r requirements.txt
 </pre>
 
 
 <p>where you edit your requirements.txt file in vim and it then looks like:</p>
-<pre class="code literal-block"><span class="n">distribute</span><span class="o">==</span><span class="mf">0.6.24</span>
-<span class="n">wsgiref</span><span class="o">==</span><span class="mf">0.1.2</span>
-<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-nonrel.git@master</span>
-<span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="o">:</span><span class="c1">//github.com/django-nonrel/django-permission-backend-nonrel.git@master</span>
-<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/adamrpah/mongodb-engine.git</span>
-<span class="n">djangotoolbox</span><span class="o">==</span><span class="mf">0.9.2</span>
-<span class="n">pymongo</span><span class="o">==</span><span class="mf">2.4</span>
+<pre class="code literal-block"><span></span>distribute==0.6.24
+wsgiref==0.1.2
+git+git://github.com/django-nonrel/django-nonrel.git@master
+git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
+git+https://github.com/adamrpah/mongodb-engine.git
+djangotoolbox==0.9.2
+pymongo==2.4
 </pre>
 
 
@@ -323,7 +323,7 @@ heroku run python djangoapp/manage.py syncdb
         <!--End of body content-->
 
         <footer>
-            Contents © 2017         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+            Contents © 2018         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
 <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
 

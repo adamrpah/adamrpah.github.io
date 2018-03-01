@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (mongodb)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/mongodb.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about mongodb)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/mongodb.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:47 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
 &lt;/div&gt;
@@ -43,7 +43,6 @@ Otherwise, the website isn't completely up yet (I need to add the projects back 
 detail pages on individual publications) and figure out how to get some more javascript working (I know
 completely against the whole starting premise). 
 &lt;/div&gt;
-
 &lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/mongodb.jpeg"&gt;
@@ -158,7 +157,6 @@ but it is the quickest and easiest solution in regards to my time, which is the 
 in my mind. I’m a researcher, not someone setting up production databases or something soul crushing
 like that ;)
 &lt;/div&gt;
-
 &lt;/div&gt;</description><category>mongodb</category><category>research</category><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
@@ -191,7 +189,6 @@ There could still be a pretty valid reason why you want an easy admin interface 
 All in all, it's hard to say what to do in this new world where static site generators are the new hot thing. I still like having the ability to write and save drafts on my website instead of being stuck to a checked out instance of my website (I switch computers and locations...too often still). But in any case, I still like using Heroku even if it is apart of the giant SalesForce conglomerate.
 &lt;/p&gt;
 &lt;/div&gt;
-
 &lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>A little something extra for managing PyMongo</title><link>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
 I really dislike boilerplate code, it drives me a little bit crazy. Starting database connections falls squarely into that realm. So in the vein of "sharing is caring" here is what I'm currently using with pymongo. It's pretty simple, but why code it twice right?
 &lt;/p&gt;
@@ -258,7 +255,7 @@ Is it really the fault of the database that a team didn’t research a solution 
 
 
 &lt;p&gt;
-Modelling relationships within MongoDB actually isn’t that hard, there’s a few options available and even I’ve been able to write about them &lt;a href="http://www.npcompleteheart.com/posts/%E2%80%9Dhttp://www.npcompleteheart.com/post/starting-with-mongo-some-dos-and-donts/%E2%80%9D"&gt;before&lt;/a&gt;. The problem is that the team didn’t want  to bake this part into the code (understandable, but that’s another unstated project need that isn’t a fault of NoSQL) and maintain in light of their familiarity with a traditional SQL backend. Again, that’s a personal choice based on project needs, not a major failing in a database backend.
+Modelling relationships within MongoDB actually isn’t that hard, there’s a few options available and even I’ve been able to write about them &lt;a href="http://www.npcompleteheart.com/posts/%E2%80%9Dhttp:/www.npcompleteheart.com/post/starting-with-mongo-some-dos-and-donts/%E2%80%9D"&gt;before&lt;/a&gt;. The problem is that the team didn’t want  to bake this part into the code (understandable, but that’s another unstated project need that isn’t a fault of NoSQL) and maintain in light of their familiarity with a traditional SQL backend. Again, that’s a personal choice based on project needs, not a major failing in a database backend.
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -508,6 +505,7 @@ djangoapp/
 If you fit that first description then this is all you probably wanted, so happy web app'ing!
 
 
+
 &lt;h3&gt;How do I configure it?&lt;/h3&gt;
 
 &lt;p&gt;
@@ -560,22 +558,22 @@ state that I didn't know how to fix it out of.  So here is an actual step by ste
 &lt;/ul&gt;
 &lt;h3&gt;Installing python, django-nonrel, and mongo support&lt;/h3&gt;
 &lt;p&gt;Okay, so let's START!  First assumptions, you have python 2.7 with virtual environment installed as well as the &lt;a href="https://devcenter.heroku.com/articles/quickstart"&gt;heroku dev toolbelt&lt;/a&gt;. Okay, now that that is done we're going to taketh from the Heroku tutorial first and get the app started.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;djangoapp&lt;/span&gt;
-&lt;span class="n"&gt;virtualenv&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;
-&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
-&lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
-&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;mkdir djangoapp &amp;amp;&amp;amp; cd djangoapp
+virtualenv venv --distribute
+source venv/bin/activate
+vi requirements.txt
+pip install -r requirements.txt
 &lt;/pre&gt;
 
 
 &lt;p&gt;where you edit your requirements.txt file in vim and it then looks like:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;distribute&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.6.24&lt;/span&gt;
-&lt;span class="n"&gt;wsgiref&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.1.2&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-nonrel.git@master&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/django-nonrel/django-permission-backend-nonrel.git@master&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/adamrpah/mongodb-engine.git&lt;/span&gt;
-&lt;span class="n"&gt;djangotoolbox&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;0.9.2&lt;/span&gt;
-&lt;span class="n"&gt;pymongo&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mf"&gt;2.4&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;distribute==0.6.24
+wsgiref==0.1.2
+git+git://github.com/django-nonrel/django-nonrel.git@master
+git+git://github.com/django-nonrel/django-permission-backend-nonrel.git@master
+git+https://github.com/adamrpah/mongodb-engine.git
+djangotoolbox==0.9.2
+pymongo==2.4
 &lt;/pre&gt;
 
 

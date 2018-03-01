@@ -96,7 +96,7 @@ integrat">
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">First times at RoR and how I got up and running</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                     Adam Pah
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2012-01-23T13:07:14-05:00" itemprop="datePublished" title="2012-01-23 13:07">2012-01-23 13:07</time></a></p>
@@ -137,7 +137,7 @@ making it a terrible idea to try and manage Ruby yourself through MacPorts. The 
 did was to actually put a single line in my bash_profile to automatically use the default ruby
 because at some point it stopped initializing properly. This subsequently caused me to curse
 frequently when Rails would error out on starting a server. If that effects you then just execute:</p>
-<pre class="code literal-block"><span class="err">$</span><span class="n">echo</span> <span class="err">'</span><span class="n">rvm</span> <span class="n">use</span> <span class="k">default</span><span class="err">'</span> <span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
+<pre class="code literal-block"><span></span>$echo 'rvm use default' &gt;&gt; ~/.bashrc
 </pre>
 
 
@@ -208,7 +208,7 @@ errors.</p>
         <!--End of body content-->
 
         <footer>
-            Contents © 2017         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
+            Contents © 2018         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
 <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
 

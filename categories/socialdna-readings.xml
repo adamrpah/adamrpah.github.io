@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>NP Complete Heart (socialdna readings)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/socialdna-readings.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 22:36:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about socialdna readings)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/socialdna-readings.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/everything_is_obvious.png"&gt;
 &lt;/div&gt;
@@ -59,5 +59,4 @@ individuals would have a negligible influence on each other. Or at least, in lar
 randomness would become less dominant. Of course, we don’t see this. The social world is weird,
 chaotic, and difficult to predict. Not exactly the unifying laws that came from Physics after all. 
 &lt;/div&gt;
-
 &lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item></channel></rss>
