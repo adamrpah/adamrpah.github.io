@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about vcs)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/vcs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A short introduction to Mercurial</title><link>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;We switched from SVN to Mercurial in my lab about a year ago now after we considered all of our
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about vcs)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/vcs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:test@test.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:26:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A short introduction to Mercurial</title><link>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;We switched from SVN to Mercurial in my lab about a year ago now after we considered all of our
 needs as a bunch of researchers, many of whom don't want to care about or are not that interested in
 the tools we use.&lt;/p&gt;
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;In the meantime, I've kept sharing the slide decks I prepped with @frrrmack out of my dropbox folder
-with strangers.  That's pretty annoying since I have to add a person's e-mail to it each time. So
-I'm putting them here so it'll be quick and easy.&lt;/p&gt;
-&lt;p&gt;The first one is a quick introduction as to why you would want to switch away from SVN to Mercurial
-based on the benefits.  The second is a near exhaustive tutorial on how to do set up and use
-Mercurial.&lt;/p&gt;
-&lt;p&gt;There's definitely some pictures from &lt;a href="http://www.hginit.com"&gt;hg init&lt;/a&gt; in the
-introduction, so thanks for the great picture!&lt;/p&gt;
-&lt;p&gt;Enjoy!&lt;/p&gt;
-&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/16228692" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;
-
-&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/16228847" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><category>mercurial</category><category>tutorial</category><category>vcs</category><guid>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial.html</guid><pubDate>Mon, 28 Jan 2013 18:45:04 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>mercurial</category><category>tutorial</category><category>vcs</category><guid>http://www.npcompleteheart.com/posts/a-short-introduction-to-mercurial/</guid><pubDate>Mon, 28 Jan 2013 18:45:04 GMT</pubDate></item></channel></rss>

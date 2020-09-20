@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto-slugification, drafts, and cooler queries | NP Complete Heart</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#000000">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Adam Pah">
+<link rel="prev" href="../i-guess-posting-content-does-make-a-difference/" title="I guess posting content does make a difference" type="text/html">
+<link rel="next" href="../what-is-the-structure-of-my-django-app/" title="What is the structure of my Django app?" type="text/html">
+<meta property="og:site_name" content="NP Complete Heart">
+<meta property="og:title" content="Auto-slugification, drafts, and cooler queries">
+<meta property="og:url" content="http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries/">
+<meta property="og:description" content="Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?
+
+
+Making slugs is boring, having slugs made is awesome
+If you follow the MongoDB Tumble">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2013-03-19T14:01:25-05:00">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="web">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.npcompleteheart.com/">
+
+                <span id="blog-title">NP Complete Heart</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../pages/about/index.html"><strong>About</strong></a>
+                </li>
+<li>
+<a href="../../pdf/curriculumvitae.pdf"><strong>Curriculum Vitae</strong></a>
+                </li>
+<li>
+<a href="../../pages/research/index.html"><strong>Research</strong></a>
+                </li>
+<li>
+<a href="../../pages/publications/publications/index.html"><strong>Publications</strong></a>
+                </li>
+<li>
+<a href="../../pages/socialdna/index.html"><strong>SocialDNA</strong></a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.md" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Auto-slugification, drafts, and cooler queries</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
+                    Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2013-03-19T14:01:25-05:00" itemprop="datePublished" title="2013-03-19 14:01">2013-03-19 14:01</time></a>
+            </p>
+            
+        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?</p>
+<!-- TEASER_END -->
+
+<h3>Making slugs is boring, having slugs made is awesome</h3>
+<p>If you follow the MongoDB Tumblelog post you'll be starting with a website that is pretty functional. 
+One of the things that it does do is it has you enter the slug field for each post in the admin section when you create it. 
+What is a slug? It's the string in the url bar you see after "/post/" and it identifies the post location in the website. 
+For me, and most of the time, we have the slug modelled after the post title so it is easily tracked. 
+It's annoying though to re-enter the title normalized for slug usage.</p>
+<p>The first thing I tried was adding the prepopulated fields line to the <code>admin.py</code> file. 
+This was supposed to prepopulate a slug field for a Post model using this code:</p>
+<pre class="code literal-block"><span></span><code><span class="err">class PostAdmin(admin.ModelAdmin):</span>
+<span class="err">     prepopulated_fields = {"slug": ("title",)}</span>
+</code></pre>
+
+
+<p>but the admin section wasn't happy with this. 
+Posts entered without a slug would be flagged as having an error (due to omission of the slug field). 
+Quick googling suggests that there could be a problem with using django 1.3, and maybe django non-rel, but I didn't dwell on it too long.
+Instead I found django-autoslug. Installation is simple</p>
+<pre class="code literal-block"><span></span><code><span class="err">pip install django-autoslug</span>
+<span class="err">pip freeze &gt; requirements.txt</span>
+</code></pre>
+
+
+<p>and using it in the blog model is as easy as</p>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">autoslug</span> <span class="kn">import</span> <span class="n">AutoSlugField</span>
+<span class="c1">#Other imports</span>
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">AutoSlugField</span><span class="p">(</span><span class="n">populate_from</span><span class="o">=</span><span class="s1">'title'</span><span class="p">)</span>
+    <span class="c1">#Other model attributes</span>
+</code></pre>
+
+
+<p>after that the slug field is removed from the admin section, slugs are automatically populated upon post addition, and the slugs are normalized to the title of the post. 
+Awesome!</p>
+<h3>But I'm going to want to save partial work on the web content and query the heck out of the DB!</h3>
+<p>For the next part I just wanted to add a draft field to the Post model so I could write posts on the admin section, 
+leave them half-finished but saved to the database so I could pick them up and finish them from anywhere. 
+That's a really simple change to the model of course, just:</p>
+<pre class="code literal-block"><span></span><code><span class="err">class Post(models.Model):</span>
+<span class="err">    #Other model fields</span>
+<span class="err">    draft = models.BooleanField(blank=False, help_text="Save as a draft on the server")</span>
+</code></pre>
+
+
+<p>Now what we could do is just handle the display of this in the template if need be. 
+All posts are queried for when we want to display the list of available posts on the homepage. 
+This is the 'ListView' from the Tumblelog tutorial and we could solve it in the template easily like this</p>
+<pre class="code literal-block"><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">post.draft</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  &lt;--- Display post code --&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</code></pre>
+
+
+<p>but this doesn't really seem that great. We're still loading the data from the database, it's just not being displayed using the template. 
+It feels like we should really go the extra step here.</p>
+<p>So what do you do? We should change the query in the url of course! Even better, let's get some real mongo access. 
+In the blog models.py we can actually open up the ability to do a raw query using django_mongodb_engine by:</p>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">django_mongodb_engine.contrib</span> <span class="kn">import</span> <span class="n">MongoDBManager</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1">#Other attributes</span>
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">MongoDBManager</span><span class="p">()</span>
+</code></pre>
+
+
+<p>and we can change our queryset in urls.py for the list view to be:</p>
+<pre class="code literal-block"><span></span><code><span class="err">    url(r'^$', PostListView.as_view(</span>
+<span class="err">        queryset=Post.objects.raw_query({'draft': False}).order_by('created_at').reverse(),</span>
+<span class="err">        context_object_name="posts_list"),</span>
+<span class="err">        name="home"</span>
+<span class="err">    ),</span>
+</code></pre>
+
+
+<p>Whereas before it was:</p>
+<pre class="code literal-block"><span></span><code><span class="err">url(r'^$', PostListView.as_view(</span>
+<span class="err">    queryset=Post.objects.all().order_by('created_at').reverse(),</span>
+<span class="err">    context_object_name="posts_list"),</span>
+<span class="err">    name="home"</span>
+<span class="err">),</span>
+</code></pre>
+
+
+<p>What we've done is open up the raw_query field on objects. Now we can actually issue more complicated queries to the database. 
+While not essential now, this will be very useful for more complicated models/data types in the future.</p>
+<p>And that was it, pretty fun, pretty simple, and fairly functional. As always this has been cribbed from the work of others and googling, 
+I just didn't keep track of my sources that well last night.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/django/" rel="tag">django</a></li>
+            <li><a class="tag p-category" href="../../categories/web/" rel="tag">web</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../i-guess-posting-content-does-make-a-difference/" rel="prev" title="I guess posting content does make a difference">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../what-is-the-structure-of-my-django-app/" rel="next" title="What is the structure of my Django app?">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2020         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

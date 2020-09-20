@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about pandas)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/pandas.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pandas + Matplotlib + Looking pretty good</title><link>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="pandas and matplotlib" src="http://www.npcompleteheart.com/images/pandas_matplotlib.png"&gt;&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about pandas)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/pandas.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:test@test.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:26:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pandas + Matplotlib + Looking pretty good</title><link>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="pandas and matplotlib" src="http://www.npcompleteheart.com/images/pandas_matplotlib.png"&gt;&lt;/p&gt;
 &lt;p&gt;
 Typically matplotlib produces plots that look, well, horrible. This can be a little bit of a pain, especially because I've switched my workflow to lean heavily on ipython notebook to maintain a lab notebook. This means removing xmgrace from my workflow except for manuscript figure preparation since it won't show up inline unless I make the plot, save it as a png, move the file to the notebook directory, and then link the file in a text section. Not exactly user friendly or an improvement to my workflow. Unfortunately, just because I want to make plots in python for exploration doesn't mean that I can tolerate ugly graphs and that godforsaken default font.
 &lt;/p&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;
-So far I have two solutions and I'm quite happy with both (although neither one fixes the fact that matplotlib somehow renders an eps and makes it scale like a png). The first one has been to use prettyplotlib, which looks nice but is its own library and inherits from matplotlib. It sounds like this will eventually get merged as a style file into matplotlib in the future, which is great. The other way I describe below.
-&lt;/p&gt;
-
-&lt;h4&gt;mpltools with "ggplot"&lt;/h4&gt;
-
-&lt;p&gt;
-I'll be honest, I really do like ggplot in R but I don't think that the default grey background is the best for paper figures (looks great on the web though). Using mpltools you can easily change the style of plots using a simple style command like:
-&lt;/p&gt;&lt;pre&gt;
-from mpltools import style
-style.user("ggplot")
-&lt;/pre&gt;
-Even better, this is now in the matplotlib master branch!
-
-
-&lt;p&gt;
-So now the best part is that it's easy to get generated using a default matplotlib command and have it look pretty decent. This is especially important when using pandas, because now I can just:
-&lt;/p&gt;&lt;pre&gt;
-import pandas as pd
-df = pd.read_csv('age_data.csv')
-df.age.hist(label='Age',  color='steelblue')
-plt.ylabel('Count')
-plt.legend()
-&lt;/pre&gt;
-and get the result below.
-&lt;/div&gt;</description><category>code</category><category>matplotlib</category><category>pandas</category><category>plots</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html</guid><pubDate>Mon, 31 Mar 2014 12:59:11 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>matplotlib</category><category>pandas</category><category>plots</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/</guid><pubDate>Mon, 31 Mar 2014 12:59:11 GMT</pubDate></item></channel></rss>

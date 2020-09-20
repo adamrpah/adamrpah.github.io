@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about productivity)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/productivity.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about productivity)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/productivity.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:test@test.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:26:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/keynote2pdf.png"&gt;
 &lt;/div&gt;
@@ -10,36 +10,7 @@ software every now and then that's OS X only. Keynote is one of those programs. 
 crazy, so I've been driven into its user-friendly, unshareable arms.
 &lt;br&gt; &lt;br&gt;
 &lt;/div&gt;
-&lt;!-- TEASER_END --&gt;
-
-But the good times have finally come to an end. Using Keynote for presentations and using my own
-laptop or exporting a single presentation to a PDF hasn't ever been an issue, but now I have 20
-course lectures that I need to distribute to my students and I'm not about to open each one and
-export it to PDF every time I make a change to a single slide.
-&lt;br&gt; &lt;br&gt;
-
-Googling for a quick, straightforward answer was a nightmare. Some examples I found used
-Applescript, which I couldn't get to work on Yosemite (OS X 10.10). Scratch that, I've never gotten
-any Applescripts to really work/written one (who the hell knows why). But this was still fairly
-annoying as accessibility errors kept popping up and I didn't care enough to figure out why.
-&lt;br&gt; &lt;br&gt;
-
-So instead I went ahead and cobbled together various parts of other bash scripts I found. I think in
-the end I put together two or three of them to get a final working product. I ended up with a
-workflow like this:
-&lt;br&gt; &lt;br&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;tt&gt;qlmanage&lt;/tt&gt; to unpack a Keynote into a folder with a PDF of each slide and an HTML page that says
-the order&lt;/li&gt;
-&lt;li&gt;Read the HTML page to find the order of the PDFs&lt;/li&gt;
-&lt;li&gt;Use a built in OS X executable to join the individual PDF pages are&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt; &lt;br&gt;
-
-which led to this script that I put up as a &lt;a href="https://gist.github.com/adamrpah/a10f335b889b2bd0f19b"&gt;gist&lt;/a&gt;. 
-It's hacky, hacky, hacky, hacky (I threw it together as quick as I could after a couple total hours
-invested in this). Right now it'll execute in a directory and export every single Keynote file it finds. It should be changed to do either a directory or a single file, use some actual command execution instead of &lt;tt&gt;os.system&lt;/tt&gt;, something to actually clean filenames other than three quick lines....but, hey.  It's done!&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
 
 &lt;p&gt;There are a number of points that I want to hit on in the future but for now  I want to focus on:&lt;/p&gt;
 
@@ -52,156 +23,10 @@ invested in this). Right now it'll execute in a directory and export every singl
 
 &lt;p&gt;When I first started programming libraries were so &lt;strong&gt;damn&lt;/strong&gt; impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.&lt;/p&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;There are many repetitive tasks, many that only take a line or two of code, such as parsing certain types of files that we willing type whenever the need arises. This isn’t really bad behavior, but it would be better to put these helper functions in a single place so that they can be called from anywhere (such as an interactive terminal or notebook session) and so that when we encounter a new feature we can add it into our code. Even more important is when we write more complicated functions or process data. With a standard function it’s easier to justify putting more time into testing the function and we never have to worry about slightly different processing based on fuzzy memory.&lt;/p&gt;
-
-&lt;p&gt;So what does this look like in practice? I made myself a “library” called &lt;span class="caps"&gt;GALE&lt;/span&gt; (“General Analytical Library Extensions” for the curious) and the structure is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;| GALE/
-|-&amp;gt; .hg/
-|-&amp;gt; gale/
-|--&amp;gt; __init__.py
-|--&amp;gt; functional_domain/
-|---&amp;gt; __init__.py
-|---&amp;gt; function.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Why the double naming convention? Because I wanted to import with the gale name and have the name preserved in the repository so that it’s consistent even if I forget to name it properly when I clone it on a new machine. Otherwise, the structure is simple—-inside gale there are folders for a domain of code and then appropriately named python files containing functions are stored within those folders (and the &lt;i&gt;init&lt;/i&gt;.py files so that it’s all importable). As an example, since I’m  working with patient Electronic Health Records now I have inside gale a folder like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;|-&amp;gt; gale/
-|--&amp;gt; medical/
-|---&amp;gt; icd9Formatter.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The icd9Formatter file has all of the functions I use to translate ICD-9 codes to different ontologies or parse/clean the codes into a consistently readable format that my other modules will know how to use.&lt;/p&gt;
-
-&lt;p&gt;To make these code files useful everywhere we just need to add the library to our python path, which is easily accomplished by adding:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export PYTHONPATH=$PYTHONPATH:/Your/Path/To/GALE
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to our .bashrc file. After opening a new terminal or typing `source ~/.bashrc` this code will be accessible in any other program or interactive interpreter just by typing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import gale.medical.icd9Formatter as icdf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To help paint the picture a little more completely this is the list of domains that I currently have in my library:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;drwxr-xr-x  7 adampah  staff   238B Apr  3 10:39 databases
-drwxr-xr-x  8 adampah  staff   272B Apr  3 10:39 fileIO
-drwxr-xr-x  5 adampah  staff   170B Mar 16 21:52 general
-drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 graphMaths
-drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 graphs
-drwxr-xr-x  6 adampah  staff   204B Apr  8 10:42 medical
-drwxr-xr-x  4 adampah  staff   136B Apr  8 10:42 networks
-drwxr-xr-x  3 adampah  staff   102B Mar 16 21:52 settings
-drwxr-xr-x  6 adampah  staff   204B Apr  7 20:33 stats
-drwxr-xr-x  4 adampah  staff   136B Mar 16 21:52 timeseries
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But this should all change based upon the type of research that you do. The key here is to not worry about writing a perfect function that will be as useful today as it will be in 20 years. The real value lies in just starting quickly and getting something down. After starting it’s much easier to get into the habit of adding simple helper functions to this central library than to keep building it into individual code pieces. &lt;span class="caps"&gt;DRY&lt;/span&gt; principles are great, letting ourselves be lazier while simultaneously being more productive is best (even better now this code can travel with you everywhere, on any computer, and always be accessible). &lt;/p&gt;
-
-&lt;h4&gt;Record-keeping and on-the-fly analysis&lt;/h4&gt;
-
-&lt;p&gt;Why on god’s green earth would these two subjects go together you ask? Because, as pythonistas, we will use the same damn tool for both, that’s why. Enter iPython Notebooks.&lt;/p&gt;
-
-&lt;p&gt;iPython Notebooks are finally ready for primetime in general usage I think. Why?&lt;/p&gt;
-
-&lt;ul&gt;
-        &lt;li&gt;It has the ability to traverse directory structures now (iPython notebooks can be put in with&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;a repository now without starting up multiple notebook servers)
-&lt;/p&gt;&lt;ul&gt;
-        &lt;li&gt;Interactive features are compelling&lt;/li&gt;
-        &lt;li&gt;Accessibility and easy to show others&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;iPython Notebook can come with iPython, or you might have to install it as a separate install  (all depends on how you decide to install it and your operating system. In any case you can start it up just by going `ipython notebook` on the command line. The service will start up and if you navigate your browser to http://localhost:8888 you will find the directory page. Here you can start a new notebook in any folder and it will open in a new browser. You can do just about anything that you want in these  active notebooks and some great examples can be found at the [github](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) page for ipython.  Next you can set up iPython notebooks on a desktop to be accessible (and password protected! make sure to do that part too!) from anywhere following this tutorial from [Thomas Sileo](http://thomassileo.com/blog/2012/11/19/setup-a-remote-ipython-notebook-server-with-numpyscipymaltplotlibpandas-in-a-virtualenv-on-ubuntu-server/). If you want to use a virtual environment you can follow the instructions exactly, or you can just skip that part and just let ipython notebook to use the system installed packages.&lt;/p&gt;
-
-&lt;p&gt;One last thing. I have been a real believer of using “in-line” images with the notebooks instead of having it pop up an interactive plot of the graph (the way matplotlib does typically from the command line). The primary reason is that after the graph is generated once it will remain in the notebook, even if it is shut down. That way you can close/shut down a notebook and when you open it again the graph will still be there. This makes it much more like a “real” lab notebook and allows for quick reference.  To do this we need to generate a notebook configuration file, from the command line we do this as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ipython profile create
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the output of this command it will tell you where it is storing your configuration files (changes based on operating system). Now edit the ‘ipython_notebook_config.py’ file which should be located at:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;~/.ipython/profile_default/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then change line 258 from &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# c.IPKernelApp.matplotlib = ‘’
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;c.IPKernelApp.matplotlib = ‘inline’
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Voila!&lt;/p&gt;
-
-&lt;p&gt;Now, why is an iPython notebook so great? There’s a few reasons:&lt;/p&gt;
-
-&lt;ul&gt;
-        &lt;li&gt;Access your workstation from anywhere, with the same installed packages&lt;/li&gt;
-        &lt;li&gt;In-line plotting/analysis of data without having to run an X session (interactive X will frequently time out on me over long sessions, so I’ll need to start up a new connection to re-enable it)&lt;/li&gt;
-        &lt;li&gt;Ability to use bash commands, python, R, and many other languages simultaneously if configured properly&lt;/li&gt;
-        &lt;li&gt;Easy to show work to others&lt;/li&gt;
-        &lt;li&gt;Switch between code blocks and markdown blocks. This is important, in markdown blocks you should be ideally writing &lt;strong&gt;why&lt;/strong&gt; you are doing this research and what the analysis is. You can also include the commands or code used to generate the data that you are manipulating quickly.&lt;/li&gt;
-        &lt;li&gt;Embed images just like on any other web page. So even if you don’t generate images with matplotlib you can embed them in the notebook just using regular html. This makes it easy to keep track of results and important files from your analysis.&lt;/li&gt;
-        &lt;li&gt;Ability to very quickly do analysis, especially when you import functions from your standard library to quickly handle data manipulation!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;All in all, iPython notebook has really come of age. The only thing it’s really missing at this point is robust support for multiple users on a single notebook instance.&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>development</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html</guid><pubDate>Thu, 17 Apr 2014 13:01:36 GMT</pubDate></item><item><title>I stopped checking my email and it feels great</title><link>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>development</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/</guid><pubDate>Thu, 17 Apr 2014 13:01:36 GMT</pubDate></item><item><title>I stopped checking my email and it feels great</title><link>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great/</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;
 That's a little bit of a misnomer. I didn't stop checking my email completely. I just started turning on "Do Not Disturb" on my laptop and phone all day. I only look at emails for about two hours every day and it's liberating. I highly suggest trying it.
-&lt;/p&gt;</description><category>productivity</category><category>work life balance</category><guid>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great.html</guid><pubDate>Tue, 04 Mar 2014 12:56:37 GMT</pubDate></item><item><title>Working with Windows</title><link>http://www.npcompleteheart.com/posts/working-with-windows.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+&lt;/p&gt;</description><category>productivity</category><category>work life balance</category><guid>http://www.npcompleteheart.com/posts/i-stopped-checking-my-email-and-it-feels-great/</guid><pubDate>Tue, 04 Mar 2014 12:56:37 GMT</pubDate></item><item><title>Working with Windows</title><link>http://www.npcompleteheart.com/posts/working-with-windows/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
 So, you're working with windows, either by choice (wait. what?) or force (gah, somebody else making computer purchase decisions), and you're a programmer. Not just any programmer, a terminal acolyte that's chosen sides on the great vi/emacs holy war. I'll be blunt, that first sign-on is &lt;strong&gt;painful&lt;/strong&gt;. But hey, the world keeps turning and it's best to stay on top of technology. Here's how I've adjusted, with the all the steps (minus getting vim happy) coming from my Windows trailblazing amigo &lt;a href="https://twitter.com/dan_mcclary%E2%80%8E"&gt;Dan McClary&lt;/a&gt;.
 &lt;/p&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;h4&gt;First things, get a dang terminal&lt;/h4&gt;
-
-&lt;p&gt;
-And not just powershell, in no way does that even come close to being correct.  What you'll need to get is &lt;a href="http://www.npcompleteheart.com/posts/www.cygwin.com"&gt;Cygwin&lt;/a&gt;.  It will download and you'll be left with a setup.exe file that will install it for you.  Now here is where things get weird coming from a Linux standpoint, that setup.exe file combined with the folder it makes for the source from a mirror is (essentially) the package manager for Cygwin. &lt;strong&gt;Weird&lt;/strong&gt;. So if you are like me and like clean folders, don't delete either of them.  You'll just have to download them again later when you need to change what packages to install.
-&lt;/p&gt;
-
-&lt;p&gt;
-Now, let's pick what to install.  I went through this process maybe three times, each time missing packages that I needed.  So I did this really dumbly, I installed everything &lt;strong&gt;except&lt;/strong&gt; for python. Whatever you do, don't install python (for our purposes). We're going to get python from a different source later and this one will actually play nicely outside of Cygwin.  That's important just to hedge our bets really.  A lot of IDEs and other software will expect that if we have python it came from a general installation and not Cygwin, so they will not find anything if they go looking for it.  Why not just install both?  Because less headaches are good.
-&lt;/p&gt;
-
-&lt;h4&gt;Now let's get a prettier terminal&lt;/h4&gt;
-
-&lt;p&gt;
-Why are we getting a different terminal? Because Cygwin is about as feature rich as a a piece of coal (no tabs, no nothing, but at least it exists!).
-With windows there is essentially only one option, &lt;a href="http://sourceforge.net/projects/console/"&gt;Console2&lt;/a&gt;.  I'm not about to say I'm in love with it, because I'm really not (you'll see why in the vim section), but it's much better than Cygwin. It has tabs, you can change what it looks, all the important basics.  Just download and place the exe somewhere, it doesn't even install. Open it up and don't be afraid, by default it goes directly to the windows command line. Just follow &lt;a href="http://blog.quibb.org/2011/11/configuring-console2-with-cygwin/"&gt;this&lt;/a&gt; to set up a shell with cygwin.
-&lt;/p&gt;
-
-&lt;h4&gt;Finally, let's get la lingua python&lt;/h4&gt;
-
-&lt;p&gt;
-So we didn't get python from Cygwin so that it can be used all over Windows, so now let's get the official installer from &lt;a href="http://www.python.org/getit/windows/"&gt;Python&lt;/a&gt;. If we were on LInux or OS X we would start using pip to install the rest of the packages (highly recommended instead of using ports on OS X), but that really isn't the way to go on WIndows with the scientific packages that are very dependent on being compiled correctly. We can easily get all of those packages from this &lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/"&gt;site&lt;/a&gt;. My unofficial list of packages is: numpy, scipy, sympy pandas, pandasql, and pip. All good gets. The rest can be pretty easily installed with pip.
-&lt;/p&gt;
-
-&lt;h4&gt;Can we edit things yet?&lt;/h4&gt;
-
-&lt;p&gt;
-In vim. Of course, because everyone &lt;strong&gt;loves&lt;/strong&gt; to edit in vim. Vim is of course in Cygwin, which means that it'll also be Console2 and it can be used their right away. It even takes in the vimrc and .vim/ from our default user directory in Cygwin. But there's just one massive problem.
-&lt;/p&gt;
-
-&lt;p&gt;
-You use NERDTree, have multiple buffers open in a single window, and use multiple tabs, right? It starts with the key command &lt;ctrl w&gt; then the directional letter of the buffer to move to. In Windows, &lt;ctrl w&gt; closes the window and both Cygwin and Console2 respect that. So every time I tried to move between buffers my entire tab full of work was unceremoniously and immediately closed. Big damn problem, but not enough to tell anyone else I knew and get derided for not using emacs.
-&lt;/ctrl&gt;&lt;/ctrl&gt;&lt;/p&gt;
-
-&lt;p&gt;
-We have to look deeper and there is a really simple answer. Install &lt;a href="http://www.vim.org/download.php#pc"&gt;gVim&lt;/a&gt;.  Yes, it's not on the command line, but Console2 isn't perfect anyways. We'l actually even want to use gVim instead of the Vim app because gVim can be fully maximized and Vim can't be for some reason. Now, here was the weird thing that shook me up. These apps use your Windows home directory ("C:/Users/[USERNAME]/") instead of the Cygwin home directory, which is easy enough to solve. Just copy over our configuration from the Cygwin home directory and start the app back up again. But gVim still wouldn't load modules using pathogen for me. Turns out that in windows the .vim/ directory isn't called that, but is instead called vimfiles/.  Just renaming the directory takes care of everything and we have an awesome working Vim!
-&lt;/p&gt;
-
-&lt;h4&gt;Now let's get spoiled&lt;/h4&gt;
-
-&lt;p&gt;
-Task launcher and multiple desktops. The task launcher is essential, I'm using &lt;a href="http://www.npcompleteheart.com/posts/www.launchy.net/%E2%80%8E"&gt;Launchy&lt;/a&gt;. It really only does applications (so it won't pick up Console2) but it is responsive.  I tried others but they brought my underpowered desktop to its knees. I also used Dexpot to get multiple workspaces, but it is really just a hack in Windows.  It's nice to have, but it still doesn't feel like it does on OS X
-&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Well, that's it.&lt;/strong&gt; Hope that's enough to get you going and happy Windows'ing.&lt;/p&gt;&lt;/div&gt;</description><category>productivity</category><category>tutorial</category><category>windows</category><guid>http://www.npcompleteheart.com/posts/working-with-windows.html</guid><pubDate>Mon, 10 Jun 2013 12:41:33 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/working-with-windows/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>productivity</category><category>tutorial</category><category>windows</category><guid>http://www.npcompleteheart.com/posts/working-with-windows/</guid><pubDate>Mon, 10 Jun 2013 12:41:33 GMT</pubDate></item></channel></rss>

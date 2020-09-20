@@ -1,43 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about databases)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/databases.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Wild unsupportable claims about how Product X sucks!</title><link>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I read an article in the last month that really rubbed me raw, it was this one:
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about databases)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/databases.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:test@test.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:26:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Wild unsupportable claims about how Product X sucks!</title><link>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I read an article in the last month that really rubbed me raw, it was this one:
 &lt;br&gt;&lt;br&gt;
 &lt;a href="http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/"&gt;Why you should never use MongoDB&lt;/a&gt;
 &lt;br&gt;&lt;br&gt;
 Why does it bother me so much? Mostly because it’s bullshit, but I also feel that NoSQL solutions (and MongoDB specifically) are getting an undue bad reputation due to “MongoDB/NoSQL is bad” articles making great link-bait. Even more than that, people present themselves as experts when in reality they just make extremely broad claims about a lack of suitability without properly defining what their REAL needs are that make a technology so poor. 
 &lt;/p&gt;
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;
-Why do I say that? Well this quote makes the point really well (emphasis mine):
-
- &lt;/p&gt;&lt;blockquote&gt;
-Well, that’s the million dollar question. But I’ve already answered the billion-dollar question. In this post I’ve talked about how we used MongoDB vs. how it was designed to be used. I’ve talked about it as though all that information were obvious, and &lt;strong&gt;the Diaspora team just failed to research adequately before choosing&lt;/strong&gt;.
-&lt;br&gt;
-But this stuff wasn’t obvious at all. The MongoDB docs tell you what it’s good at, without emphasizing what it’s not good at. That’s natural. All projects do that. But as a result, it took us about six months, a lot of user complaints, and a lot of investigation to figure out that we were using MongoDB the wrong way.
-&lt;/blockquote&gt;
-
-Is it really the fault of the database that a team didn’t research a solution they implemented first? I don’t think so. Especially when the crux of their problem was the fact that no one thought of how to model relationships within a document database before even beginning.
-
-
-&lt;p&gt;
-Modelling relationships within MongoDB actually isn’t that hard, there’s a few options available and even I’ve been able to write about them &lt;a href="http://www.npcompleteheart.com/posts/%E2%80%9Dhttp:/www.npcompleteheart.com/post/starting-with-mongo-some-dos-and-donts/%E2%80%9D"&gt;before&lt;/a&gt;. The problem is that the team didn’t want  to bake this part into the code (understandable, but that’s another unstated project need that isn’t a fault of NoSQL) and maintain in light of their familiarity with a traditional SQL backend. Again, that’s a personal choice based on project needs, not a major failing in a database backend.
-&lt;/p&gt;
-
-&lt;p&gt;
-So let’s look at the real needs again:
-&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt;Needs to be a solution that integrates with some type of ORM for database interaction so relational joining is not in application code&lt;/li&gt;
-&lt;li&gt;Not duplicating data in the database (because hard disk space is precious? because it’s 1999 again?)&lt;/li&gt;
-&lt;li&gt;Needs to be familiar enough that team members have prior experience in optimization and usage&lt;/li&gt;
-&lt;/ul&gt;
-
-Given that criteria, MongoDB was a horrible solution. The reality is that anything but a traditional SQL backend would have been a terrible decision. But none of those are valid reasons as to &lt;strong&gt;”Why you should never use MongoDB”&lt;/strong&gt;.
-
-
-&lt;p&gt;
-The real lesson is that you should never decide on which technologies a new project will use without discussing your possible needs beforehand. This goes not only for new technologies, but also continuing to use existing technologies. Just like NoSQL isn’t for everything, neither is SQL. It’s just that either one can be forced to work as a solution and be painful to work with for the entire project lifespan.
-&lt;/p&gt;
-
-&lt;p&gt;
-You reap what you sow, so don’t be lazy. That’s the entire take-away, pretty damn simple right?
-&lt;/p&gt;&lt;/div&gt;</description><category>databases</category><category>mongodb</category><category>soapbox</category><guid>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks.html</guid><pubDate>Wed, 11 Dec 2013 12:45:46 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>databases</category><category>mongodb</category><category>soapbox</category><guid>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/</guid><pubDate>Wed, 11 Dec 2013 12:45:46 GMT</pubDate></item></channel></rss>

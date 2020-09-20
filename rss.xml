@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>This is a place for the musings, thoughts, and technical notes of Adam Pah.</description><atom:link href="http://www.npcompleteheart.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart</title><link>http://www.npcompleteheart.com/</link><description>The musings, thoughts, and technical notes of Adam Pah. But really, probably just an out of date Vitae.</description><atom:link href="http://www.npcompleteheart.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:34:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/keynote2pdf.png"&gt;
 &lt;/div&gt;
@@ -10,36 +10,7 @@ software every now and then that's OS X only. Keynote is one of those programs. 
 crazy, so I've been driven into its user-friendly, unshareable arms.
 &lt;br&gt; &lt;br&gt;
 &lt;/div&gt;
-&lt;!-- TEASER_END --&gt;
-
-But the good times have finally come to an end. Using Keynote for presentations and using my own
-laptop or exporting a single presentation to a PDF hasn't ever been an issue, but now I have 20
-course lectures that I need to distribute to my students and I'm not about to open each one and
-export it to PDF every time I make a change to a single slide.
-&lt;br&gt; &lt;br&gt;
-
-Googling for a quick, straightforward answer was a nightmare. Some examples I found used
-Applescript, which I couldn't get to work on Yosemite (OS X 10.10). Scratch that, I've never gotten
-any Applescripts to really work/written one (who the hell knows why). But this was still fairly
-annoying as accessibility errors kept popping up and I didn't care enough to figure out why.
-&lt;br&gt; &lt;br&gt;
-
-So instead I went ahead and cobbled together various parts of other bash scripts I found. I think in
-the end I put together two or three of them to get a final working product. I ended up with a
-workflow like this:
-&lt;br&gt; &lt;br&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;tt&gt;qlmanage&lt;/tt&gt; to unpack a Keynote into a folder with a PDF of each slide and an HTML page that says
-the order&lt;/li&gt;
-&lt;li&gt;Read the HTML page to find the order of the PDFs&lt;/li&gt;
-&lt;li&gt;Use a built in OS X executable to join the individual PDF pages are&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt; &lt;br&gt;
-
-which led to this script that I put up as a &lt;a href="https://gist.github.com/adamrpah/a10f335b889b2bd0f19b"&gt;gist&lt;/a&gt;. 
-It's hacky, hacky, hacky, hacky (I threw it together as quick as I could after a couple total hours
-invested in this). Right now it'll execute in a directory and export every single Keynote file it finds. It should be changed to do either a directory or a single file, use some actual command execution instead of &lt;tt&gt;os.system&lt;/tt&gt;, something to actually clean filenames other than three quick lines....but, hey.  It's done!&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf.html</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
 visualize its most common terms to give a sense of what is involved, like so:
@@ -49,94 +20,7 @@ visualize its most common terms to give a sense of what is involved, like so:
 &lt;img src="http://d13zeczpqm2715.cloudfront.net/wp-content/uploads/2015/05/big-data2.jpg"&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;div class="col-md-12"&gt;
-
-Others have tried to break it down into its key components, many times this means re-iterating the
-V's of big data
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="http://sci2s.ugr.es/sites/default/files/files/TematicWebSites/BigData/v3.png" style="text-align: center;"&gt;
-&lt;br&gt; &lt;br&gt;
-
-These V's are a constantly moving target though and it's hard to understand what they mean in
-application
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="http://www.npcompleteheart.com/images/vs_big_data.png" style="text-align: center;"&gt;
-&lt;br&gt; &lt;br&gt;
-
-Big data is really a state, one that we have all currently entered into whether we realize it or
-not.
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="http://www.npcompleteheart.com/images/data_volume.png" style="text-align: center;"&gt;
-&lt;br&gt; &lt;br&gt;
-
-That's why we need to equip ourselves with the programmatic skills to handle this influx of data.
-&lt;br&gt; &lt;br&gt;
-
-The threshold for when some dataset becomes **big** is not absolute.
-&lt;br&gt; &lt;br&gt;
-
-### Data is big whenever it outstrips your current capability handle it
-
-If you're a sociologist, big data happens when you want to analyze 1,000,000 survey responses
-instead of 1000. If you are a biologist, it happens when Excel crashes analyzing time course data
-from microfluidics. If you are an historian, it happens when you want to analyze 100 sources instead
-of 10.
-&lt;br&gt; &lt;br&gt;
-
-### Data science goes hand in hand with big data
-
-Data science is really just a mixture of computer science, math and statistics, and domain
-knowledge. Some like to view it as a Venn diagram
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="http://b-i.forbesimg.com/gilpress/files/2013/05/Data_Science_VD.png" style="text-align: center;"&gt;
-&lt;br&gt; &lt;br&gt;
-
-But that's a silly distinction just like our Big Data V's.
-&lt;br&gt; &lt;br&gt;
-
-### If big data is a state, then data science is just what we do in it
-
-The real change in big data isn't just the quantity of data, but the integration of data sources
-that have never been brought together before.
-&lt;br&gt; &lt;br&gt;
-
-Data science covers a range of specialized areas, but most importantly it relies on creativity,
-asking the right questions, and statistical analysis to show that your hypothesis is right.
-&lt;br&gt; &lt;br&gt;
-
-# So how will participating in a bootcamp help me?
-
-Lately there's been some talk about how the type of researcher we need to be is changing.
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="https://jakevdp.github.io/images/pi_shaped.png" style="text-align: center;"&gt;
-&lt;br&gt; &lt;br&gt;
-
-The classical research is called a *T-shaped* researcher. They have a broad, but shallow exposure to
-science and humanities from their undergraduate degree and then a deep specialization in their own
-domain.
-&lt;br&gt; &lt;br&gt;
-
-Now people are talking about the need for *Pi-shaped*, modern researchers. One who not only have a
-deep domain specialization, but also understand how to use statistics and computing in their
-research as the size of their question, and the data it needs, grows.
-&lt;br&gt; &lt;br&gt;
-
-The point of this bootcamp is to teach you basic skills in programming and data analysis. 
-&lt;br&gt; &lt;br&gt;
-
-&lt;img src="http://www.npcompleteheart.com/images/pi_nub.png" style="text-align:center"&gt;
-&lt;br&gt; &lt;br&gt;
-
-We're trying to grow a little nub off your *T* of expertise. The skills that you learn this week
-will form the **foundation** (not entirety) of your growing arm of computational and statistical
-expertise.&lt;/div&gt;&lt;/div&gt;</description><category>big data</category><category>data science</category><guid>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science.html</guid><pubDate>Thu, 10 Sep 2015 02:00:11 GMT</pubDate></item><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>big data</category><category>data science</category><guid>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/</guid><pubDate>Thu, 10 Sep 2015 02:00:11 GMT</pubDate></item><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/everything_is_obvious.png"&gt;
 &lt;/div&gt;
@@ -154,49 +38,7 @@ inception.
 &lt;br&gt; &lt;br&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-However, it was the third book that really stuck with me. Duncan Watts' "Everything is Obvious
-...once you know the answer" is a quick tour through his work starting with Steven Strogatz at
-Cornell and covering his work at Columbia University and Yahoo Research. The opening vignette, of
-how his roommate reads a newspaper article about something silly in sociological research and
-remarks to him that "He should switch to the social sciences and solve all the problems in a week".
-That remark, which has been said many times by physicists (both positively and negatively as they
-continue to enter new fields) sets us out on our journey.
-&lt;br&gt; &lt;br&gt;
-
-The reality is that it's been a decade, and while Duncan and many others quantitative scientists
-have published great work investigating social science problems, understanding of social systems and
-human behavior remains as elusive today as 20 years ago. If anything, what we've learned is that
-randomness and unseen or unmeasurable effects have the ability to impede making predictions that go
-far into the future.
-&lt;br&gt; &lt;br&gt;
-
-A great experiment from Watts’ team demonstrates this: users were able to go to a website (called
-Music Lab) and listen to music for free. After listening to a song they would be asked to rate it
-(on a 5 point scale) and were then given the opportunity to download it. However, there were
-multiple 'worlds' constructed for the users (all containing the same songs). In the first world, the
-songs were merely displayed, in the other worlds the songs were ranked by and displayed the number
-of downloads. 
-&lt;br&gt; &lt;br&gt;
-
-Now, if behavior was in any way predictable, the end ratings and downloads from these different
-worlds should match. With large enough populations the true 'quality' of a song should shine through
-and there should be a strong correlation between ratings in the different “worlds”.  
-&lt;br&gt; &lt;br&gt;
-
-Not at all. When we allow for social influence, the winners become even bigger winners. Furthermore,
-the 'more' that they win is highly variable between worlds. A song that gets a high rating early
-accumulates more high ratings. And the initial ratings are extremely stochastic. 
-&lt;br&gt; &lt;br&gt;
-
-This may seem obvious in hindsight (the name of the book, right?), but it's really not. Behaviors
-are erratic, and difficult to predict. If the social world behaved like the physical world,
-individuals would have a negligible influence on each other. Or at least, in larger populations the
-randomness would become less dominant. Of course, we don’t see this. The social world is weird,
-chaotic, and difficult to predict. Not exactly the unifying laws that came from Physics after all. 
-&lt;/div&gt;
-&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
 time to pay her back and help her get a website up and running. I went over the options that I knew
@@ -211,19 +53,12 @@ while I may know nothing about Wordpress, I find to be crazy.
 &lt;img src="http://www.npcompleteheart.com/images/wordpress_heroku.png"&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-So instead I went around searching for how to shoehorn Wordpress onto Heroku's Cedar stack (which is
-where Django ends up). Luckily others have already had this desire and it was super easy!  Using
-this &lt;a src="https://github.com/mhoofman/wordpress-heroku"&gt;github&lt;/a&gt; repository and README I had the
-wordpress site up and running in seconds. Woot!
-&lt;/div&gt;
-&lt;/div&gt;</description><category>code</category><category>random</category><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku.html</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>random</category><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
 &lt;/div&gt;
 &lt;div class="col-md-8"&gt;
-I guess my post on &lt;a src="http://www.npcompleteheart.com/posts/www.npcompleteheart.com/posts/django-and-mongodb-in-2015"&gt;Django and MongoDB in 2015&lt;/a&gt; 
+I guess my post on &lt;a src="http://www.npcompleteheart.com/posts/things-keep-a-changing/www.npcompleteheart.com/posts/django-and-mongodb-in-2015"&gt;Django and MongoDB in 2015&lt;/a&gt; 
 was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
 a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
 and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
@@ -233,36 +68,7 @@ site to hopefully make it more conducive to me blogging.
 &lt;br&gt;&lt;br&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-This time around, I really just wanted something simple that had IPython notebook support baked in
-from the start. I wanted it to be lightweight, support markdown input (since it seemed like I'm the
-last human alive writing in html and I could never remember the damn markdown symbols for that
-reason), and I guess be a little bit anachronistic. For these reasons I just decided to go with
-(Nikola)[www.getnikola.org]. It looked cool, sounded simple (loved the part in the tutorial that
-just said, `don't read this tutorial, just start using`), and it seems like the darkhorse in the
-race against Pelican. In any case, that was enough to persuade me to start using it.
-&lt;br&gt;&lt;br&gt;
-The switch was pretty simple with the exception of the fact that I had to edit all my old posts to
-make them appear like I wanted on this website. I would write more, but there really wasn't much
-more to it than what's contained in teh basic introduction. The only thing that really held me up
-was getting Git Pages to work. Most of the methods written on the internet weren't working for me
-so I just did the lazy thing and made a separate repository for Github to serve as my website.
-&lt;br&gt;&lt;br&gt;
-
-Most things made it over okay, with the only real holdovers being the D3 visualizations with
-javascript. I know that it's possible to move them over using an IPython notebook I just haven't had
-the time yet. Through this process I also found out that someone limited the Folium mapping package
-to only 6 colors again for apparently no fucking reason! Yay open source! Oh, and I killed some
-high-traffic pages that I hated just because, like how to make a volcano plot. It was just too old
-and out of date.
-&lt;br&gt;&lt;br&gt;
-
-Otherwise, the website isn't completely up yet (I need to add the projects back in, maybe give the
-detail pages on individual publications) and figure out how to get some more javascript working (I know
-completely against the whole starting premise). 
-&lt;/div&gt;
-&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing.html</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/things-keep-a-changing/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing/</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Computational research, no longer a red-headed stepchild!</title><link>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 Research Day as a chairperson and poster judge.I typically cringe at the thought of attending
 conferences and symposia, since I am mainly a homebody (I love my desk, computer, research, and
@@ -274,31 +80,7 @@ turning in my head.
 &lt;img src="http://www.npcompleteheart.com/images/computational_research_day.jpg" height="150px"&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;div class="col-md-12"&gt;
-Most importantly, the sense of camaraderie that I felt amongst these computational researchers kept
-me energized. I wish that this event existed when I started graduate school. As a computational
-researcher that was purportedly a biologist, it was easy to feel that I was a part of a group that I
-was a red-headed stepchild. My home program was primarily concerned with experimentation or the
-application of rote computational biology (i.e. anything involving a computer that would have been
-published since the early 90s). Most of the other departments that included some computational
-research were ones where computational methods were de rigeur and field specific research dominated.
-Instead I was looking more for what made me gravitate towards the Northwestern Institute for
-complexity, computational researchers that were applying new techniques and conducting
-interdisciplinary research.
-&lt;br&gt;&lt;br&gt;
-I can’t wait to see what new problems people will tackle as the quantity, diversity, and
-interdisciplinarity of computational research continues to expand. Because of my experience in
-biology, I realize how important it is to bring other fields and researcher into the fold of the
-computational community. It will help change how people view their research problems and hopefully
-lead to better research. This is what drives me to help put on the bootcamps as an introduction to
-programming and data science. It’s also why I believe that events like the Computational Research
-Day are integral to a healthy, productive research environment at a University.
-&lt;br&gt;&lt;br&gt;
-Keep Growing, Computational Research! Keep Growing!
-&lt;/div&gt;
-&lt;/div&gt;</description><category>conference</category><category>research</category><guid>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild.html</guid><pubDate>Wed, 22 Apr 2015 00:56:52 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>conference</category><category>research</category><guid>http://www.npcompleteheart.com/posts/computational-research-no-longer-a-red-headed-stepchild/</guid><pubDate>Wed, 22 Apr 2015 00:56:52 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/mongodb.jpeg"&gt;
 &lt;/div&gt;
@@ -310,109 +92,7 @@ to put those thoughts into writing, so this is my long overdue explanation and t
 of posts describing how I use MongoDB daily.
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;div class="col-md-12"&gt;
-&lt;h3&gt;MongoDB is for &lt;strike&gt;lovers&lt;/strike&gt; researchers and scientists&lt;/h3&gt;
-
-So I think the first question to tackle is why use a database at all? Here are the three basic
-reasons that caused me to make a switch.
-&lt;br&gt;&lt;br&gt;
-
-&lt;li&gt;&lt;strong&gt;Speed.&lt;/strong&gt; If you’ve ever explored the parameter landscape of a model then you’ve likely
-experienced the point when typing `ls *` in your results folder can bring your system to its knees.
-While there are ways to work around this problem (creating subfolders, smart naming conventions to
-get groups of files), you can also just switch to storing the results in a database. Databases are
-designed for storing millions of records easily.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Queries.&lt;/strong&gt; How many runs with parameters (rho, mu, sigma) have finished? Okay, now how many
-of those runs have a final value of y? Not nearly as easy to answer is it? At best it would require
-looking at the final line of every file. At worst, with some odd encoding scheme or additional forms
-of output in the same file this could require parsing every file. Databases make answering these
-types of questions quick and easy.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Portability.&lt;/strong&gt; Your data files need to be in a specified directory for your code to read
-it. A folder for all your results needs to be in the right place too. Any time you want to test your
-code those parts all need to be there and hopefully the ‘there’ isn’t in the same folder as your
-code (I am an unabashed proponent of separating code, data, and results). For me, switching between
-a laptop, workstation, and two different clusters, this can lead to some annoying inconsistencies
-with file availability (specifically with large data files). Storing your data in a database with a
-static IP address makes it easy to access anywhere.&lt;/li&gt;
-&lt;br&gt;&lt;br&gt;
-
-This is the start to why I think it’s a good idea to use a database, with another lurking reason
-being that working knowledge of databases is required outside academia. If none of those reasons
-resonate with you to explore these options then don’t worry, not everyone has the same research
-problems as me.
-&lt;br&gt;&lt;br&gt;
-
-&lt;h3&gt;So why X technology over Y technology?&lt;/h3&gt;
-
-If you wade too far into the internet you’ll find out that MongoDB is a type of NoSQL database and
-that other types of databases are SQL databases. If you wade even a little bit further then a
-torrent of flame wars will come pouring out of your monitor and you should just shut your eyes,
-cover your ears, and pull your computer’s power plug out. Hopefully the following reasons will make
-it slightly clear what the differences are without having to go dive into the recesses of the
-internet. 
-&lt;br&gt;&lt;br&gt;
-
-Ease of use - i.e. Schemaless. What does schemaless really mean?
-When you use a SQL database you need to first create a database and then a table. Then once you
-create a table you must give commands or use a GUI to establish the number of columns, the names of
-columns, and, most importantly, the data type that each column can hold. When a record is entered
-into the database it must have all those fields. If you decide to change your code and need to store
-additional data fields then you must alter the table first (or else suffer an error!).
-&lt;br&gt;&lt;br&gt;
-
-With MongoDB you create a database and then insert a document into it. It will even lazily create
-the collection that you told it to use. It can have any number of fields (or keys in Mongo/document
-speak) and each key can be named however you want. The twist is when you go to insert a second
-document. The second document doesn’t need the same number of keys, or key names, or even the
-datatypes of the values associated with each key name. It allows you to do whatever at any time,
-with any document in the database.
-&lt;br&gt;&lt;br&gt;
-
-Now this freedom is considered to be a flaw in some minds, but all I see is that the onus of
-consistency is on the programmer (i.e. you). In the context of a single person, a small group, or a
-research lab I don’t think that it’s much to expect that everyone act responsibly and document what
-they’re doing (either in the README for the project and/or with explicit key names). The most
-important thing to remember is that just about any technology can be detrimental to the workings of
-a project if in the hands of an irresponsible idiot.
-&lt;br&gt;&lt;br&gt;
-
-&lt;h4&gt;Dictionaries!&lt;/h4&gt;
-
-So this stems from being a pythonista, but when  I code I store things as dictionaries or classes
-typically. MongoDB lets me shove that directly into the database since it works with natively with
-dictionaries (Mongo’s data store is a BSON, which is more or less a JSON, which is almost a
-dictionary). This isn’t so when working with a SQL database, since each record is stored in a row
-(think of a CSV file), and for me this is a huge differentiation and selling point. 
-&lt;br&gt;&lt;br&gt;
-
-Complex data structures can be natively stored in MongoDB and they are directly returned when I
-query them.  So for me, when I run a simulation and there is a class keeping track of the time
-evolution of the system at the end of the run I can just calculate whatever additional metrics are
-necessary and save the dictionary into the database. When I need to analyze the results I can either
-roll directly with the dictionary and start analyzing, it’s pretty simple.
-&lt;br&gt;&lt;br&gt;
-
-&lt;h4&gt;Complex values.&lt;/h4&gt;
-I have stored datetime as a value, which isn’t really that special. What is special is when I store
-a networkx graph object. Mongo will let you shove a fair number of things into it without requiring
-you to convert them to a string. This is not only handy, but it cuts out code and processing steps
-on file loading.
-&lt;br&gt;&lt;br&gt;
-
-&lt;h4&gt;MapReduce.&lt;/h4&gt;
-This is more of a footnote but MapReduce is a great feature and can turn 24 hours of computation
-time into one fairly quickly. 
-&lt;br&gt;&lt;br&gt;
-
-These are the basic reasons why I use MongoDB, both in comparison to a file system and a SQL
-database. I will never say that it’s the fastest or the best solution from a technical standpoint,
-but it is the quickest and easiest solution in regards to my time, which is the most important thing
-in my mind. I’m a researcher, not someone setting up production databases or something soul crushing
-like that ;)
-&lt;/div&gt;
-&lt;/div&gt;</description><category>mongodb</category><category>research</category><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers.html</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>mongodb</category><category>research</category><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 I just finished reading Axelrod's &lt;strong&gt;The Complexity of Cooperation&lt;/strong&gt; and I have to say, it's one of the better scientific books that I can remember reading (period). This is surprising (for me), since it's really just a collection of seven of his published papers along with some commentary. However, his papers are so well written and the commentary is brilliant, especially for someone pursuing research as a career, since it not only provides insight into the genesis of the work but also how it was regarded by journals.
 &lt;/div&gt;
@@ -420,47 +100,11 @@ I just finished reading Axelrod's &lt;strong&gt;The Complexity of Cooperation&lt
 &lt;img src="http://www.npcompleteheart.com/images/prisoners_dilemma.jpg"&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;div class="col-md-12"&gt;
-&lt;p&gt;
-This case is especially so for Chapters 4/5/7, which are concerned with his use of Landscape theory to predict alliances between nations and companies and the diffusion of culture. For all of these papers, he discusses the difficulties in publishing these pieces and then their lack of acceptance in the field at the time. For the landscape theories the lack of acceptance was primarily due to the nonexistence of rational agents and decision-making, while in the culture diffusion model it centered on the absence of "politics of any kind", as so succinctly stated by one reviewer.
-&lt;/p&gt;
-
-
-&lt;p&gt;
-In a hilarious twist, or maybe it's based solely on my anti-authoritarian leanings, these three papers were far and away my favorites of the entire compilation. The two landscape theory papers were concerned with predicting the formation of alliances, with Chapter 4 being focused on predicting the split of countries in World War II and Chapter 5 consortium alliances in setting Unix standards in the late 1980s. He describes the distaste that game theorists and (probably) economists had for this work since it didn't have a true "game" or rational decision agents, and instead was inspired by research on spin glass models and is, in reality, a method to find the energy landscape of possible group formations. In a somewhat hilarious turn, despite knowing more than a few people who have done research on spin glass models, this is probably the first piece of work that really made me appreciate the value that is in this model (which, honestly, was lacking in me before). 
-&lt;/p&gt;
-
-&lt;p&gt;
-But the two run away chapters in my mind were 6 and 7. Chapter 6 was focused on the evolution of new political actors that are superstructures of smaller actors (think the formation of a nation from colonies a la the United States) which was investigated with what he called the tribute model. This was a relatively simple model where an actor in the game is selected at random and then is given the opportunity to attack another actor, which it will do so long as any other actor has less wealth than it does (otherwise it would be trounced in a fight). The opposing actor in this confrontation has the choice between fighting or paying tribute, and it simply selects whichever option costs less. Whenever an actor pays a tribute to another actor this builds a bond between the two and this bond comes into play when one of the actors is attacked by an outsider. What happens then is any actor in an alliance with the attacked country has this obligation to defend its ally, which further reinforces the bond between the two initial actors. Through simulation results results Axelrod showed that these simple behaviors were able to cause the formation of essentially new political actors, namely superstructures of actors with typically one dominant actor that was the caretaker of several minor actors. Furthermore, despite the simplicity of this model there is considerable complexity in the dynamics, namely that it there are many, distinctly different scenarios that can play out at random at 10,000 or more steps into the simulation.
-&lt;/p&gt;
-
-&lt;p&gt;
-Chapter 7 was an, almost unbelievably simple model that focused on cultural diffusion. Each agent in a 2-dimensional grid was initialized with a vector of cultural traits for &lt;i&gt;n&lt;/i&gt; cultural features. The play of this model was very simple, at random an agent within the grid was selected and with some probability, based on homophily with a neighbor, a dissimilar trait is diffused. There were four major results from this model, with two being relatively intuitive and the other two being momentary head-scratchers.
-&lt;/p&gt;
-
-&lt;p&gt;
-First, there is the concern of geography. A relatively intuitive result is that the number of stable groups in the population decreases as each agent has more neighbors. This is similar to the first question that comes to mind now, which is what about the internet. What it basically says is that as we have the ability to contact more people, it is more likely we will find a similar person to share traits with. This helps the system reach a relatively smaller number of overall groups. The other was with the size of the grid. In this case there are relatively few cultural groups when the grid is small (say a 5x5 grid) and more as the grid grows into moderate sizes (about 20x20), so far so good in terms of making sense. However, after this point the number of stable final groups starts to decrease, now why is that? Based on the simulations we find out that in a very large grid most of the time is actually just spent with two competing dialects (i.e. a majority with a dialect vector of &amp;lt;1,1,1,1,2&amp;gt; and a minority with &amp;lt;1,1,1,1,1&amp;gt;) fighting each other. However, while this process is like a random walk, there is a twist that there is a boundary, basically change in the size of the populations can only occur at the border were a majority agent and a minority agent meet. This means that it is most likely that the majority will subsume the minority, it is just that it will take a longer time than in a smaller grid. In the larger population grid, this border is larger which means that while it seems like there will be &lt;b&gt;more&lt;/b&gt; cultural regions to (which is true), there ends up being &lt;b&gt;less&lt;/b&gt; distinct cultural regions because of the overlap in beliefs and this establishment of cultural zones. Basically in any case where two agent share one feature there is the chance that they will assimilate.
-&lt;/p&gt;
-
-&lt;p&gt;
-Second, is the concern of cultural traits and features, which is slightly more straightforward. The greater the number of cultural traits for a given feature, the more cultural regions that can be expected to form. This is fairly simple, as the number of opinions/options on a distinct issue grow, the easier it is to be surrounded by someone who does not share a similar viewpoint on any of the cultural features. This is something that made me immediately think back to high school, with music and the cliques that formed around them. As each musical genre continued to subdivide (I myself was in the skacore clique), the smaller and more numerous the groups became. What is mildly surprising is the result for cultural features, which shows that as the number of features &lt;b&gt;increases&lt;/b&gt; the number of groups &lt;b&gt;decreases&lt;/b&gt;. After a hot minute this makes sense though, the more issues that exits the easier it is to find &lt;b&gt;at least one&lt;/b&gt; that I agree on with a neighbor. After this initial icebreaker of an agreement it's much easier to open the lines of communication, so to speak, and begin transferring ideas and opinions.
-&lt;/p&gt;
-
-&lt;p&gt;
-However, the main question that I still have of this model is one of cultural drift. Axelrod addressed this (and the reviewers requested) but the simulation results proved too thorny to unpack easily. I haven't had the time to do a literature search yet so this may be an answered question (the book is 17 years old), but it seems to be a fundamental one. This is especially so with my research interest on the diffusion of innovations within a system What is necessary for new "traits" that are introduced to survive, especially after a system has already reach a steady state? Is it necessary for a system to be in a dynamic state for these traits to survive? I think that these are interesting questions that may be out of reach for the model but that's never stopped me from wasting a week of work....
-&lt;/p&gt;
-
-&lt;p&gt;
-In any case this is wonderful book that only takes about a night and a glass of whiskey to finish, which means that you really can't go wrong.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><category>science</category><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>Do yourself a favor...</title><link>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/172185143&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;visual=true"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><category>science</category><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>Do yourself a favor...</title><link>http://www.npcompleteheart.com/posts/do-yourself-a-favor/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/172185143&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;visual=true"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;
 and listen to this wonderful collaboration. It's a new album coming out in February between Ghostface Killah (shame on you if you don't know) and BadBadNotGood (a jazz trio from Toronto). The beats and backing music on these tracks are just nothing but...sublime.
-&lt;/p&gt;&lt;/div&gt;</description><category>music</category><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor.html</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;/p&gt;&lt;/div&gt;</description><category>music</category><guid>http://www.npcompleteheart.com/posts/do-yourself-a-favor/</guid><pubDate>Sun, 25 Jan 2015 14:44:42 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
 &lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
 &lt;/div&gt;
@@ -470,26 +114,4 @@ So believe it or not my post from 2013 on setting up a Django website with a Mon
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-&lt;h5&gt;Should I follow that blog post and set up a Django app with MongoDB?&lt;/h5&gt;
-&lt;h5&gt;Hell no, definitely not now&lt;/h5&gt;
-
-&lt;p&gt;
-Admittedly, my website still uses it but that is out of pure laziness and a lack of desire to migrate/work up something new. As is, I'm pretty sure that I have another year and a half before there's a catastrophic problem or a new feature that I absolutely have to have before I need to redo it all. And therein lies the biggest problem with trying to go down this path.
-&lt;/p&gt;
-
-&lt;p&gt;
-The reason that I wanted to use MongoDB so much was its native usage of JSON (well, BSON) so that I could quickly and easily store data or javascript code for quick on-the-fly visualizations. I wanted Django for its robust admin backend (still why I love it! Nothing else that I've used has anything quite as good). However, now with the newest version of PostgreSQL and its support of JSON as a column type it's possible to get everything I want out of a website using a traditional SQL database (actually the one that Heroku has always wanted you to use anyways). Granted, this means going back to the world of migrations will be a pain but it's easy enough concession to be back on the main branch of Django development.
-&lt;/p&gt;
-
-&lt;h5&gt;But what if I really want to put the two together still?&lt;/h5&gt;
-&lt;p&gt;
-There could still be a pretty valid reason why you want an easy admin interface and a NoSQL backend, but in that case I don't think any of the old instructions may still apply with all of the time that has passed. In all honesty, if you're not making a blog site (or you won't be blogging consistently like me, womp womp) I would suggest not using Django at all and using a custom flask app (which would be simple enough) instead and provide lots of flexibility. If you were tr Buying to make a site as a product, then I wouldn't recommend python at all then and recommend node.js due to the performance benefits. 
-&lt;/p&gt;
-
-&lt;p&gt;
-All in all, it's hard to say what to do in this new world where static site generators are the new hot thing. I still like having the ability to write and save drafts on my website instead of being stuck to a checked out instance of my website (I switch computers and locations...too often still). But in any case, I still like using Heroku even if it is apart of the giant SalesForce conglomerate.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015.html</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item></channel></rss>

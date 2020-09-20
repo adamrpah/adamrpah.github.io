@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about book)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/book.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 01 Mar 2018 19:09:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about book)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/book.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:test@test.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sat, 19 Sep 2020 12:26:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Follow me on the Reading Rainbow</title><link>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-4"&gt;
     &lt;img src="http://www.npcompleteheart.com/images/everything_is_obvious.png"&gt;
 &lt;/div&gt;
@@ -17,49 +17,7 @@ inception.
 &lt;br&gt; &lt;br&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-&lt;div class="col-md-12"&gt;
-However, it was the third book that really stuck with me. Duncan Watts' "Everything is Obvious
-...once you know the answer" is a quick tour through his work starting with Steven Strogatz at
-Cornell and covering his work at Columbia University and Yahoo Research. The opening vignette, of
-how his roommate reads a newspaper article about something silly in sociological research and
-remarks to him that "He should switch to the social sciences and solve all the problems in a week".
-That remark, which has been said many times by physicists (both positively and negatively as they
-continue to enter new fields) sets us out on our journey.
-&lt;br&gt; &lt;br&gt;
-
-The reality is that it's been a decade, and while Duncan and many others quantitative scientists
-have published great work investigating social science problems, understanding of social systems and
-human behavior remains as elusive today as 20 years ago. If anything, what we've learned is that
-randomness and unseen or unmeasurable effects have the ability to impede making predictions that go
-far into the future.
-&lt;br&gt; &lt;br&gt;
-
-A great experiment from Watts’ team demonstrates this: users were able to go to a website (called
-Music Lab) and listen to music for free. After listening to a song they would be asked to rate it
-(on a 5 point scale) and were then given the opportunity to download it. However, there were
-multiple 'worlds' constructed for the users (all containing the same songs). In the first world, the
-songs were merely displayed, in the other worlds the songs were ranked by and displayed the number
-of downloads. 
-&lt;br&gt; &lt;br&gt;
-
-Now, if behavior was in any way predictable, the end ratings and downloads from these different
-worlds should match. With large enough populations the true 'quality' of a song should shine through
-and there should be a strong correlation between ratings in the different “worlds”.  
-&lt;br&gt; &lt;br&gt;
-
-Not at all. When we allow for social influence, the winners become even bigger winners. Furthermore,
-the 'more' that they win is highly variable between worlds. A song that gets a high rating early
-accumulates more high ratings. And the initial ratings are extremely stochastic. 
-&lt;br&gt; &lt;br&gt;
-
-This may seem obvious in hindsight (the name of the book, right?), but it's really not. Behaviors
-are erratic, and difficult to predict. If the social world behaved like the physical world,
-individuals would have a negligible influence on each other. Or at least, in larger populations the
-randomness would become less dominant. Of course, we don’t see this. The social world is weird,
-chaotic, and difficult to predict. Not exactly the unifying laws that came from Physics after all. 
-&lt;/div&gt;
-&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow.html</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>research</category><category>review</category><category>social influence</category><category>social science</category><category>socialdna</category><category>socialdna readings</category><guid>http://www.npcompleteheart.com/posts/follow-me-on-the-reading-rainbow/</guid><pubDate>Sun, 16 Aug 2015 14:41:17 GMT</pubDate></item><item><title>How does cooperation evolve?</title><link>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
 &lt;div class="col-md-8"&gt;
 I just finished reading Axelrod's &lt;strong&gt;The Complexity of Cooperation&lt;/strong&gt; and I have to say, it's one of the better scientific books that I can remember reading (period). This is surprising (for me), since it's really just a collection of seven of his published papers along with some commentary. However, his papers are so well written and the commentary is brilliant, especially for someone pursuing research as a career, since it not only provides insight into the genesis of the work but also how it was regarded by journals.
 &lt;/div&gt;
@@ -67,94 +25,12 @@ I just finished reading Axelrod's &lt;strong&gt;The Complexity of Cooperation&lt
 &lt;img src="http://www.npcompleteheart.com/images/prisoners_dilemma.jpg"&gt;
 &lt;/div&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;div class="col-md-12"&gt;
-&lt;p&gt;
-This case is especially so for Chapters 4/5/7, which are concerned with his use of Landscape theory to predict alliances between nations and companies and the diffusion of culture. For all of these papers, he discusses the difficulties in publishing these pieces and then their lack of acceptance in the field at the time. For the landscape theories the lack of acceptance was primarily due to the nonexistence of rational agents and decision-making, while in the culture diffusion model it centered on the absence of "politics of any kind", as so succinctly stated by one reviewer.
-&lt;/p&gt;
-
-
-&lt;p&gt;
-In a hilarious twist, or maybe it's based solely on my anti-authoritarian leanings, these three papers were far and away my favorites of the entire compilation. The two landscape theory papers were concerned with predicting the formation of alliances, with Chapter 4 being focused on predicting the split of countries in World War II and Chapter 5 consortium alliances in setting Unix standards in the late 1980s. He describes the distaste that game theorists and (probably) economists had for this work since it didn't have a true "game" or rational decision agents, and instead was inspired by research on spin glass models and is, in reality, a method to find the energy landscape of possible group formations. In a somewhat hilarious turn, despite knowing more than a few people who have done research on spin glass models, this is probably the first piece of work that really made me appreciate the value that is in this model (which, honestly, was lacking in me before). 
-&lt;/p&gt;
-
-&lt;p&gt;
-But the two run away chapters in my mind were 6 and 7. Chapter 6 was focused on the evolution of new political actors that are superstructures of smaller actors (think the formation of a nation from colonies a la the United States) which was investigated with what he called the tribute model. This was a relatively simple model where an actor in the game is selected at random and then is given the opportunity to attack another actor, which it will do so long as any other actor has less wealth than it does (otherwise it would be trounced in a fight). The opposing actor in this confrontation has the choice between fighting or paying tribute, and it simply selects whichever option costs less. Whenever an actor pays a tribute to another actor this builds a bond between the two and this bond comes into play when one of the actors is attacked by an outsider. What happens then is any actor in an alliance with the attacked country has this obligation to defend its ally, which further reinforces the bond between the two initial actors. Through simulation results results Axelrod showed that these simple behaviors were able to cause the formation of essentially new political actors, namely superstructures of actors with typically one dominant actor that was the caretaker of several minor actors. Furthermore, despite the simplicity of this model there is considerable complexity in the dynamics, namely that it there are many, distinctly different scenarios that can play out at random at 10,000 or more steps into the simulation.
-&lt;/p&gt;
-
-&lt;p&gt;
-Chapter 7 was an, almost unbelievably simple model that focused on cultural diffusion. Each agent in a 2-dimensional grid was initialized with a vector of cultural traits for &lt;i&gt;n&lt;/i&gt; cultural features. The play of this model was very simple, at random an agent within the grid was selected and with some probability, based on homophily with a neighbor, a dissimilar trait is diffused. There were four major results from this model, with two being relatively intuitive and the other two being momentary head-scratchers.
-&lt;/p&gt;
-
-&lt;p&gt;
-First, there is the concern of geography. A relatively intuitive result is that the number of stable groups in the population decreases as each agent has more neighbors. This is similar to the first question that comes to mind now, which is what about the internet. What it basically says is that as we have the ability to contact more people, it is more likely we will find a similar person to share traits with. This helps the system reach a relatively smaller number of overall groups. The other was with the size of the grid. In this case there are relatively few cultural groups when the grid is small (say a 5x5 grid) and more as the grid grows into moderate sizes (about 20x20), so far so good in terms of making sense. However, after this point the number of stable final groups starts to decrease, now why is that? Based on the simulations we find out that in a very large grid most of the time is actually just spent with two competing dialects (i.e. a majority with a dialect vector of &amp;lt;1,1,1,1,2&amp;gt; and a minority with &amp;lt;1,1,1,1,1&amp;gt;) fighting each other. However, while this process is like a random walk, there is a twist that there is a boundary, basically change in the size of the populations can only occur at the border were a majority agent and a minority agent meet. This means that it is most likely that the majority will subsume the minority, it is just that it will take a longer time than in a smaller grid. In the larger population grid, this border is larger which means that while it seems like there will be &lt;b&gt;more&lt;/b&gt; cultural regions to (which is true), there ends up being &lt;b&gt;less&lt;/b&gt; distinct cultural regions because of the overlap in beliefs and this establishment of cultural zones. Basically in any case where two agent share one feature there is the chance that they will assimilate.
-&lt;/p&gt;
-
-&lt;p&gt;
-Second, is the concern of cultural traits and features, which is slightly more straightforward. The greater the number of cultural traits for a given feature, the more cultural regions that can be expected to form. This is fairly simple, as the number of opinions/options on a distinct issue grow, the easier it is to be surrounded by someone who does not share a similar viewpoint on any of the cultural features. This is something that made me immediately think back to high school, with music and the cliques that formed around them. As each musical genre continued to subdivide (I myself was in the skacore clique), the smaller and more numerous the groups became. What is mildly surprising is the result for cultural features, which shows that as the number of features &lt;b&gt;increases&lt;/b&gt; the number of groups &lt;b&gt;decreases&lt;/b&gt;. After a hot minute this makes sense though, the more issues that exits the easier it is to find &lt;b&gt;at least one&lt;/b&gt; that I agree on with a neighbor. After this initial icebreaker of an agreement it's much easier to open the lines of communication, so to speak, and begin transferring ideas and opinions.
-&lt;/p&gt;
-
-&lt;p&gt;
-However, the main question that I still have of this model is one of cultural drift. Axelrod addressed this (and the reviewers requested) but the simulation results proved too thorny to unpack easily. I haven't had the time to do a literature search yet so this may be an answered question (the book is 17 years old), but it seems to be a fundamental one. This is especially so with my research interest on the diffusion of innovations within a system What is necessary for new "traits" that are introduced to survive, especially after a system has already reach a steady state? Is it necessary for a system to be in a dynamic state for these traits to survive? I think that these are interesting questions that may be out of reach for the model but that's never stopped me from wasting a week of work....
-&lt;/p&gt;
-
-&lt;p&gt;
-In any case this is wonderful book that only takes about a night and a glass of whiskey to finish, which means that you really can't go wrong.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><category>science</category><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve.html</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><category>science</category><guid>http://www.npcompleteheart.com/posts/how-does-cooperation-evolve/</guid><pubDate>Sun, 25 Jan 2015 14:47:41 GMT</pubDate></item><item><title>2014 Literature Round up</title><link>http://www.npcompleteheart.com/posts/2014-literature-round-up/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="book review" src="http://www.npcompleteheart.com/images/2014_roundup_zpsff71df98.png"&gt;&lt;/p&gt;
 &lt;p&gt;
 Twenty fourteen, what can I say. It was consistent and not always pretty but I made it through. I made my first actual contribution to an &lt;a href="http://github.com/python-visualization/folium/commits?author=adamrpah"&gt;open source project&lt;/a&gt;, learned the value of gists, started opening up &lt;a href="http://github.com/adamrpah/GALE"&gt;GALE&lt;/a&gt; to the world, and successfully made it through putting on a one week bootcamp transform non-coders into pythonistas. I at least got one manuscript out (albeit a &lt;a href="http://npcompleteheart.com/article/big-data-what-is-it-and-what-does-it-mean-for-card/"&gt;review&lt;/a&gt;) and a conference presentation at &lt;a href="http://npcompleteheart.com/article/unzipping-zip-codes-a-methodology-to-assign-de-ide/"&gt;AMIA&lt;/a&gt;. I even launched Socraticc as a part of OmegaK and brought it right down after no one wanted to use it after a few months.
 &lt;/p&gt;
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;
-But what I'm really happy about is that I've mostly maintained a promise to myself that I would be consistently reading throughout the year. This is my quick year in review of what I've made it through, if for nothing else other than posterity.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Hard-Boiled Wonderland and the End of the World&lt;/h5&gt;
-&lt;h5&gt;1Q84&lt;/h5&gt;
-&lt;h5&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/h5&gt;
-&lt;h5&gt;Norwegian Wood&lt;/h5&gt;
-&lt;h5&gt;Kafka on the Shore&lt;/h5&gt;
-&lt;h5&gt;The Wind-Up Bird Chronicle&lt;/h5&gt;
-&lt;h5&gt;—Haruki Murakami&lt;/h5&gt;
-&lt;p&gt;
-This is the year wherein I found Haruki Murakami and was simply blown away. The amount of emotion and alienation induced by his writing is amazing and for most of the books I've tried to read them with a soundtrack that corresponds to the book (from whichever classical artists figured most prominently in the work) and it's been a wonderful experience. I can't recommend these works enough. I just finished &lt;i&gt;Colorless Tsukuru Tazaki and His Years of Pilgrimage&lt;/i&gt; and, while I didn't feel as strongly about it while reading it, I'm already starting to form a much stronger attachment and opinion about it. You can't go wrong with any of these books, but my favorite would have to be &lt;i&gt;Kafka on the Shore&lt;/i&gt;.
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Count Zero&lt;/h5&gt;
-&lt;h5&gt;Mona Lisa Overdrive&lt;/h5&gt;
-&lt;h5&gt;—William Gibson&lt;/h5&gt;
-&lt;p&gt;
-I finally finished the Neuromancer trilogy after seeing William Gibson do a Q&amp;amp;A during the Chicago Humanities Festival (his answers were wonderful and insightful, the questions were not so great however). I realized that I hadn't finished the rest of the trilogy so I went back and finished it (I was switching back and forth between Gibson and Stephenson when I read &lt;i&gt;Neuromancer&lt;/i&gt;). These books were actually great additions to the series and I felt that they really enhanced the story in &lt;i&gt;Neuromancer&lt;/i&gt;. Next year, I'll start &lt;i&gt;The Peripheral&lt;/i&gt; once I'm certain I've forgotten all the spoilers I've seen. 
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Statistics&lt;/h5&gt;
-&lt;h5&gt;—David Freedman&lt;/h5&gt;
-&lt;p&gt;
-I never took an introductory statistics course, and as such my understanding of the statistician "language" and viewpoint was pretty lacking (I'm more a fan of Monte Carlo methods and bootstrapping to test statistical hypotheses), so I wanted to shore up my ability to understand that viewpoint and the language. This book was very well written and I really enjoyed all of the examples given. Now I just need to finish Andrew Gelman's &lt;i&gt;Bayesian Data Analysis&lt;/i&gt; and Tibshirani's &lt;i&gt;Elements of Statistical Learning&lt;/i&gt; next year.
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;The Informers&lt;/h5&gt;
-&lt;h5&gt;American Psycho&lt;/h5&gt;
-&lt;h5&gt;—Bret Easton Ellis&lt;/h5&gt;
-&lt;p&gt;
-I really like some of Bret Easton Ellis' work, and &lt;i&gt;American Psycho&lt;/i&gt; was a great read but &lt;i&gt;The Informers&lt;/i&gt; was completely forgettable. 
-&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;/p&gt;&lt;h5&gt;Do androids dream of electric sheep?&lt;/h5&gt;
-&lt;h5&gt;We can remember it for you wholesale&lt;/h5&gt;
-&lt;h5&gt;Philip K. Dick&lt;/h5&gt;
-&lt;p&gt;
-Somehow these books slipped through the cracks when I read the rest of Dick's work earlier. &lt;i&gt;Do androids dream of electric sheep?&lt;/i&gt; is a wonderful story, that I was surprised to read in terms of how much it differed from Ridley Scott's movie adaptation. The same can be said for &lt;i&gt;We can remember it for you wholesale&lt;/i&gt;, the funny thing is that I'm rather surprised with how successful the adaptations of Dick's work are (even when they deviate from the written story) while Gibson made an explicit comment about how he hated the adaptation of Johnny Mnemonic (which I can understand after seeing it).
-&lt;/p&gt;
-&lt;p&gt;
-And that's the end of 2014, time to make some goals for 2015 and deliver on them.
-&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>review</category><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up.html</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item><item><title>A story of human reasoning</title><link>http://www.npcompleteheart.com/posts/a-story-of-human-reasoning.html</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;h5&gt;(a first part summary of essays contained within Gigerenzer and Selten's [eds.] &lt;i&gt;Bounded Rationality: The Adaptive Toolbox&lt;/i&gt;)&lt;/h5&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/2014-literature-round-up/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>review</category><guid>http://www.npcompleteheart.com/posts/2014-literature-round-up/</guid><pubDate>Wed, 31 Dec 2014 14:43:24 GMT</pubDate></item><item><title>A story of human reasoning</title><link>http://www.npcompleteheart.com/posts/a-story-of-human-reasoning/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;h5&gt;(a first part summary of essays contained within Gigerenzer and Selten's [eds.] &lt;i&gt;Bounded Rationality: The Adaptive Toolbox&lt;/i&gt;)&lt;/h5&gt;
 
 &lt;p&gt;
 What will I make for dinner? A relatively simple question that plagues me most nights of the week. However, what is a relatively simple task, albeit one that can be arduous for me, unpacks a can of worms in basic research: through what &lt;b&gt;mental process&lt;/b&gt; do I decide what to make?
@@ -171,28 +47,4 @@ Admittedly this is a silly question, but other questions used to motivate this i
 &lt;/ol&gt;
 
 
-&lt;!-- TEASER_END --&gt;
-
-&lt;p&gt;
-The reality that this decision methodology ignores are the constraints in the real world. When I start to consider what to cook, the entire process has typically started because I'm hungry. This imposes a very real time constraint because if too much time passes I become what is known as "hangry" (both "hungry" and "angry" at the same time). In the process of maximizing my utility I generally ignore this time constraint and instead suffer in the search for the optimal answer. The situation considerably worsens for me if I am a poor cook and have few or no recipes memorized, since this introduces researching online first to identify possible recipes. There is also the additional kink of, how do I assess when I have spent enough time finding recipes so that the optimal recipe would be in the list of recipes I now possess? I could continue to look further and make comparisons, but this could rapidly lead to a situation where I am continually conducting research to determine if my prior research is sufficient. This leads to decision paralysis and the possibility of infinite regress, i.e. where I just keep going further down the rabbit hole of preparing to make my decision without making any progress towards resolving it.
-&lt;/p&gt;
-
-&lt;p&gt;
-Crap. At this rate I might not start eating dinner until tomorrow or next week!
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;&amp;gt;
-&lt;/p&gt;&lt;p&gt;
-This doesn't really seem to reflect my typical reality though. There is a fairly serious time crunch, wherein I must decide before hanger sets in. 
-&lt;/p&gt;
-&lt;p&gt;
-In the early 1950s, Herbert Simon set out an alternative theory of &lt;i&gt;satisficing&lt;/i&gt; (stemming form the concepts of satisfy and suffice). Using this heuristic we actually go about decision-making in a different manner. Within this paradigm I instead set some minimum value of acceptability and instead evaluate each possible dish as I think of it. As I evaluate some dish I calculate its score based on the number of ingredients it uses that are about to spoil. As soon as I think of a dish that has a score greater than my set point I start cooking. I don't worry if I have the most optimal dish, I instead just start cooking. 
-&lt;/p&gt;
-
-&lt;p&gt;
-This is where the bounds on rationality come from, I use a heuristic to achieve a locally optimal solution since it is more than likely good enough and fulfills normal criteria (like a lack of unlimited time). A fully rational agent (in the economic sense) would seek the optimal choice in the situation. An irrational agent would choose at random. A last class, which some like to equate to bounded rationality but differs, is a ration agent under constraints. We could say that in our dinner problem I am aware of the available time constraint and use that as a factor in my utility. However, in this situation I am still seeking the global maximum utility within the constraints of my problem, which differs from my heuristic of take the first answer that satisfices my concerns.
-&lt;/p&gt;
-
-&lt;p&gt;
-And at this point I'll conclude my first summary of the works. From here we start exploring the role that the environment plays in decision-making, and our ability to exploit it when it doesn't change rapidly with heuristics, but that seems like a good second topic.
-&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><guid>http://www.npcompleteheart.com/posts/a-story-of-human-reasoning.html</guid><pubDate>Mon, 24 Nov 2014 14:41:27 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/a-story-of-human-reasoning/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>rationality</category><category>review</category><guid>http://www.npcompleteheart.com/posts/a-story-of-human-reasoning/</guid><pubDate>Mon, 24 Nov 2014 14:41:27 GMT</pubDate></item></channel></rss>

@@ -1,42 +1,28 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="This is a place for the musings, thoughts, and technical notes of Adam Pah.">
+<meta name="description" content="The musings, thoughts, and technical notes of Adam Pah. But really, probably just an out of date Vitae.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NP Complete Heart (old posts, page 3) | NP Complete Heart</title>
 <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<meta name="theme-color" content="#000000">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="rss.xml">
 <link rel="canonical" href="http://www.npcompleteheart.com/index-3.html">
 <link rel="prev" href="index-4.html" type="text/html">
 <link rel="next" href="index-2.html" type="text/html">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'left', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><script src="http://d3js.org/d3.v3.min.js"></script><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script type="text/javascript" src="jquery.v1-7-2.js"></script><script type="text/javascript" src="jquery.tipsy.js"></script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="stylesheet" href="assets/css/custom.css" type="text/css">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
-<div class="wrapper">
-</div>
-<!-- <nav class="navbar-inverse navbar-static-top" role="navigation"> -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container">
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -48,28 +34,22 @@ MathJax.Hub.Config({
             </a>
         </div>
 <!-- /.navbar-header -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
             <ul class="nav navbar-nav">
 <li>
-<a href="rss.xml"><img src="images/rss.png"></a>
-                </li>
-<li>
-<a href="stories/about.html"><strong>About</strong></a>
+<a href="pages/about/index.html"><strong>About</strong></a>
                 </li>
 <li>
 <a href="pdf/curriculumvitae.pdf"><strong>Curriculum Vitae</strong></a>
                 </li>
 <li>
-<a href="stories/research.html"><strong>Research</strong></a>
+<a href="pages/research/index.html"><strong>Research</strong></a>
                 </li>
 <li>
-<a href="stories/publications/publications.html"><strong>Publications</strong></a>
+<a href="pages/publications/publications/index.html"><strong>Publications</strong></a>
                 </li>
 <li>
-<a href="categories/index.html"><strong>Tags</strong></a>
-                </li>
-<li>
-<a href="stories/socialdna/index.html"><strong>SocialDNA</strong></a>
+<a href="pages/socialdna/index.html"><strong>SocialDNA</strong></a>
 
                 
             </li>
@@ -84,11 +64,22 @@ MathJax.Hub.Config({
         <!--Body content-->
         <div class="row">
             
+            
+
+    
+
+
+    
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks.html" class="u-url">An introduction to the how and why of iPython Notebooks</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks/" class="u-url">An introduction to the how and why of iPython Notebooks</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks.html" rel="bookmark"><time class="published dt-published" datetime="2014-06-24T09:35:08-05:00" itemprop="datePublished" title="Publication date">2014-06-24 09:35</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-06-24T09:35:08-05:00" itemprop="datePublished" title="2014-06-24 09:35">2014-06-24 09:35</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -96,13 +87,18 @@ MathJax.Hub.Config({
 This was a presentation and sample notebook that I whipped up for the Amaral lab to explain why and some basic hows of using iPython notebooks. This goes along with my previous <a href="http://www.npcompleteheart.com/post/i-wish-i-knew-then-what-i-know-now-reproducible-me/">blog</a> post and has this <a href="http://nbviewer.ipython.org/gist/anonymous/f8e6d8985d2ea0e4bab1">gist</a> to go along with it.
 </p>
 
-<p class="more"><a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks.html">Read more…</a></p>
+<p class="more"><a href="posts/an-introduction-to-the-how-and-why-of-ipython-notebooks/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/generate-torque-submission-scripts.html" class="u-url">Generate torque submission scripts</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/generate-torque-submission-scripts/" class="u-url">Generate torque submission scripts</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/generate-torque-submission-scripts.html" rel="bookmark"><time class="published dt-published" datetime="2014-06-07T09:34:11-05:00" itemprop="datePublished" title="Publication date">2014-06-07 09:34</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/generate-torque-submission-scripts/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-06-07T09:34:11-05:00" itemprop="datePublished" title="2014-06-07 09:34">2014-06-07 09:34</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -110,13 +106,18 @@ This was a presentation and sample notebook that I whipped up for the Amaral lab
 Most of us use some form of Torque in an academic environment to run scripts on a cluster. Typically I would have some form of script to generate the necessary qsub scripts for submission, but it wasn't ever generic enough. So this has been my working stab at making that happen. 
 </p>
 
-<p class="more"><a href="posts/generate-torque-submission-scripts.html">Read more…</a></p>
+<p class="more"><a href="posts/generate-torque-submission-scripts/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/calculating-a-gini-coefficient.html" class="u-url">Calculating a Gini Coefficient</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/calculating-a-gini-coefficient/" class="u-url">Calculating a Gini Coefficient</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/calculating-a-gini-coefficient.html" rel="bookmark"><time class="published dt-published" datetime="2014-05-18T09:33:15-05:00" itemprop="datePublished" title="Publication date">2014-05-18 09:33</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/calculating-a-gini-coefficient/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-05-18T09:33:15-05:00" itemprop="datePublished" title="2014-05-18 09:33">2014-05-18 09:33</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -124,13 +125,18 @@ Most of us use some form of Torque in an academic environment to run scripts on 
 For whatever reason none of the python packages have a function to calculate the Gini coefficient, which is a fairly standard metric for inequality used in economics circles. I wrote this function but I wanted to explain if first.
 </p>
 
-<p class="more"><a href="posts/calculating-a-gini-coefficient.html">Read more…</a></p>
+<p class="more"><a href="posts/calculating-a-gini-coefficient/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/make-maps-like-a-boss.html" class="u-url">Make maps like a boss</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/make-maps-like-a-boss/" class="u-url">Make maps like a boss</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/make-maps-like-a-boss.html" rel="bookmark"><time class="published dt-published" datetime="2014-05-17T08:05:40-05:00" itemprop="datePublished" title="Publication date">2014-05-17 08:05</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/make-maps-like-a-boss/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-05-17T08:05:40-05:00" itemprop="datePublished" title="2014-05-17 08:05">2014-05-17 08:05</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -138,13 +144,18 @@ For whatever reason none of the python packages have a function to calculate the
 When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
 </p>
 
-<p class="more"><a href="posts/make-maps-like-a-boss.html">Read more…</a></p>
+<p class="more"><a href="posts/make-maps-like-a-boss/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html" class="u-url">I wish I knew then what I know now (reproducible methods are awesome!)</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/" class="u-url">I wish I knew then what I know now (reproducible methods are awesome!)</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html" rel="bookmark"><time class="published dt-published" datetime="2014-04-17T08:01:36-05:00" itemprop="datePublished" title="Publication date">2014-04-17 08:01</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-04-17T08:01:36-05:00" itemprop="datePublished" title="2014-04-17 08:01">2014-04-17 08:01</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -160,13 +171,18 @@ When I worked on metabolism I didn't have any needs to plot data on an actual ge
 
 <p>When I first started programming libraries were so <strong>damn</strong> impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.</p>
 
-<p class="more"><a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome.html">Read more…</a></p>
+<p class="more"><a href="posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html" class="u-url">Ever wanted to estimate small area effects in health data?</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data/" class="u-url">Ever wanted to estimate small area effects in health data?</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html" rel="bookmark"><time class="published dt-published" datetime="2014-04-11T08:00:27-05:00" itemprop="datePublished" title="Publication date">2014-04-11 08:00</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-04-11T08:00:27-05:00" itemprop="datePublished" title="2014-04-11 08:00">2014-04-11 08:00</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -178,13 +194,18 @@ Well now you sort of can!
 I just presented at AMIA on my methodology to use limited patient demographic/location data to estimate the number of patient cases at a smaller geographic locality. The methodology is split between a Monte Carlo simulation and GIS methods (Semi-variogram+Kriged Surface+Geographical Gaussian Simulation) to estimate patient cases. Currently the monte carlo part is already coded and freely available on my <strike>bitbucket</strike>. The latter half of the code is coming as soon as we can identify an appropriate open source GIS library to port it the current code into.
 </p>
 
-<p class="more"><a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data.html">Read more…</a></p>
+<p class="more"><a href="posts/ever-wanted-to-estimate-small-area-effects-in-health-data/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html" class="u-url">Pandas + Matplotlib + Looking pretty good</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/" class="u-url">Pandas + Matplotlib + Looking pretty good</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html" rel="bookmark"><time class="published dt-published" datetime="2014-03-31T07:59:11-05:00" itemprop="datePublished" title="Publication date">2014-03-31 07:59</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-03-31T07:59:11-05:00" itemprop="datePublished" title="2014-03-31 07:59">2014-03-31 07:59</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -193,21 +214,31 @@ I just presented at AMIA on my methodology to use limited patient demographic/lo
 Typically matplotlib produces plots that look, well, horrible. This can be a little bit of a pain, especially because I've switched my workflow to lean heavily on ipython notebook to maintain a lab notebook. This means removing xmgrace from my workflow except for manuscript figure preparation since it won't show up inline unless I make the plot, save it as a png, move the file to the notebook directory, and then link the file in a text section. Not exactly user friendly or an improvement to my workflow. Unfortunately, just because I want to make plots in python for exploration doesn't mean that I can tolerate ugly graphs and that godforsaken default font.
 </p>
 
-<p class="more"><a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good.html">Read more…</a></p>
+<p class="more"><a href="posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/">Read more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/arthur-the-overly-adult-half-breed-aardvark.html" class="u-url">Arthur the overly adult half breed aardvark</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/arthur-the-overly-adult-half-breed-aardvark/" class="u-url">Arthur the overly adult half breed aardvark</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/arthur-the-overly-adult-half-breed-aardvark.html" rel="bookmark"><time class="published dt-published" datetime="2014-03-31T07:58:04-05:00" itemprop="datePublished" title="Publication date">2014-03-31 07:58</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/arthur-the-overly-adult-half-breed-aardvark/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-03-31T07:58:04-05:00" itemprop="datePublished" title="2014-03-31 07:58">2014-03-31 07:58</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <p><img alt="Arthur!" src="images/aardvark.png"></p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/if-i-had-a-time-machine.html" class="u-url">If I had a time machine...</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/if-i-had-a-time-machine/" class="u-url">If I had a time machine...</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/if-i-had-a-time-machine.html" rel="bookmark"><time class="published dt-published" datetime="2014-03-15T07:57:18-05:00" itemprop="datePublished" title="Publication date">2014-03-15 07:57</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/if-i-had-a-time-machine/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-03-15T07:57:18-05:00" itemprop="datePublished" title="2014-03-15 07:57">2014-03-15 07:57</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -223,10 +254,15 @@ I would go back and tell my 10 year old self:
 </ul>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/i-stopped-checking-my-email-and-it-feels-great.html" class="u-url">I stopped checking my email and it feels great</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/i-stopped-checking-my-email-and-it-feels-great/" class="u-url">I stopped checking my email and it feels great</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Adam Pah</span></p>
-            <p class="dateline"><a href="posts/i-stopped-checking-my-email-and-it-feels-great.html" rel="bookmark"><time class="published dt-published" datetime="2014-03-04T07:56:37-05:00" itemprop="datePublished" title="Publication date">2014-03-04 07:56</time></a></p>
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Adam Pah
+            </span></p>
+            <p class="dateline">
+            <a href="posts/i-stopped-checking-my-email-and-it-feels-great/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-03-04T07:56:37-05:00" itemprop="datePublished" title="2014-03-04 07:56">2014-03-04 07:56</time></a>
+            </p>
         </div>
     </header><div class="p-summary entry-summary">
     <p>
@@ -235,6 +271,7 @@ That's a little bit of a misnomer. I didn't stop checking my email completely. I
     </div>
     </article>
 </div>
+
         <nav class="postindexpager"><ul class="pager">
 <li class="previous">
                 <a href="index-4.html" rel="prev">Newer posts</a>
@@ -246,37 +283,23 @@ That's a little bit of a misnomer. I didn't stop checking my email completely. I
 </div>
         <!--End of body content-->
 
-        <footer>
-            Contents © 2018         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> 
-<br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a>
-
+        <footer id="footer">
+            Contents © 2020         <a href="mailto:adamrpah@gmail.com">Adam Pah</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>
 </div>
 
-            <script src="assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
-<a class="addthis_button_twitter"></a>
-</div>
-<!-- End of social buttons -->
 
-
-    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><script type="text/javascript">
-  var _gaq = _gaq || [];
-  var pluginUrl = 
-    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);  
-  _gaq.push(['_setAccount', 'UA-24774016-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
 </body>
 </html>
