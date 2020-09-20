@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about web)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/web.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 Sep 2020 21:44:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+    &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+I guess my post on &lt;a src="http://www.npcompleteheart.com/posts/things-keep-a-changing/www.npcompleteheart.com/posts/django-and-mongodb-in-2015"&gt;Django and MongoDB in 2015&lt;/a&gt; 
+was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
+a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
+and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
+out `pre` blocks and all that). At this point it made me feel like that barrier was keeping me from blogging. 
+Since producing at least a blog per month is on my New Year's resolutions list I decided to change up the 
+site to hopefully make it more conducive to me blogging.
+&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/things-keep-a-changing/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing/</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+&lt;p&gt;
+So believe it or not my post from 2013 on setting up a Django website with a MongoDB back-end is still one of my most visited pages. Actually that's not hard to believe, it's not like this site is a trove of content (but it's a goal for 2015 to get content more consistently up here!), but 2013 is more than ancient in technology times so I just wanted to do a quick revisit.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>Make maps like a boss</title><link>http://www.npcompleteheart.com/posts/make-maps-like-a-boss/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/make-maps-like-a-boss/"&gt;Read more…&lt;/a&gt; (8 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>gis</category><category>python</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/make-maps-like-a-boss/</guid><pubDate>Sat, 17 May 2014 13:05:40 GMT</pubDate></item><item><title>What is the structure of my Django app?</title><link>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+This post is supposed to carry on from &lt;a href="http://www.npcompleteheart.com/post/django-nonrel-mongodb-mongohq-heroku/"&gt; setting up a Django app on Heroku with MongoDB &lt;/a&gt; and help fill in a hole from the MongoDB &lt;a href="http://docs.mongodb.org/manual/tutorial/write-a-tumblelog-application-with-django-mongodb-engine/"&gt; Tumblelog &lt;/a&gt; tutorial.  The biggest question is, what is my directory structure?  The tutorial jumps around a lot, assuming that you already know where everything should go.  So let's tackle that first.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/</guid><pubDate>Wed, 20 Mar 2013 12:27:44 GMT</pubDate></item><item><title>Auto-slugification, drafts, and cooler queries</title><link>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;Or more accurately, the list of things that I did last night to spiffy up the site. So what did I do in reality?&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>web</category><guid>http://www.npcompleteheart.com/posts/auto-slugification-drafts-and-cooler-queries/</guid><pubDate>Tue, 19 Mar 2013 19:01:25 GMT</pubDate></item><item><title>I guess posting content does make a difference</title><link>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference/</link><dc:creator>Adam Pah</dc:creator><description>&lt;p&gt;&lt;img alt="Website Stats" src="http://www.npcompleteheart.com/images/posting_content.jpg"&gt;&lt;/p&gt;</description><category>web</category><guid>http://www.npcompleteheart.com/posts/i-guess-posting-content-does-make-a-difference/</guid><pubDate>Sat, 16 Mar 2013 18:59:17 GMT</pubDate></item><item><title>Django nonrel, MongoDB, MongoHQ, and Heroku</title><link>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;So you want to make a Django app with a MongoDB backend? &lt;/p&gt;
+&lt;p&gt;Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?&lt;/p&gt;
+&lt;p&gt;That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).&lt;br&gt;
+After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate 
+that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a 
+state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/</guid><pubDate>Thu, 14 Mar 2013 12:21:25 GMT</pubDate></item><item><title>First times at RoR and how I got up and running</title><link>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This blog is my first time starting a web page (for real at least) and using Ruby on Rails. Despite
+having some prior experience with Django I chose Ruby on Rails for two main reasons: (1) it
+integrates seamlessly with Heroku, which is an amazing service (for free! at least for my needs)
+that provides basic app hosting and is not replicated on the Django side of web development and (2)
+it's something I haven't done yet and I would rather learn something new. I'm not a massive fan of
+Django, so even though my primary programming experience is in python it didn't deter me from
+switching over for this. At a later point, I may detail what I feel are the differences between the
+platforms and which one excels in what area, but there's plenty on the web that goes on about the
+differences already.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>rails</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/</guid><pubDate>Mon, 23 Jan 2012 18:07:14 GMT</pubDate></item></channel></rss>

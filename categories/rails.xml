@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about rails)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/rails.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 Sep 2020 21:44:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>First times at RoR and how I got up and running</title><link>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;This blog is my first time starting a web page (for real at least) and using Ruby on Rails. Despite
+having some prior experience with Django I chose Ruby on Rails for two main reasons: (1) it
+integrates seamlessly with Heroku, which is an amazing service (for free! at least for my needs)
+that provides basic app hosting and is not replicated on the Django side of web development and (2)
+it's something I haven't done yet and I would rather learn something new. I'm not a massive fan of
+Django, so even though my primary programming experience is in python it didn't deter me from
+switching over for this. At a later point, I may detail what I feel are the differences between the
+platforms and which one excels in what area, but there's plenty on the web that goes on about the
+differences already.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>rails</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/first-times-at-ror-and-how-i-got-up-and-running/</guid><pubDate>Mon, 23 Jan 2012 18:07:14 GMT</pubDate></item></channel></rss>

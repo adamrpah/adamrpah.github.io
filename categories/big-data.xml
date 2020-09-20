@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about big data)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/big-data.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 Sep 2020 21:44:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>So what is Big Data and Data Science?</title><link>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-8"&gt;
+There's been a lot written about Big Data and it can be hard to decipher. Some have tried to
+visualize its most common terms to give a sense of what is involved, like so:
+&lt;/div&gt;
+&lt;div class="col-md-4"&gt;
+&lt;!--&lt;img src='/images/ones_and_zeros.jpg'&gt;&lt;/img&gt;--&gt;
+&lt;img src="http://d13zeczpqm2715.cloudfront.net/wp-content/uploads/2015/05/big-data2.jpg"&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>big data</category><category>data science</category><guid>http://www.npcompleteheart.com/posts/so-what-is-big-data-and-data-science/</guid><pubDate>Thu, 10 Sep 2015 02:00:11 GMT</pubDate></item></channel></rss>

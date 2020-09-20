@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about mongodb)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/mongodb.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 Sep 2020 21:44:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Things keep a-changing</title><link>http://www.npcompleteheart.com/posts/things-keep-a-changing/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+    &lt;img src="http://www.npcompleteheart.com/images/tesla_time_travel.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+I guess my post on &lt;a src="http://www.npcompleteheart.com/posts/things-keep-a-changing/www.npcompleteheart.com/posts/django-and-mongodb-in-2015"&gt;Django and MongoDB in 2015&lt;/a&gt; 
+was prophetic, because I just changed my website over last week. It seemed that everytime I wanted to post 
+a blog it was from an IPython notebook, which either meant reconfiguring the site to display IPython notebooks 
+and get the css right or keep on with the semi-arduous process of converting the notebook to html (writing 
+out `pre` blocks and all that). At this point it made me feel like that barrier was keeping me from blogging. 
+Since producing at least a blog per month is on my New Year's resolutions list I decided to change up the 
+site to hopefully make it more conducive to me blogging.
+&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/things-keep-a-changing/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/things-keep-a-changing/</guid><pubDate>Fri, 01 May 2015 13:50:41 GMT</pubDate></item><item><title>MongoDB is for researchers</title><link>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/mongodb.jpeg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+Over the past three years I’ve been something of an evangelist for using MongoDB. This stance has
+drawn derision from some outside the lab, which frequently forces me to clarify in what
+circumstances I think MongoDB (or NoSQL in general) is so great. Unfortunately, I’ve been too lazy
+to put those thoughts into writing, so this is my long overdue explanation and the first in a series
+of posts describing how I use MongoDB daily.
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>mongodb</category><category>research</category><guid>http://www.npcompleteheart.com/posts/mongodb-is-for-researchers/</guid><pubDate>Tue, 31 Mar 2015 18:49:20 GMT</pubDate></item><item><title>Django and MongoDB in 2015</title><link>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/django.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+&lt;p&gt;
+So believe it or not my post from 2013 on setting up a Django website with a MongoDB back-end is still one of my most visited pages. Actually that's not hard to believe, it's not like this site is a trove of content (but it's a goal for 2015 to get content more consistently up here!), but 2013 is more than ancient in technology times so I just wanted to do a quick revisit.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-and-mongodb-in-2015/</guid><pubDate>Fri, 02 Jan 2015 14:46:17 GMT</pubDate></item><item><title>A little something extra for managing PyMongo</title><link>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I really dislike boilerplate code, it drives me a little bit crazy. Starting database connections falls squarely into that realm. So in the vein of "sharing is caring" here is what I'm currently using with pymongo. It's pretty simple, but why code it twice right?
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>mongodb</category><category>pymongo</category><category>python</category><guid>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/</guid><pubDate>Tue, 17 Dec 2013 12:46:48 GMT</pubDate></item><item><title>Wild unsupportable claims about how Product X sucks!</title><link>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I read an article in the last month that really rubbed me raw, it was this one:
+&lt;br&gt;&lt;br&gt;
+&lt;a href="http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/"&gt;Why you should never use MongoDB&lt;/a&gt;
+&lt;br&gt;&lt;br&gt;
+Why does it bother me so much? Mostly because it’s bullshit, but I also feel that NoSQL solutions (and MongoDB specifically) are getting an undue bad reputation due to “MongoDB/NoSQL is bad” articles making great link-bait. Even more than that, people present themselves as experts when in reality they just make extremely broad claims about a lack of suitability without properly defining what their REAL needs are that make a technology so poor. 
+&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>databases</category><category>mongodb</category><category>soapbox</category><guid>http://www.npcompleteheart.com/posts/wild-unsupportable-claims-about-how-product-x-sucks/</guid><pubDate>Wed, 11 Dec 2013 12:45:46 GMT</pubDate></item><item><title>Starting with Mongo, some Dos and Don'ts</title><link>http://www.npcompleteheart.com/posts/starting-with-mongo-some-dos-and-donts/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+Some backstory.  I think I first started talking about MongoDB in earnest maybe five months ago in my research lab. After having one person convert with a big project and some successful presentations (which weren't even done by me!) research has finally peaked.  Now that everyone is converting, people are going through the same growing pains I had when I first started. Instead of forgetting these nuggets of information again I wanted to put them done in text.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/starting-with-mongo-some-dos-and-donts/"&gt;Read more…&lt;/a&gt; (9 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>mongodb</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/starting-with-mongo-some-dos-and-donts/</guid><pubDate>Thu, 02 May 2013 12:38:44 GMT</pubDate></item><item><title>What is the structure of my Django app?</title><link>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+This post is supposed to carry on from &lt;a href="http://www.npcompleteheart.com/post/django-nonrel-mongodb-mongohq-heroku/"&gt; setting up a Django app on Heroku with MongoDB &lt;/a&gt; and help fill in a hole from the MongoDB &lt;a href="http://docs.mongodb.org/manual/tutorial/write-a-tumblelog-application-with-django-mongodb-engine/"&gt; Tumblelog &lt;/a&gt; tutorial.  The biggest question is, what is my directory structure?  The tutorial jumps around a lot, assuming that you already know where everything should go.  So let's tackle that first.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/what-is-the-structure-of-my-django-app/</guid><pubDate>Wed, 20 Mar 2013 12:27:44 GMT</pubDate></item><item><title>Django nonrel, MongoDB, MongoHQ, and Heroku</title><link>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;So you want to make a Django app with a MongoDB backend? &lt;/p&gt;
+&lt;p&gt;Better yet do you want to deploy to Heroku and use MongoHQ so there's minimal set up on your end and a free testing sandbox?&lt;/p&gt;
+&lt;p&gt;That's what I've done with this site (which is why it can be unresponsive also, I'm using all free at the moment).&lt;br&gt;
+After doing it once I thought I had it down pat in terms of my online sources and thought that I could replicate 
+that success with minimal fuss.  I was just proven wrong when I went too far, too fast and borked my app into a 
+state that I didn't know how to fix it out of.  So here is an actual step by step, both for myself and others.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>django</category><category>mongodb</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/django-nonrel-mongodb-mongohq-and-heroku/</guid><pubDate>Thu, 14 Mar 2013 12:21:25 GMT</pubDate></item></channel></rss>

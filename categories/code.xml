@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NP Complete Heart (Posts about code)</title><link>http://www.npcompleteheart.com/</link><description></description><atom:link href="http://www.npcompleteheart.com/categories/code.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:adamrpah@gmail.com"&gt;Adam Pah&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 Sep 2020 21:44:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Batch Convert Keynote to PDF</title><link>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-4"&gt;
+    &lt;img src="http://www.npcompleteheart.com/images/keynote2pdf.png"&gt;
+&lt;/div&gt;
+&lt;div class="col-md-8"&gt;
+So I use Macs (you probably noticed, right? It has unix but it can still connect to any random
+projector and still work so it's a winner in academia) and that leads me to using some nonstandard
+software every now and then that's OS X only. Keynote is one of those programs. Powerpoint drives me
+crazy, so I've been driven into its user-friendly, unshareable arms.
+&lt;br&gt; &lt;br&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/batch-convert-keynote-to-pdf/</guid><pubDate>Fri, 11 Dec 2015 03:02:44 GMT</pubDate></item><item><title>I made a Wordpress site on Heroku!</title><link>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div class="row"&gt;
+&lt;div class="col-md-8"&gt;
+Well, not for me of course. After a solid week of my girlfriend helping me to use Illustrator it was
+time to pay her back and help her get a website up and running. I went over the options that I knew
+(Nikola, Django, Node.js, Ruby on Rails) and it became quickly apparent that none of those were
+options that she liked. Instead she wanted to take a wordpress site that she made in a class and add
+some more to it/fix it up. The only logistical issue is that it's hard to find a wordpress host for
+free that allows you to use a custom domain (she's about to graduate from school so it's important
+that she have a real website name). For that privilege wordpress.org charges you $8/mon, which,
+while I may know nothing about Wordpress, I find to be crazy.
+&lt;/div&gt;
+&lt;div class="col-md-4"&gt;
+&lt;img src="http://www.npcompleteheart.com/images/wordpress_heroku.png"&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>random</category><guid>http://www.npcompleteheart.com/posts/i-made-a-wordpress-site-on-heroku/</guid><pubDate>Fri, 01 May 2015 14:41:25 GMT</pubDate></item><item><title>Generate torque submission scripts</title><link>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+Most of us use some form of Torque in an academic environment to run scripts on a cluster. Typically I would have some form of script to generate the necessary qsub scripts for submission, but it wasn't ever generic enough. So this has been my working stab at making that happen. 
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/generate-torque-submission-scripts/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>hpc</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/generate-torque-submission-scripts/</guid><pubDate>Sat, 07 Jun 2014 14:34:11 GMT</pubDate></item><item><title>Calculating a Gini Coefficient</title><link>http://www.npcompleteheart.com/posts/calculating-a-gini-coefficient/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+For whatever reason none of the python packages have a function to calculate the Gini coefficient, which is a fairly standard metric for inequality used in economics circles. I wrote this function but I wanted to explain if first.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/calculating-a-gini-coefficient/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>math</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/calculating-a-gini-coefficient/</guid><pubDate>Sun, 18 May 2014 14:33:15 GMT</pubDate></item><item><title>Make maps like a boss</title><link>http://www.npcompleteheart.com/posts/make-maps-like-a-boss/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+When I worked on metabolism I didn't have any needs to plot data on an actual geographic area (although I always wished some form of coordinate system existed like that for my data). But in my switch to working with health data I now have tons of spatial data. Moreover this spatial component is a fairly important effect on the patterns and behavior that I observe. 
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/make-maps-like-a-boss/"&gt;Read more…&lt;/a&gt; (8 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>gis</category><category>python</category><category>tutorial</category><category>web</category><guid>http://www.npcompleteheart.com/posts/make-maps-like-a-boss/</guid><pubDate>Sat, 17 May 2014 13:05:40 GMT</pubDate></item><item><title>I wish I knew then what I know now (reproducible methods are awesome!)</title><link>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;I started working in computational research with no meaningful experience. I spent two years in high school “programming” in C++ on a Windows 98 machine with an &lt;span class="caps"&gt;IDE&lt;/span&gt; that made the programs run (sometimes) through what must have been magic. The past five years have been a constant refinement of the computational research process for me and I've been wanting to write it all down for awhile now so others could learn from it (for those that are curious, I've learned most of my tricks from blogs written by others). &lt;/p&gt;
+
+&lt;p&gt;There are a number of points that I want to hit on in the future but for now  I want to focus on:&lt;/p&gt;
+
+&lt;ul&gt;
+        &lt;li&gt;Creating a standard library&lt;/li&gt;
+        &lt;li&gt;Record-keeping and on the fly analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;A standard library&lt;/h4&gt;
+
+&lt;p&gt;When I first started programming libraries were so &lt;strong&gt;damn&lt;/strong&gt; impressive. The capabilities and sheer amount of code obfuscated from me made them seem as monolithic as the programming language itself. After a little while it becomes obvious that libraries put on their coding pants one leg at a time just like we do (spoiler to newbies). What’s the point of this interlude? To convince you to start buidling your own general purpose “library”.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/"&gt;Read more…&lt;/a&gt; (6 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>development</category><category>productivity</category><category>python</category><guid>http://www.npcompleteheart.com/posts/i-wish-i-knew-then-what-i-know-now-reproducible-methods-are-awesome/</guid><pubDate>Thu, 17 Apr 2014 13:01:36 GMT</pubDate></item><item><title>Pandas + Matplotlib + Looking pretty good</title><link>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="pandas and matplotlib" src="http://www.npcompleteheart.com/images/pandas_matplotlib.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+Typically matplotlib produces plots that look, well, horrible. This can be a little bit of a pain, especially because I've switched my workflow to lean heavily on ipython notebook to maintain a lab notebook. This means removing xmgrace from my workflow except for manuscript figure preparation since it won't show up inline unless I make the plot, save it as a png, move the file to the notebook directory, and then link the file in a text section. Not exactly user friendly or an improvement to my workflow. Unfortunately, just because I want to make plots in python for exploration doesn't mean that I can tolerate ugly graphs and that godforsaken default font.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>matplotlib</category><category>pandas</category><category>plots</category><category>python</category><category>tutorial</category><guid>http://www.npcompleteheart.com/posts/pandas-%2B-matplotlib-%2B-looking-pretty-good/</guid><pubDate>Mon, 31 Mar 2014 12:59:11 GMT</pubDate></item><item><title>A little something extra for managing PyMongo</title><link>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/</link><dc:creator>Adam Pah</dc:creator><description>&lt;div&gt;&lt;p&gt;
+I really dislike boilerplate code, it drives me a little bit crazy. Starting database connections falls squarely into that realm. So in the vein of "sharing is caring" here is what I'm currently using with pymongo. It's pretty simple, but why code it twice right?
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>code</category><category>mongodb</category><category>pymongo</category><category>python</category><guid>http://www.npcompleteheart.com/posts/a-little-something-extra-for-managing-pymongo/</guid><pubDate>Tue, 17 Dec 2013 12:46:48 GMT</pubDate></item></channel></rss>
